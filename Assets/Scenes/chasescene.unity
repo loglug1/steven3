@@ -235,6 +235,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chest_pop_up
       objectReference: {fileID: 0}
+    - target: {fileID: 7558387475689752568, guid: 7487fcf4e45c5ae42b9199d71346a540, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7558387475689752569, guid: 7487fcf4e45c5ae42b9199d71346a540, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
