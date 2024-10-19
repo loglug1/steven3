@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class button : MonoBehaviour
 {
+    public GameObject chestObject;
     static public void ChosenElementOne() 
     {
         for(int i = 0; i < weapon.w.eleTypes.Length; ++i) 

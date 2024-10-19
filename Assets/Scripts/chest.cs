@@ -53,7 +53,7 @@ public class chest : MonoBehaviour
         }
         chosenElements[1] = elementChose;     // 2nd chosen
 
-        def1 = Main.GET_ELEMENT_DEFINITION(chosenElements[1]);
+        def2 = Main.GET_ELEMENT_DEFINITION(chosenElements[1]);
         button2.text = def2.name;
 
 
