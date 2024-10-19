@@ -47,6 +47,9 @@ public class PlayerController : MonoBehaviour
 
         //double jumping
         if (!grounded && canJump && canDoubleJump && Input.GetAxis("Jump") == 1) {
+            Vector3 vel = rBody.velocity;
+            vel.y = 0;
+            rBody.velocity = vel;
             Jump();
             canDoubleJump = false;
         }
@@ -81,4 +84,22 @@ public class PlayerController : MonoBehaviour
     void InvertMovement() {
         movementDirection *= -1;
     }
+
+    // void OnCollisionEnter(Collision c) {
+    //     GameObject otherGO = c.gameObject;
+    //     if (otherGO.layer == LayerMask.NameToLayer("Platforms")) {
+    //         if (Input.GetAxis("Vertical") == -1) {
+    //             otherGO.GetComponent<Collider>().isTrigger = true;
+    //         }
+    //     }
+    // }
+    
+    // void OnTriggerExit(Collider c) {
+    //     GameObject otherGO = c.gameObject;
+    //     if (otherGO.layer == LayerMask.NameToLayer("Platforms")) {
+    //         if (otherGO.transform.position.y < transform.position.y - distToGround) {
+    //             otherGO.GetComponent<Collider>().isTrigger = false;
+    //         }
+    //     }
+    // }
 }
