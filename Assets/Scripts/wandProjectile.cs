@@ -10,7 +10,7 @@ public class wandProjectile : MonoBehaviour
     static public float             dmg;
     private Rigidbody               rigid;
     public bool                     deleteThis;
-    public GameObject go;
+    public GameObject               go;
     // public Color projectileColor; // Variable to hold projectile color
 
     void Start()
@@ -62,6 +62,14 @@ public class wandProjectile : MonoBehaviour
         weapon.nextShotTime = Time.time + Mathf.Min(def1.delayBetweenShots, def2.delayBetweenShots);
     }
     public void OnCollisionEnter(Collision c) {
+        GameObject gob = c.gameObject;
+        if(gob.layer == LayerMask.NameToLayer("Ground")) {
+            Destroy(go);
+        }
+
+    }
+
+    public void OnTriggerEnter(Collider c) {
         GameObject gob = c.gameObject;
         if(gob.layer == LayerMask.NameToLayer("Ground")) {
             Destroy(go);
