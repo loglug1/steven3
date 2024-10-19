@@ -51,17 +51,21 @@ public class weapon : MonoBehaviour
         }
     }
     public void DetectInput() {
+        Vector3 totalVec = new Vector3(0,0,0);
         if(Input.GetKey("up")) {
-            ShootProj(new Vector3(0,1,0));
+            totalVec = totalVec + new Vector3(0,1,0);
         }
-        else if(Input.GetKey("down")) {
-            ShootProj(new Vector3(0,-1,0));
+        if(Input.GetKey("down")) {
+            totalVec = totalVec + new Vector3(0,-1,0);
         }
-        else if(Input.GetKey("right")) {
-            ShootProj(new Vector3(1,0,0));
+        if(Input.GetKey("right")) {
+            totalVec = totalVec + new Vector3(1,0,0);
         }
-        else if(Input.GetKey("left")) {
-            ShootProj(new Vector3(-1,0,0));
+        if(Input.GetKey("left")) {
+            totalVec = totalVec + new Vector3(-1,0,0);
+        }
+        if (totalVec.magnitude > 0) {
+            ShootProj(totalVec);
         }
     }
 }
