@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Main : MonoBehaviour
 {
@@ -27,5 +28,9 @@ public class Main : MonoBehaviour
 
     static public PlayerController GET_PLAYER() {
         return S.player;
+    }
+
+    static public void GameOver() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
