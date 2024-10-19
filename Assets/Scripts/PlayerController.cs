@@ -3,10 +3,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Inscribed")]
-    public float walkingSpeed = 1f;
-    public float jumpPower = 1f;
+    public float walkingSpeed = 6f;
+    public float moveDownSpeed = 75f;
+    public float jumpPower = 350f;
     public float jumpDelay = 0.1f;
-    public float wallJumpInvertDelay = 0.1f;
+    public float wallJumpInvertDelay = 0.2f;
 
     [Header("Dynamic")]
     public Rigidbody rBody;
@@ -47,6 +48,9 @@ public class PlayerController : MonoBehaviour
 
         //double jumping
         if (!grounded && canJump && canDoubleJump && Input.GetAxis("Jump") == 1) {
+            Vector3 vel = rBody.velocity;
+            vel.y = 0;
+            rBody.velocity = vel;
             Jump();
             canDoubleJump = false;
         }
@@ -55,12 +59,17 @@ public class PlayerController : MonoBehaviour
             canDoubleJump = true;
         }
 
+        bool holdingWall = HoldingWall();
 
+        if (!holdingWall) {
+            //walking
+            float hMovement = Input.GetAxis("Horizontal") * walkingSpeed * movementDirection;
+            //moveDown
+            float vMovement = Mathf.Min(Input.GetAxis("Vertical"), 0f) * moveDownSpeed * Time.deltaTime;
 
-        //walking
-        float hMovement = Input.GetAxis("Horizontal") * walkingSpeed * movementDirection;
-        if (!HoldingWall()) {
-            rBody.velocity = new Vector3(hMovement, rBody.velocity.y, 0);
+            //apply
+            rBody.velocity = new Vector3(hMovement, rBody.velocity.y + vMovement, 0);
+
         }
     }
 
@@ -81,4 +90,22 @@ public class PlayerController : MonoBehaviour
     void InvertMovement() {
         movementDirection *= -1;
     }
+
+    // void OnCollisionEnter(Collision c) {
+    //     GameObject otherGO = c.gameObject;
+    //     if (otherGO.layer == LayerMask.NameToLayer("Platforms")) {
+    //         if (Input.GetAxis("Vertical") == -1) {
+    //             otherGO.GetComponent<Collider>().isTrigger = true;
+    //         }
+    //     }
+    // }
+    
+    // void OnTriggerExit(Collider c) {
+    //     GameObject otherGO = c.gameObject;
+    //     if (otherGO.layer == LayerMask.NameToLayer("Platforms")) {
+    //         if (otherGO.transform.position.y < transform.position.y - distToGround) {
+    //             otherGO.GetComponent<Collider>().isTrigger = false;
+    //         }
+    //     }
+    // }
 }
