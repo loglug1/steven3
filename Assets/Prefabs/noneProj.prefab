@@ -127,5 +127,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0323f34bafdc2146b881015baaa9ae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dmg: 0
   deleteThis: 0
   go: {fileID: 72012815015929179}
