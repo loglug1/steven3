@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7011612721019981388}
   - component: {fileID: 90050968416183506}
   - component: {fileID: -952212399375401239}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Lava
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,4 +110,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51291dd3fc2cca14b8f56b66b2352eb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1e+21
+  damage: 999
