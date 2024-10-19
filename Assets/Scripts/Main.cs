@@ -1,10 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Main : MonoBehaviour
 {
     static Main S;
+    static public string macho = "HAPPY";
     static private Dictionary<elementTypes, ElementDefinition> ELE_DICT;
     [Header("Inscribed")]
     public ElementDefinition[] elementDefinitions;

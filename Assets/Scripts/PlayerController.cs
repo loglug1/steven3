@@ -3,10 +3,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Inscribed")]
-    public float walkingSpeed = 1f;
-    public float jumpPower = 1f;
+    public float walkingSpeed = 6f;
+    public float moveDownSpeed = 75f;
+    public float jumpPower = 350f;
     public float jumpDelay = 0.1f;
-    public float wallJumpInvertDelay = 0.1f;
+    public float wallJumpInvertDelay = 0.2f;
 
     [Header("Dynamic")]
     public Rigidbody rBody;
@@ -58,12 +59,17 @@ public class PlayerController : MonoBehaviour
             canDoubleJump = true;
         }
 
+        bool holdingWall = HoldingWall();
 
+        if (!holdingWall) {
+            //walking
+            float hMovement = Input.GetAxis("Horizontal") * walkingSpeed * movementDirection;
+            //moveDown
+            float vMovement = Mathf.Min(Input.GetAxis("Vertical"), 0f) * moveDownSpeed * Time.deltaTime;
 
-        //walking
-        float hMovement = Input.GetAxis("Horizontal") * walkingSpeed * movementDirection;
-        if (!HoldingWall()) {
-            rBody.velocity = new Vector3(hMovement, rBody.velocity.y, 0);
+            //apply
+            rBody.velocity = new Vector3(hMovement, rBody.velocity.y + vMovement, 0);
+
         }
     }
 

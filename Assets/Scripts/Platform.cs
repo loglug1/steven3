@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using System;
 using UnityEngine;
 
 public class Platform : MonoBehaviour
@@ -11,9 +9,12 @@ public class Platform : MonoBehaviour
     public Collider coll;
 
     void Awake() {
-        player = Main.GET_PLAYER();
-        coll = GetComponent<Collider>();
-        distToTop = coll.bounds.extents.y;
+        if ((player = Main.GET_PLAYER()) && (player != null)) {
+            coll = GetComponent<Collider>();
+            distToTop = coll.bounds.extents.y;
+        } else {
+            Debug.LogError("Could not find player! (Is the player instance linked in the Main script on the camera?)");
+        }
     }
 
     void FixedUpdate() {
