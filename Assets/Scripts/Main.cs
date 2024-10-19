@@ -2,9 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum elementTypes {
+    None,
+    Fire,
+    Water,
+    Grass
+}
+public enum Colors {
+    white,
+    orange,
+    blue,
+    green
+}
+
+[System.Serializable]
+public class ElementDefinition {
+    public elementTypes element             = elementTypes.None;
+    public GameObject projectilePrefab;
+    public float        damageOnHit         = 0;
+    public float        damagePerSec        = 0;
+    public float        delayBetweenShots   = 0;
+    public float        velocity            = 50;
+    public Colors       color;
+    public string       name;
+    
+}
+
 public class Main : MonoBehaviour
 {
-    static private Dictionary<elementTypes, ElementDefinition> ELE_DICT;
+    static public Dictionary<elementTypes, ElementDefinition> ELE_DICT;
     public ElementDefinition[] elementDefinitions;
     // Start is called before the first frame update
     void Awake()

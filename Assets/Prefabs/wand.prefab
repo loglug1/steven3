@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 4042723358168295081}
   - component: {fileID: 4042723358168295080}
   - component: {fileID: 4042723358168295087}
-  - component: {fileID: 4042723358168295086}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,20 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &4042723358168295086
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4042723358168295085}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &4042723359453989985
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,9 +95,8 @@ GameObject:
   - component: {fileID: 4042723359453989997}
   - component: {fileID: 4042723359453989996}
   - component: {fileID: 4042723359453989987}
-  - component: {fileID: 4042723359453989986}
   - component: {fileID: 191619866}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: wand_shooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 4042723359453989985}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4042723358168295081}
@@ -184,19 +168,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &4042723359453989986
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4042723359453989985}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &191619866
 MonoBehaviour:
   m_ObjectHideFlags: 0
