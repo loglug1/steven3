@@ -13,14 +13,14 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Ground
+  - Platforms
+  - PlayerProjectiles
+  - EnemyProjectiles
+  - Enemies
+  - Interactables
+  - EnvironmentalHazards
   - 
   - 
   - 
