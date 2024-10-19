@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(HealthController))]
 public class PlayerController : MonoBehaviour
 {
     [Header("Inscribed")]
@@ -74,11 +75,11 @@ public class PlayerController : MonoBehaviour
     }
 
     bool IsGrounded() {
-        return Physics.Raycast(transform.position, Vector3.down, distToGround + 0.1f);
+        return Physics.Raycast(transform.position, Vector3.down, distToGround + 0.1f, ~LayerMask.NameToLayer("Ground"));
     }
 
     bool HoldingWall() {
-        return Physics.Raycast(transform.position, Vector3.right * Input.GetAxis("Horizontal") * movementDirection, distToWall + 0.1f);
+        return Physics.Raycast(transform.position, Vector3.right * Input.GetAxis("Horizontal") * movementDirection, distToWall + 0.1f, ~LayerMask.NameToLayer("Ground"));
     }
 
     void Jump(float multiplier = 1f) {

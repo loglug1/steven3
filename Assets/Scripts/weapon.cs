@@ -5,32 +5,6 @@ using UnityEngine;
 public enum weaponType {
     wand
 }
-public enum elementTypes {
-    none,
-    fire,
-    water,
-    grass
-}
-public enum Colors {
-    white,
-    orange,
-    blue,
-    green
-}
-
-// call specific prefab not color
-
-[System.Serializable]
-public class ElementDefinition {
-    public elementTypes element             = elementTypes.none;
-    public GameObject projectilePrefab;
-    public float        damageOnHit         = 0;
-    public float        damagePerSec        = 0;
-    public float        delayBetweenShots   = 0;
-    public float        velocity            = 50;
-    public Colors       color;
-    
-}
 
 public class weapon : MonoBehaviour
 {
@@ -41,11 +15,14 @@ public class weapon : MonoBehaviour
     static public float         nextShotTime;
     private Transform           shotPointTrans;
     static public Transform     PROJECTILE_ANCHOR;
-    private Renderer ren;
+    private Renderer            ren;
     static public ElementDefinition def;
+
+    static public weapon w;
     // Start is called before the first frame update
     void Start()
     {
+        w = this;
         ren = GetComponent<Renderer>();
         if (PROJECTILE_ANCHOR == null) {
             GameObject go = new GameObject("_ProjectileAnchor");
@@ -74,17 +51,21 @@ public class weapon : MonoBehaviour
         }
     }
     public void DetectInput() {
+        Vector3 totalVec = new Vector3(0,0,0);
         if(Input.GetKey("up")) {
-            ShootProj(new Vector3(0,1,0));
+            totalVec = totalVec + new Vector3(0,1,0);
         }
-        else if(Input.GetKey("down")) {
-            ShootProj(new Vector3(0,-1,0));
+        if(Input.GetKey("down")) {
+            totalVec = totalVec + new Vector3(0,-1,0);
         }
-        else if(Input.GetKey("right")) {
-            ShootProj(new Vector3(1,0,0));
+        if(Input.GetKey("right")) {
+            totalVec = totalVec + new Vector3(1,0,0);
         }
-        else if(Input.GetKey("left")) {
-            ShootProj(new Vector3(-1,0,0));
+        if(Input.GetKey("left")) {
+            totalVec = totalVec + new Vector3(-1,0,0);
+        }
+        if (totalVec.magnitude > 0) {
+            ShootProj(totalVec);
         }
     }
 }

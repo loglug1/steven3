@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 7292662365035269149}
   - component: {fileID: 7292662365035269150}
   - component: {fileID: 7292662365035269151}
-  - component: {fileID: 7292662365035269138}
   - component: {fileID: 7292662365035269137}
-  m_Layer: 8
-  m_Name: Player
+  - component: {fileID: 1706128081}
+  m_Layer: 13
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,7 +35,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7292662364798377901}
-  - {fileID: 4042723359042106351}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -67,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d7cd55a3fa174284798567d3f259874b, type: 2}
+  - {fileID: 2100000, guid: ce348ca6d54618d4098a083c316346f2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -119,30 +118,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!114 &7292662365035269138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7292662365035269144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67a3af0fe59380843948dc3f0dfb7486, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkingSpeed: 6
-  moveDownSpeed: 75
-  jumpPower: 350
-  jumpDelay: 0.1
-  wallJumpInvertDelay: 0.2
-  rBody: {fileID: 0}
-  canJump: 1
-  onGround: 0
-  distToGround: 0
-  distToWall: 0
-  canDoubleJump: 0
-  movementDirection: 1
 --- !u!114 &7292662365035269137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,74 +133,39 @@ MonoBehaviour:
   maxHealth: 50
   healthBar: {fileID: 7292662364798377897}
   currHealth: 50
-  mainColor: {r: 0.15686275, g: 0.4784314, b: 0.7411765, a: 1}
+  mainColor: {r: 0.7490196, g: 0, b: 0, a: 1}
   lowColor: {r: 0.7484276, g: 0, b: 0, a: 1}
---- !u!1001 &1412126022
-PrefabInstance:
+--- !u!114 &1706128081
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 7292662365035269139}
-    m_Modifications:
-    - target: {fileID: 4042723358168295081, guid: bc204925ca526a64c944e77541730a04, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4042723358168295081, guid: bc204925ca526a64c944e77541730a04, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4042723358168295081, guid: bc204925ca526a64c944e77541730a04, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.6000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 4042723358168295081, guid: bc204925ca526a64c944e77541730a04, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.39999962
-      objectReference: {fileID: 0}
-    - target: {fileID: 4042723358168295081, guid: bc204925ca526a64c944e77541730a04, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4042723358168295081, guid: bc204925ca526a64c944e77541730a04, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4042723358168295081, guid: bc204925ca526a64c944e77541730a04, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4042723358168295081, guid: bc204925ca526a64c944e77541730a04, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4042723358168295081, guid: bc204925ca526a64c944e77541730a04, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4042723358168295081, guid: bc204925ca526a64c944e77541730a04, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4042723358168295081, guid: bc204925ca526a64c944e77541730a04, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4042723358168295081, guid: bc204925ca526a64c944e77541730a04, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4042723358168295085, guid: bc204925ca526a64c944e77541730a04, type: 3}
-      propertyPath: m_Name
-      value: wand
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: bc204925ca526a64c944e77541730a04, type: 3}
---- !u!4 &4042723359042106351 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4042723358168295081, guid: bc204925ca526a64c944e77541730a04, type: 3}
-  m_PrefabInstance: {fileID: 1412126022}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7292662365035269144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d98270a4bd87d47981b41ca4463851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkingSpeed: 4
+  moveDownSpeed: 75
+  jumpPower: 350
+  jumpDelay: 0.1
+  wallJumpInvertDelay: 0.2
+  playerHoneDistance: 1
+  canMove: 0
+  rBody: {fileID: 0}
+  canJump: 1
+  onGround: 0
+  distToGround: 0
+  distToWall: 0
+  canDoubleJump: 0
+  movementDirection: 1
+  jAxis: 0
+  hAxis: 0
+  vAxis: 0
+  player: {fileID: 0}
+  healthController: {fileID: 0}
 --- !u!1001 &3976977811805683240
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -233,9 +173,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7292662365035269139}
     m_Modifications:
+    - target: {fileID: 5910321364649151653, guid: eb4145230838ac34caf4edd465a53aa4, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5910321364672527846, guid: eb4145230838ac34caf4edd465a53aa4, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5910321365277087547, guid: eb4145230838ac34caf4edd465a53aa4, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 5910321366135169410, guid: eb4145230838ac34caf4edd465a53aa4, type: 3}
       propertyPath: m_Name
       value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 5910321366135169410, guid: eb4145230838ac34caf4edd465a53aa4, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5910321366135169413, guid: eb4145230838ac34caf4edd465a53aa4, type: 3}
       propertyPath: m_RootOrder
