@@ -7,7 +7,7 @@ public class wandProjectile : MonoBehaviour
     static public ElementDefinition def1;
     static public ElementDefinition def2;
     static public Vector3           vel;
-    static public float             dmg;
+    public float                    dmg;
     private Rigidbody               rigid;
     public bool                     deleteThis;
     public GameObject go;
@@ -18,6 +18,8 @@ public class wandProjectile : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
         // Optionally set the color of the projectile
         // GetComponent<Renderer>().material.color = projectileColor;
+
+
     }
 
     void Update()
@@ -33,10 +35,11 @@ public class wandProjectile : MonoBehaviour
 
         // Calculate velocity and damage
         vel = def1.velocity * (0.25f * def2.velocity) * vec;
-        dmg = def1.damageOnHit + (0.5f * def2.damageOnHit);
+        float tempDmg = def1.damageOnHit + (0.5f * def2.damageOnHit);
 
         // Instantiate the projectile prefab
         go = Instantiate(def1.projectilePrefab, pj_anc.position, Quaternion.identity);
+        go.GetComponent<wandProjectile>().dmg = tempDmg;
 
         // Set the projectile's position
         Vector3 pos = shotPointTrans.position;
