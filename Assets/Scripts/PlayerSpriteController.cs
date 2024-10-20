@@ -8,6 +8,7 @@ public class PlayerSpriteController : MonoBehaviour
 
     void Awake() {
         player = transform.parent.GetComponent<PlayerController>();
+        setColorPlayer();
     }
     void FixedUpdate() {
         if (player.rBody.velocity.x * transform.localScale.x < 0) {
@@ -15,5 +16,10 @@ public class PlayerSpriteController : MonoBehaviour
             tempScale.x *= -1f;
             transform.localScale = tempScale;
         }
+    }
+
+    void setColorPlayer(){
+        player.transform.GetChild(2).GetChild(0).GetComponent<Renderer>().material.color = Main.PlayerColor;
+        Debug.Log("color set");
     }
 }
