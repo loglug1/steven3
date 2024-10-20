@@ -14,7 +14,7 @@ public Button startButton;
 	}
 
 	void OnClick(){
-        SceneManager.LoadScene("__Scene_0");//whatever the start scene is
+        SceneManager.LoadScene("_MainGameScene");//whatever the start scene is
 		Debug.Log ("start button clicked");
 	}
 }
