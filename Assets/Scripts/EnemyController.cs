@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -119,18 +116,14 @@ public class EnemyController : MonoBehaviour
             rBody.velocity = new Vector3(hMovement, rBody.velocity.y + vMovement, 0);
 
         }
-        // else {
-        //     jAxis = 1;
-        //     Invoke("ResetJAxis", jumpDelay);
-        // }
     }
 
     bool IsGrounded() {
         return Physics.Raycast(transform.position, Vector3.down, distToGround + 0.1f, LayerMask.GetMask("Ground"));
     }
 
-    bool HoldingWall() {
-        return Physics.Raycast(transform.position + Vector3.down * distToGround, Vector3.right * hAxis * movementDirection, distToWall + 0.1f, LayerMask.GetMask("Ground"));
+    bool HoldingWall() { //raycast at head and feet
+        return Physics.Raycast(transform.position + Vector3.down * distToGround, Vector3.right * hAxis * movementDirection, distToWall + 0.1f, LayerMask.GetMask("Ground")) || Physics.Raycast(transform.position + Vector3.up * distToGround, Vector3.right * hAxis * movementDirection, distToWall + 0.1f, LayerMask.GetMask("Ground"));
     }
 
     bool IsPlayerVisible() {
