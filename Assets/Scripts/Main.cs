@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public enum elementTypes {
     None,
@@ -25,6 +26,7 @@ public class ElementDefinition {
     public float        velocity            = 50;
     public Colors       color;
     public string       name;
+    public Sprite       sprite;
     
 }
 
