@@ -15,6 +15,7 @@ public class button : MonoBehaviour
                 weapon.w.eleTypes[i] = chest.c.chosenElements[0];   // set player element to chosen
                 chest.c.uiPopup.SetActive(false);                   // deactivate popup
                 Destroy(chest.c.gameObject);                        // destroy chest
+                weapon.w.UpdateColor(Main.GET_ELEMENT_DEFINITION(weapon.w.eleTypes[0]), Main.GET_ELEMENT_DEFINITION(weapon.w.eleTypes[1])); // update color
                 break;
             }
         }
@@ -28,6 +29,7 @@ public class button : MonoBehaviour
                 weapon.w.eleTypes[i] = chest.c.chosenElements[1];
                 chest.c.uiPopup.SetActive(false);
                 Destroy(chest.c.gameObject);
+                weapon.w.UpdateColor(Main.GET_ELEMENT_DEFINITION(weapon.w.eleTypes[0]), Main.GET_ELEMENT_DEFINITION(weapon.w.eleTypes[1])); // update color
                 break;
             }
         }       
