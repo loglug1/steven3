@@ -8,6 +8,7 @@ public class HealthController : MonoBehaviour
     public float currHealth = 50f;
     public Color mainColor;
     public Color lowColor;
+    private EnemyElement elementChecker;
     
     // [Header("Dynamic")]
 
@@ -47,7 +48,18 @@ public class HealthController : MonoBehaviour
         if (otherGO.layer == LayerMask.NameToLayer("EnvironmentalHazards")) { 
             EnvironmentalHazard eH = otherGO.GetComponent<EnvironmentalHazard>();
             if (eH != null) {
-                Damage(Time.deltaTime * eH.damage);
+                elementChecker = GetComponent<EnemyElement>();
+
+                if (elementChecker.enemyElementofChoice == elementTypes.Grass && eH.hT == HazardType.Vines) {
+                    Damage(Time.deltaTime * 0);
+                }
+                else if (elementChecker.enemyElementofChoice == elementTypes.Fire && eH.hT == HazardType.Lava) {
+                    Damage(Time.deltaTime * 0);
+                }
+                else {
+                    Damage(Time.deltaTime * eH.damage);
+                    
+                }
             }
         }
     }
