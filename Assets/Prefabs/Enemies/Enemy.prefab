@@ -321,6 +321,7 @@ MonoBehaviour:
   currHealth: 50
   mainColor: {r: 0.7490196, g: 0, b: 0, a: 1}
   lowColor: {r: 0.7484276, g: 0, b: 0, a: 1}
+  takeDamageFromHazards: 0
 --- !u!114 &1706128081
 MonoBehaviour:
   m_ObjectHideFlags: 0
