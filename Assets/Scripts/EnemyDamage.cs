@@ -112,7 +112,6 @@ public class EnemyDamage : MonoBehaviour
     {
         enemyController.canMove = false;
         waitTime -= Time.deltaTime;
-        Debug.Log(waitTime);
         if (waitTime <= 0) {
             isRooted = false;
             rootedCoolDown = 3.0f;          // wait 3 secs to root again

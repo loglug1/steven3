@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7311582965226773398}
   - component: {fileID: 7311582965226773399}
   - component: {fileID: 7311582965226773392}
+  - component: {fileID: 555138849}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -104,34 +105,63 @@ MonoBehaviour:
     damagePerSec: 0
     delayBetweenShots: 0.6
     velocity: 8
-    color: 0
+    color: {r: 0.99371064, g: 0.99371064, b: 0.99371064, a: 1}
     name: None
     sprite: {fileID: 0}
+    weakElement: 0
+    strElement: 0
   - element: 1
     projectilePrefab: {fileID: 8136098084400355990, guid: ed80c1331b7abca4f8094237b0b717c8, type: 3}
     damageOnHit: 4
     damagePerSec: 3
     delayBetweenShots: 0.85
     velocity: 6
-    color: 1
+    color: {r: 0.7798742, g: 0.42773724, b: 0.12507404, a: 0.99215686}
     name: Fire
     sprite: {fileID: 21300000, guid: 7671627cac126bb4aadd452aa33694d1, type: 3}
+    weakElement: 2
+    strElement: 3
   - element: 2
     projectilePrefab: {fileID: 5114822508641061237, guid: 4be833370d2d897499c9fe6b09ecf2c9, type: 3}
     damageOnHit: 8.34
     damagePerSec: 0
     delayBetweenShots: 0.6
     velocity: 3
-    color: 2
+    color: {r: 0.15895326, g: 0.564541, b: 0.8867924, a: 1}
     name: Water
     sprite: {fileID: 21300000, guid: a4dfe798f325ed74db35decbfb2c100a, type: 3}
+    weakElement: 3
+    strElement: 1
   - element: 3
     projectilePrefab: {fileID: 213716773382589390, guid: c0076560b5d5b80439f2a205b21acf9d, type: 3}
     damageOnHit: 4.25
     damagePerSec: 0
     delayBetweenShots: 0.8
     velocity: 8
-    color: 3
+    color: {r: 0.18650356, g: 0.51572317, b: 0.2519837, a: 1}
     name: Grass
     sprite: {fileID: 21300000, guid: 16ea4f87a5c94e9428881d61e5143aa1, type: 3}
+    weakElement: 1
+    strElement: 2
   player: {fileID: 0}
+--- !u!114 &555138849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7311582965226773396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 273fac28e6eb6ad45af090d33b259487, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraIncrementX: 39.5
+  cameraIncrementY: 22
+  player: {fileID: 0}
+  camWidth: 0
+  camHeight: 0
+  camPosition: {x: 0, y: 0, z: 0}
+  radiusX: 0
+  radiusY: 0
+  playerPos: {x: 0, y: 0, z: 0}
