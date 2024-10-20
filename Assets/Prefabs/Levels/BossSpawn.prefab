@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7401292238414219292}
   - component: {fileID: 2055543138095879772}
+  - component: {fileID: 7408465980235065332}
   m_Layer: 0
   m_Name: BossSpawn
   m_TagString: Untagged
@@ -45,3 +46,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 5013637111245749214, guid: c471f2b1e095da94b91f8a1a04a1637c, type: 3}
+--- !u!114 &7408465980235065332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7401292238414219293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3cf38e34bc665149923d5886fe7d03f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossMusic: {fileID: 8300000, guid: a0328a03bfcb72c44a71e35aac2fe6da, type: 3}
