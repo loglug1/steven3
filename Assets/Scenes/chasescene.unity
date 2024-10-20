@@ -557,6 +557,9 @@ MonoBehaviour:
     velocity: 8
     color: 0
     name: None
+    sprite: {fileID: 0}
+    weakElement: 0
+    strElement: 0
   - element: 1
     projectilePrefab: {fileID: 8136098084400355990, guid: ed80c1331b7abca4f8094237b0b717c8, type: 3}
     damageOnHit: 4
@@ -565,6 +568,9 @@ MonoBehaviour:
     velocity: 6
     color: 1
     name: Fire
+    sprite: {fileID: 0}
+    weakElement: 2
+    strElement: 3
   - element: 2
     projectilePrefab: {fileID: 5114822508641061237, guid: 4be833370d2d897499c9fe6b09ecf2c9, type: 3}
     damageOnHit: 8.34
@@ -573,6 +579,9 @@ MonoBehaviour:
     velocity: 3
     color: 2
     name: Water
+    sprite: {fileID: 0}
+    weakElement: 3
+    strElement: 1
   - element: 3
     projectilePrefab: {fileID: 213716773382589390, guid: c0076560b5d5b80439f2a205b21acf9d, type: 3}
     damageOnHit: 4.25
@@ -581,6 +590,9 @@ MonoBehaviour:
     velocity: 8
     color: 3
     name: Grass
+    sprite: {fileID: 0}
+    weakElement: 1
+    strElement: 2
   player: {fileID: 1349690210}
 --- !u!1 &1013960541
 GameObject:
@@ -657,29 +669,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1706128081, guid: 6a08bb395ef6018448f0ef1f8788ffff, type: 3}
-      propertyPath: canMove
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7292662364798377901, guid: 6a08bb395ef6018448f0ef1f8788ffff, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.7
-      objectReference: {fileID: 0}
     - target: {fileID: 7292662365035269139, guid: 6a08bb395ef6018448f0ef1f8788ffff, type: 3}
       propertyPath: m_RootOrder
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7292662365035269139, guid: 6a08bb395ef6018448f0ef1f8788ffff, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7292662365035269139, guid: 6a08bb395ef6018448f0ef1f8788ffff, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7292662365035269139, guid: 6a08bb395ef6018448f0ef1f8788ffff, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7292662365035269139, guid: 6a08bb395ef6018448f0ef1f8788ffff, type: 3}
       propertyPath: m_LocalPosition.x
@@ -848,14 +840,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1598076508, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
-      propertyPath: eleTypes.Array.data[0]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1598076508, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
-      propertyPath: eleTypes.Array.data[1]
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7292662365035269139, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1186,27 +1170,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02e8036292cf6a8429cd80d7d077b7cc, type: 3}
---- !u!1 &2093837090 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7292662365035269144, guid: 6a08bb395ef6018448f0ef1f8788ffff, type: 3}
-  m_PrefabInstance: {fileID: 1017579713}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2093837098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093837090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 415650396e85252498abbde01c8ca6bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthController: {fileID: 0}
-  enemyController: {fileID: 0}
-  isRooted: 0
-  isBurning: 0
-  isSundered: 0
-  rootedCoolDown: 0
-  burnCoolDown: 0
