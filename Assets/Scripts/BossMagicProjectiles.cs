@@ -29,7 +29,7 @@ public class BossMagicProjectiles : MonoBehaviour
                 break;
         }
 
-        GameObject go = Instantiate(typePrefab, transform);
+        GameObject go = Instantiate(typePrefab, transform.position, transform.rotation, transform.parent);
         
         Vector3 direction = Main.GET_PLAYER().transform.position - transform.position;
 

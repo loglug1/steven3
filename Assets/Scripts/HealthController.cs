@@ -28,10 +28,14 @@ public class HealthController : MonoBehaviour
         if (currHealth <= 0) {
             PlayerController p;
             EnemyController e;
+            BossController b;
             if ((p = GetComponent<PlayerController>()) != null) {
                 Main.GameOver();
             } else if ((e = GetComponent<EnemyController>()) != null) {
                 e.Die();
+            } else if ((b = GetComponent<BossController>()) != null) {
+                Debug.Log("You Win!");
+                Destroy(gameObject);
             }
         }
     }
@@ -49,6 +53,11 @@ public class HealthController : MonoBehaviour
             EnvironmentalHazard eH = otherGO.GetComponent<EnvironmentalHazard>();
             if (eH != null) {
                 elementChecker = GetComponent<EnemyElement>();
+
+                if (elementChecker == null) { // player doesn't have enemyelement
+                    Damage(Time.deltaTime * eH.damage);
+                    return;
+                }
 
                 if (elementChecker.enemyElementofChoice == elementTypes.Grass && eH.hT == HazardType.Vines) {
                     Damage(Time.deltaTime * 0);

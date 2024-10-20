@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class BossDamageHandler : MonoBehaviour
 {
     public HealthController healthController;
-    public elementTypes bossType = elementTypes.None;
+    public elementTypes bossType {
+        get { return _bossType; }
+        set { SetType(value); }
+    }
+    private elementTypes _bossType = elementTypes.None;
+    public SpriteRenderer stemRenderer;
     public elementTypes[] elementChances;
     public float            strMult = 1.3f;
     public float            secondaryStrMult = 1.2f;
@@ -16,6 +22,7 @@ public class BossDamageHandler : MonoBehaviour
     
     void Awake() {
         healthController = transform.parent.GetComponent<HealthController>();
+        stemRenderer = transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
     }
 
     //meant for water projectiles
@@ -57,5 +64,10 @@ public class BossDamageHandler : MonoBehaviour
             healthController.Damage(wProj.dmg);
             Destroy(otherGO);
         }
+    }
+
+    void SetType(elementTypes e) {
+        _bossType = e;
+        stemRenderer.color = Main.GET_ELEMENT_DEFINITION(e).color;
     }
 }
