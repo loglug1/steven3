@@ -51,39 +51,47 @@ public class PlayerDamage : MonoBehaviour
     void OnCollisionEnter(Collision c) {
         GameObject otherGO = c.gameObject;
         EnemyElement eEle = otherGO.GetComponent<EnemyElement>();
-        
-        //allow invicibility for some time
-        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), true);
-        Invoke("ResetInvicibility", invincibilityTime);
 
-        if (eEle == null) return;
-        HandleHit(eEle);
+        if (eEle != null) {
+            //allow invicibility for some time
+            Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), true);
+            Invoke("ResetInvicibility", invincibilityTime);
+            HandleHit(eEle.enemyElementofChoice);
+        }
+    }
+
+    void OnTriggerEnter(Collider c) {
+        GameObject otherGO = c.gameObject;
+        EnemyProjectile eProj = otherGO.GetComponent<EnemyProjectile>();
+
+        if (eProj != null) {
+            //healthController.Damage(Main.GET_ELEMENT_DEFINITION(eProj.type).damageOnHit);
+            HandleHit(eProj.type);
+            Destroy(otherGO);
+        }
     }
 
     void ResetInvicibility() {
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), false);
     }
 
-    void HandleHit(EnemyElement eEle)
+    void HandleHit(elementTypes type)
     {
-        // primary grass
-        if (eEle != null) {
-            if (eEle.enemyElementofChoice == elementTypes.Grass && rootedCoolDown <= 0 && !isRooted) {
-                waitTime += 1.5f;        // rooted time for primary
-                isRooted = true;
-            }
-            // primary fire
-            if (eEle.enemyElementofChoice == elementTypes.Fire && !isBurning) {
-                burnTime += 1.5f;        // burning time for primary
-                isBurning = true;
-            }
-            if (eEle.enemyElementofChoice == elementTypes.Water && !isSundered) {
-                sunderedTime += 2.5f;    // slowing time for primary
-                isSundered = true;
-            }
-
-            healthController.Damage(Main.GET_ELEMENT_DEFINITION(elementTypes.None).damageOnHit);
+        if (type == elementTypes.Grass && rootedCoolDown <= 0 && !isRooted) {
+            waitTime += 1.5f;        // rooted time for primary
+            isRooted = true;
         }
+        // primary fire
+        if (type == elementTypes.Fire && !isBurning) {
+            burnTime += 1.5f;        // burning time for primary
+            isBurning = true;
+        }
+        if (type == elementTypes.Water && !isSundered) {
+            sunderedTime += 2.5f;    // slowing time for primary
+            isSundered = true;
+        }
+
+        healthController.Damage(Main.GET_ELEMENT_DEFINITION(elementTypes.None).damageOnHit);
     }
     // keeps checking for rooted status
     void Rooted()
