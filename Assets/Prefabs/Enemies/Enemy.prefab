@@ -150,13 +150,16 @@ MonoBehaviour:
   walkingSpeed: 4
   moveDownSpeed: 75
   jumpPower: 350
-  jumpDelay: 0.1
+  jumpDelay: 0.5
   wallJumpInvertDelay: 0.2
   playerHoneDistance: 1
-  canMove: 0
+  canMove: 1
+  canSeePlayer: 0
+  objectPermanence: 0
   rBody: {fileID: 0}
   canJump: 1
-  onGround: 0
+  grounded: 0
+  holdingWall: 0
   distToGround: 0
   distToWall: 0
   canDoubleJump: 0

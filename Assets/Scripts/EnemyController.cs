@@ -13,11 +13,14 @@ public class EnemyController : MonoBehaviour
     public float wallJumpInvertDelay = 0.2f;
     public float playerHoneDistance = 1f;
     public bool canMove = true;
+    public bool canSeePlayer = false;
+    public float objectPermanence = 0f;
 
     [Header("Dynamic")]
     public Rigidbody rBody;
     public bool canJump = true;
-    public bool onGround = false;
+    public bool grounded = false;
+    public bool holdingWall = false;
     public float distToGround;
     public float distToWall;
     public bool canDoubleJump;
@@ -40,17 +43,29 @@ public class EnemyController : MonoBehaviour
         canDoubleJump = true;
     }
     void FixedUpdate() {
+        if (IsPlayerVisible()) {
+            objectPermanence = 3f;
+        } else {
+            objectPermanence -= Time.deltaTime;
+        }
+
+        if (objectPermanence > 0f) {
+            canSeePlayer = true;
+        } else {
+            canSeePlayer = false;
+        }
+        
         //enemy movement AI
         //uses hAxis, jAxis, and vAxis to mimic controller inputs and uses player controller logic to move
-        if (canMove) {
+        if (canMove && canSeePlayer) {
             float distanceToPlayer = player.transform.position.x - transform.position.x;
 
             if ( Mathf.Abs(distanceToPlayer) > playerHoneDistance) {
                 hAxis = distanceToPlayer/Mathf.Abs(distanceToPlayer);
             }
 
-            if (player.transform.position.y > transform.position.y) {
-                vAxis = 1;
+            if (player.transform.position.y > transform.position.y && canJump) {
+                jAxis = 1;
                 Invoke("ResetJAxis", jumpDelay); //mimic holding space for jumpDelay seconds
             } else {
                 vAxis = 0;
@@ -63,11 +78,12 @@ public class EnemyController : MonoBehaviour
 
         //jumping
         if (jAxis == 0) {
+            Debug.Log("canJUmp");
             canJump = true;
         }
 
-        bool grounded = IsGrounded();
-        bool holdingWall = HoldingWall();
+        grounded = IsGrounded();
+        holdingWall = HoldingWall();
 
         if (grounded && canJump && jAxis == 1) {
             Jump();
@@ -76,8 +92,8 @@ public class EnemyController : MonoBehaviour
         //wall jumping (must check before double jump)
         if (holdingWall && canJump && jAxis == 1) {
             InvertMovement();
-            Invoke("InvertMovement",wallJumpInvertDelay);
             Jump(1.5f);
+            Invoke("InvertMovement", wallJumpInvertDelay);
         }
 
         //double jumping
@@ -103,18 +119,24 @@ public class EnemyController : MonoBehaviour
             //apply
             rBody.velocity = new Vector3(hMovement, rBody.velocity.y + vMovement, 0);
 
-        } else {
-            jAxis = 1;
-            Invoke("ResetJAxis", jumpDelay);
         }
+        // else {
+        //     jAxis = 1;
+        //     Invoke("ResetJAxis", jumpDelay);
+        // }
     }
 
     bool IsGrounded() {
-        return Physics.Raycast(transform.position, Vector3.down, distToGround + 0.1f, ~LayerMask.NameToLayer("Ground"));
+        return Physics.Raycast(transform.position, Vector3.down, distToGround + 0.1f, LayerMask.GetMask("Ground"));
     }
 
     bool HoldingWall() {
-        return Physics.Raycast(transform.position, Vector3.right * hAxis * movementDirection, distToWall + 0.1f, ~LayerMask.NameToLayer("Ground"));
+        return Physics.Raycast(transform.position + Vector3.down * distToGround, Vector3.right * hAxis * movementDirection, distToWall + 0.1f, LayerMask.GetMask("Ground"));
+    }
+
+    bool IsPlayerVisible() {
+        Vector3 vecToPlayer = player.transform.position - transform.position;
+        return !Physics.Raycast(transform.position, vecToPlayer.normalized, vecToPlayer.magnitude, LayerMask.GetMask("Ground"));
     }
 
     void Jump(float multiplier = 1f) {
