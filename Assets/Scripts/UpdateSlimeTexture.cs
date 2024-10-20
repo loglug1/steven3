@@ -12,6 +12,7 @@ public class UpdateSlimeTexture : MonoBehaviour
             GetComponent<Image>().material.color = Main.PlayerColor;}
         else{
             GetComponent<Image>().material.color = new Color(255/255f,147/255f,255/255f,255/255f);
+            Main.PlayerColor = new Color(255/255f,147/255f,255/255f,255/255f);
         }
     }
 }
