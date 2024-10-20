@@ -339,6 +339,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossController
       objectReference: {fileID: 0}
+    - target: {fileID: 5013637111245749214, guid: c471f2b1e095da94b91f8a1a04a1637c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6415033383382713440, guid: c471f2b1e095da94b91f8a1a04a1637c, type: 3}
       propertyPath: m_RootOrder
       value: 54
@@ -640,7 +644,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773393, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 21.93
+      value: 0.71
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773393, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1031,7 +1035,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1568423613947312261, guid: bd91bb9aaf800d646a6455729e9d6f15, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd91bb9aaf800d646a6455729e9d6f15, type: 3}
