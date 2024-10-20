@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class chest : MonoBehaviour
-{
+{   
     [SerializeField]
     private AudioClip chestOpen;
     [SerializeField]
@@ -45,6 +46,7 @@ public class chest : MonoBehaviour
         chosenElements[0] = elementChances[Random.Range(0, elementChances.Length - 1)];         // 1st chosen 
         def1 = Main.GET_ELEMENT_DEFINITION(chosenElements[0]);
         button1.text = def1.name;
+        // button1.GetComponent<Image>().sprite = def1.sprite;
 
         elementTypes elementChose = elementChances[Random.Range(0, elementChances.Length - 1)]; 
         // 2nd, make sure its not the same
@@ -55,7 +57,7 @@ public class chest : MonoBehaviour
 
         def2 = Main.GET_ELEMENT_DEFINITION(chosenElements[1]);
         button2.text = def2.name;
-
+        // button2.GetComponent<Image>().sprite = def2.sprite;
 
 
         source = GetComponent<AudioSource>(); // chest sound player
