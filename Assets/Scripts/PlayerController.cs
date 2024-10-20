@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public float distToWall;
     public bool canDoubleJump;
     public int movementDirection = 1;
+    public bool canMove = true;
 
     void Awake() {
         rBody = GetComponent<Rigidbody>();
@@ -29,6 +30,8 @@ public class PlayerController : MonoBehaviour
         canDoubleJump = true;
     }
     void FixedUpdate() {
+        if (!canMove) return;
+
         //jumping
         if (Input.GetAxis("Jump") == 0) {
             canJump = true;
