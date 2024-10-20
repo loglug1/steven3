@@ -45,15 +45,15 @@ public class chest : MonoBehaviour
     }
     void Awake() {
         c = this;
-        chosenElements[0] = elementChances[Random.Range(0, elementChances.Length - 1)];         // 1st chosen 
+        chosenElements[0] = elementChances[Random.Range(0, elementChances.Length)];         // 1st chosen 
         def1 = Main.GET_ELEMENT_DEFINITION(chosenElements[0]);
         button1_text.text = def1.name;
         but1.GetComponent<Image>().sprite = def1.sprite;
 
-        elementTypes elementChose = elementChances[Random.Range(0, elementChances.Length - 1)]; 
+        elementTypes elementChose = elementChances[Random.Range(0, elementChances.Length)]; 
         // 2nd, make sure its not the same
         while (elementChose == chosenElements[0]) {
-            elementChose = elementChances[Random.Range(0, elementChances.Length - 1)];
+            elementChose = elementChances[Random.Range(0, elementChances.Length)];
         }
         chosenElements[1] = elementChose;     // 2nd chosen
 

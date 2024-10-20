@@ -24,7 +24,7 @@ public class ElementDefinition {
     public float        damagePerSec        = 0;
     public float        delayBetweenShots   = 0;
     public float        velocity            = 50;
-    public Colors       color;
+    public Color       color;
     public string       name;
     public Sprite       sprite;
     public elementTypes weakElement         = elementTypes.None;
