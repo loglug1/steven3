@@ -123,7 +123,7 @@ public class EnemyController : MonoBehaviour
     }
 
     bool HoldingWall() { //raycast at head and feet
-        return Physics.Raycast(transform.position + Vector3.down * distToGround, Vector3.right * hAxis * movementDirection, distToWall + 0.1f, LayerMask.GetMask("Ground")) || Physics.Raycast(transform.position + Vector3.up * distToGround, Vector3.right * hAxis * movementDirection, distToWall + 0.1f, LayerMask.GetMask("Ground"));
+        return Physics.Raycast(transform.position + Vector3.down * distToGround * 0.9f, Vector3.right * hAxis * movementDirection, distToWall + 0.1f, LayerMask.GetMask("Ground")) || Physics.Raycast(transform.position + Vector3.up * distToGround, Vector3.right * hAxis * movementDirection, distToWall + 0.1f, LayerMask.GetMask("Ground")) || Physics.Raycast(transform.position, Vector3.right * hAxis * movementDirection, distToWall + 0.1f, LayerMask.GetMask("Ground"));
     }
 
     bool IsPlayerVisible() {
