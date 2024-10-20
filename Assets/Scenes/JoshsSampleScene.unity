@@ -533,6 +533,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 404145808980944793, guid: 2123519554691bb4f853b4356229115f, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 901469281320900180, guid: 2123519554691bb4f853b4356229115f, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.0002
@@ -606,6 +610,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 780169407864974904, guid: bd91bb9aaf800d646a6455729e9d6f15, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 780169408317667292, guid: bd91bb9aaf800d646a6455729e9d6f15, type: 3}
       propertyPath: m_Name
       value: BossArena1
@@ -663,6 +671,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3975647956714603899, guid: 02e8036292cf6a8429cd80d7d077b7cc, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3975647956957285814, guid: 02e8036292cf6a8429cd80d7d077b7cc, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -800,6 +812,10 @@ PrefabInstance:
     - target: {fileID: 6677157229790122842, guid: 30d1073450375bd44a7af4cf7216fcda, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677157229790122843, guid: 30d1073450375bd44a7af4cf7216fcda, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6677157230517165713, guid: 30d1073450375bd44a7af4cf7216fcda, type: 3}
       propertyPath: m_RootOrder
@@ -974,6 +990,10 @@ PrefabInstance:
     - target: {fileID: 2806901797140675473, guid: 69f980d587a4b2542a90875ddffa3ed7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4142400094883882262, guid: 69f980d587a4b2542a90875ddffa3ed7, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4746893606973365582, guid: 69f980d587a4b2542a90875ddffa3ed7, type: 3}
       propertyPath: m_LocalScale.y
