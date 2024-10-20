@@ -75,7 +75,7 @@ public class EnemyDamage : MonoBehaviour
             }  
             // primary fire
             if (wandProjectile.def1.name == "Fire" && !isBurning) {
-                burnTime += 1.5f;        // burning time for primary
+                burnTime += 2.0f;        // burning time for primary
                 isBurning = true;
             }
             // secondary fire
@@ -84,11 +84,11 @@ public class EnemyDamage : MonoBehaviour
                 isBurning = true;
             }
             if (wandProjectile.def1.name == "Water" && !isSundered) {
-                sunderedTime += 2.5f;    // slowing time for primary
+                sunderedTime += 1.8f;    // slowing time for primary
                 isSundered = true;
             }
             if (wandProjectile.def2.name == "Water" && !isSundered) {
-                sunderedTime += 1.0f;    // slowing time for secondary
+                sunderedTime += 0.6f;    // slowing time for secondary
                 isSundered = true;
             }
             if (wandProjectile.def1.weakElement == enemyElement.enemyElementofChoice) {
@@ -121,7 +121,7 @@ public class EnemyDamage : MonoBehaviour
     void Burning()
     {
         burnTime -= Time.deltaTime;
-        healthController.Damage(4.0f * Time.deltaTime);
+        healthController.Damage(6.0f * Time.deltaTime);
         if (burnTime <= 0) {
             isBurning = false;
         }

@@ -3,7 +3,7 @@ using UnityEngine;
 public class HealthController : MonoBehaviour
 {
     [Header("Inscribed")]
-    public float maxHealth = 50f;
+    public float maxHealth = 60f;
     public HealthBarController healthBar;
     public float currHealth = 50f;
     public Color mainColor;
@@ -44,7 +44,7 @@ public class HealthController : MonoBehaviour
 
     public void OnTriggerStay(Collider c) {
         GameObject otherGO = c.gameObject;
-        if (otherGO.layer == LayerMask.NameToLayer("EnvironmentalHazards")) {
+        if (otherGO.layer == LayerMask.NameToLayer("EnvironmentalHazards")) { 
             EnvironmentalHazard eH = otherGO.GetComponent<EnvironmentalHazard>();
             if (eH != null) {
                 Damage(Time.deltaTime * eH.damage);

@@ -17,13 +17,23 @@ public class weapon : MonoBehaviour
     static public Transform     PROJECTILE_ANCHOR;
     private Renderer            ren;
     static public ElementDefinition def;
+    static public ElementDefinition startingDef1;
+    static public ElementDefinition startingDef2;
 
     static public weapon w;
     // Start is called before the first frame update
     void Start()
     {
         w = this;
+
         ren = GetComponent<Renderer>();
+
+        startingDef1 = Main.GET_ELEMENT_DEFINITION(eleTypes[0]);
+        startingDef2 = Main.GET_ELEMENT_DEFINITION(eleTypes[1]);
+
+        UpdateColor(startingDef1, startingDef2);
+
+
         if (PROJECTILE_ANCHOR == null) {
             GameObject go = new GameObject("_ProjectileAnchor");
             PROJECTILE_ANCHOR = go.transform;
@@ -35,7 +45,6 @@ public class weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // check for power up pick up
         DetectInput();
     }
     
@@ -67,5 +76,8 @@ public class weapon : MonoBehaviour
         if (totalVec.magnitude > 0) {
             ShootProj(totalVec);
         }
+    }
+    public void UpdateColor(ElementDefinition def1, ElementDefinition def2) {
+        ren.material.color = (def1.color + def2.color) / 2.0f;
     }
 }

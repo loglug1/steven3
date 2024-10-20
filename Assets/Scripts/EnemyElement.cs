@@ -11,8 +11,8 @@ public class EnemyElement : MonoBehaviour
     public elementTypes     enemyElementofChoice;
     public elementTypes[]   enemyElementChance;
     public ElementDefinition    enemyEleDef;
-    public float            strMult = 1.3f;
-    public float            secondaryStrMult = 1.2f;
+    public float            strMult = 1.5f;
+    public float            secondaryStrMult = 1.22f;
     public float            resMult = .80f;
     public float            secondaryResMult = .90f;
 

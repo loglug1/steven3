@@ -25,10 +25,11 @@ public class chest : MonoBehaviour
 
     static public chest c;        
               
-    public void OnTriggerEnter(Collider c)
+    public void OnTriggerEnter(Collider collid)
     {
+        c = this;
         GameObject go;
-        go = c.gameObject;
+        go = collid.gameObject;
         if(go.GetComponent<PlayerController>() != null) 
         {
             source.PlayOneShot(chestOpen);
@@ -44,7 +45,6 @@ public class chest : MonoBehaviour
         }
     }
     void Awake() {
-        c = this;
         chosenElements[0] = elementChances[Random.Range(0, elementChances.Length)];         // 1st chosen 
         def1 = Main.GET_ELEMENT_DEFINITION(chosenElements[0]);
         button1_text.text = def1.name;
@@ -60,6 +60,7 @@ public class chest : MonoBehaviour
         def2 = Main.GET_ELEMENT_DEFINITION(chosenElements[1]);
         button2_text.text = def2.name;
         but2.GetComponent<Image>().sprite = def2.sprite;
+
 
 
         source = GetComponent<AudioSource>(); // chest sound player
