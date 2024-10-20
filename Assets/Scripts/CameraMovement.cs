@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
+    static CameraMovement S;
+
     [Header("Inscribed")]
     public float cameraIncrementX = 39.5f;
     public float cameraIncrementY = 22f;
@@ -19,6 +21,8 @@ public class CameraMovement : MonoBehaviour
 
     void Awake()
     {
+        S = this;
+
         camHeight=Camera.main.orthographicSize;
         camWidth=camHeight*Camera.main.aspect;
         camPosition = transform.position;
@@ -48,5 +52,9 @@ public class CameraMovement : MonoBehaviour
             transform.position = camPosition;
             Debug.Log("Player Left Screen Down");
         }
+    }
+
+    static public bool IsOnScreen(Vector3 pos) {
+        return (pos.y < S.camPosition.y + S.camHeight) && (pos.y > S.camPosition.y - S.camHeight) && (pos.x < S.camPosition.x + S.camWidth) && (pos.x > S.camPosition.x - S.camWidth);
     }
 }
