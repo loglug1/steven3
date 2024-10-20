@@ -156,24 +156,4 @@ public class EnemyController : MonoBehaviour
     public void Die() {
         Destroy(gameObject);
     }
-
-    //meant for water projectiles
-    void OnCollisionEnter(Collision c) {
-        GameObject otherGO = c.gameObject;
-        wandProjectile wProj = otherGO.GetComponent<wandProjectile>();
-        if (wProj != null) {
-            healthController.Damage(wProj.dmg);
-            Destroy(otherGO);
-        }
-    }
-
-    //meant for all other projectiles
-    void OnTriggerEnter(Collider c) {
-        GameObject otherGO = c.gameObject;
-        wandProjectile wProj = otherGO.GetComponent<wandProjectile>();
-        if (wProj != null) {
-            healthController.Damage(wProj.dmg);
-            Destroy(otherGO);
-        }
-    }
 }

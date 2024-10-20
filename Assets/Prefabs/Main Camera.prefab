@@ -100,34 +100,34 @@ MonoBehaviour:
   elementDefinitions:
   - element: 0
     projectilePrefab: {fileID: 72012815015929179, guid: 849dbb80b884da34e99be0884da7d034, type: 3}
-    damageOnHit: 1
+    damageOnHit: 5
     damagePerSec: 0
-    delayBetweenShots: 0.42
+    delayBetweenShots: 0.6
     velocity: 8
     color: 0
     name: None
   - element: 1
     projectilePrefab: {fileID: 8136098084400355990, guid: ed80c1331b7abca4f8094237b0b717c8, type: 3}
-    damageOnHit: 0.8
-    damagePerSec: 0.5
-    delayBetweenShots: 0.6
-    velocity: 5
+    damageOnHit: 4
+    damagePerSec: 3
+    delayBetweenShots: 0.85
+    velocity: 6
     color: 1
     name: Fire
   - element: 2
     projectilePrefab: {fileID: 5114822508641061237, guid: 4be833370d2d897499c9fe6b09ecf2c9, type: 3}
-    damageOnHit: 1.5
+    damageOnHit: 8.34
     damagePerSec: 0
     delayBetweenShots: 0.6
-    velocity: 2
+    velocity: 3
     color: 2
     name: Water
   - element: 3
     projectilePrefab: {fileID: 213716773382589390, guid: c0076560b5d5b80439f2a205b21acf9d, type: 3}
-    damageOnHit: 0.9
+    damageOnHit: 4.25
     damagePerSec: 0
     delayBetweenShots: 0.8
-    velocity: 7
+    velocity: 8
     color: 3
     name: Grass
   player: {fileID: 0}
