@@ -15,8 +15,10 @@ public class chest : MonoBehaviour
     public elementTypes[] chosenElements;    // chosen elements
     private AudioSource source;
     public GameObject  uiPopup;   
-    public TMP_Text    button1;
-    public TMP_Text    button2;
+    public TMP_Text    button1_text;
+    public TMP_Text    button2_text;
+    public Button but1;
+    public Button but2;
 
     public ElementDefinition def1;
     public ElementDefinition def2;
@@ -45,8 +47,8 @@ public class chest : MonoBehaviour
         c = this;
         chosenElements[0] = elementChances[Random.Range(0, elementChances.Length - 1)];         // 1st chosen 
         def1 = Main.GET_ELEMENT_DEFINITION(chosenElements[0]);
-        button1.text = def1.name;
-        // button1.GetComponent<Image>().sprite = def1.sprite;
+        button1_text.text = def1.name;
+        but1.GetComponent<Image>().sprite = def1.sprite;
 
         elementTypes elementChose = elementChances[Random.Range(0, elementChances.Length - 1)]; 
         // 2nd, make sure its not the same
@@ -56,8 +58,8 @@ public class chest : MonoBehaviour
         chosenElements[1] = elementChose;     // 2nd chosen
 
         def2 = Main.GET_ELEMENT_DEFINITION(chosenElements[1]);
-        button2.text = def2.name;
-        // button2.GetComponent<Image>().sprite = def2.sprite;
+        button2_text.text = def2.name;
+        but2.GetComponent<Image>().sprite = def2.sprite;
 
 
         source = GetComponent<AudioSource>(); // chest sound player
