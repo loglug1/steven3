@@ -78,7 +78,6 @@ public class EnemyController : MonoBehaviour
 
         //jumping
         if (jAxis == 0) {
-            Debug.Log("canJUmp");
             canJump = true;
         }
 
