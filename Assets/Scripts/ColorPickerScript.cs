@@ -12,6 +12,7 @@ public class ColorPickerScript : MonoBehaviour
     public TMP_InputField Ginput;
     public TMP_InputField Binput;
     public Button submitBTN;
+    public Image thisSlime;
 
     [Header("Dynamic")]
     public float R;
@@ -30,5 +31,6 @@ public class ColorPickerScript : MonoBehaviour
         B=System.Int32.Parse(Binput.text);
 
         Main.PlayerColor=new Color(R/255f,G/255f,B/255f,1);
+        thisSlime.GetComponent<Image>().material.color=Main.PlayerColor;
     }
 }

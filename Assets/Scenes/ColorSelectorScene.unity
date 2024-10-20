@@ -1728,6 +1728,7 @@ MonoBehaviour:
   Ginput: {fileID: 434769356}
   Binput: {fileID: 1247953408}
   submitBTN: {fileID: 1577827608}
+  thisSlime: {fileID: 180096545}
   R: 0
   G: 0
   B: 0
