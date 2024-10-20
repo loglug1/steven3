@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
     }
 
     bool HoldingWall() { //checks raycast at head and foot
-        return Physics.Raycast(transform.position + Vector3.down * distToGround, Vector3.right * Input.GetAxis("Horizontal") * movementDirection, distToWall + 0.1f, LayerMask.GetMask("Ground")) || Physics.Raycast(transform.position + Vector3.up * distToGround, Vector3.right * Input.GetAxis("Horizontal") * movementDirection, distToWall + 0.1f, LayerMask.GetMask("Ground"));
+        return Physics.Raycast(transform.position + Vector3.down * distToGround * 0.9f, Vector3.right * Input.GetAxis("Horizontal") * movementDirection, distToWall + 0.1f, LayerMask.GetMask("Ground")) || Physics.Raycast(transform.position + Vector3.up * distToGround, Vector3.right * Input.GetAxis("Horizontal") * movementDirection, distToWall + 0.1f, LayerMask.GetMask("Ground")) || Physics.Raycast(transform.position, Vector3.right * Input.GetAxis("Horizontal") * movementDirection, distToWall + 0.1f, LayerMask.GetMask("Ground"));
     }
 
     void Jump(float multiplier = 1f) {
