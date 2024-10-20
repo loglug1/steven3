@@ -5,10 +5,13 @@ using UnityEngine;
 public class EnemyDamage : MonoBehaviour
 {
     public HealthController healthController;
-    public EnemyController enemyController;
-    public bool isRooted = false;
-    public bool isBurning = false;
+    public EnemyController  enemyController;
+    public EnemyElement     enemyElement;
+    public bool isRooted   = false;
+    public bool isBurning  = false;
     public bool isSundered = false;
+    public bool isWeak     = false;
+    public bool isStrong   = false;
     public float rootedCoolDown;
     public float burnCoolDown;
     private float waitTime;
@@ -20,6 +23,7 @@ public class EnemyDamage : MonoBehaviour
     {
         healthController = GetComponent<HealthController>();
         enemyController = GetComponent<EnemyController>();
+        enemyElement = GetComponent<EnemyElement>();
         waitTime     =   0.0f;
         sunderedTime =   0.0f;
         burnTime     =   0.0f;
@@ -86,6 +90,18 @@ public class EnemyDamage : MonoBehaviour
             if (wandProjectile.def2.name == "Water" && !isSundered) {
                 sunderedTime += 1.0f;    // slowing time for secondary
                 isSundered = true;
+            }
+            if (wandProjectile.def1.weakElement == enemyElement.enemyElementofChoice) {
+                wProj.dmg = wProj.dmg * enemyElement.resMult;
+            }
+            if (wandProjectile.def2.weakElement == enemyElement.enemyElementofChoice) {
+                wProj.dmg = wProj.dmg * enemyElement.secondaryResMult;
+            }
+            if (wandProjectile.def1.strElement == enemyElement.enemyElementofChoice) {
+                wProj.dmg = wProj.dmg * enemyElement.strMult;
+            }
+            if (wandProjectile.def2.strElement == enemyElement.enemyElementofChoice) {
+                wProj.dmg = wProj.dmg * enemyElement.secondaryStrMult;
             }
             healthController.Damage(wProj.dmg);
             Destroy(otherGO);

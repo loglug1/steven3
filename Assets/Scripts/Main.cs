@@ -27,6 +27,8 @@ public class ElementDefinition {
     public Colors       color;
     public string       name;
     public Sprite       sprite;
+    public elementTypes weakElement         = elementTypes.None;
+    public elementTypes strElement          = elementTypes.None;
     
 }
 
