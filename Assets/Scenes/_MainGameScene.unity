@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -811,62 +811,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 966293881}
-    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
-      propertyPath: elementDefinitions.Array.data[1].color.b
-      value: 0.14524728
-      objectReference: {fileID: 0}
-    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
-      propertyPath: elementDefinitions.Array.data[1].color.g
-      value: 0.49585694
-      objectReference: {fileID: 0}
-    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
-      propertyPath: elementDefinitions.Array.data[1].color.r
-      value: 0.9056604
-      objectReference: {fileID: 0}
-    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
-      propertyPath: elementDefinitions.Array.data[2].color.b
-      value: 0.8930817
-      objectReference: {fileID: 0}
-    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
-      propertyPath: elementDefinitions.Array.data[2].color.g
-      value: 0.6288689
-      objectReference: {fileID: 0}
-    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
-      propertyPath: elementDefinitions.Array.data[2].color.r
-      value: 0.0926782
-      objectReference: {fileID: 0}
-    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
-      propertyPath: elementDefinitions.Array.data[3].color.b
-      value: 0.28263736
-      objectReference: {fileID: 0}
-    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
-      propertyPath: elementDefinitions.Array.data[3].color.g
-      value: 0.59748423
-      objectReference: {fileID: 0}
-    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
-      propertyPath: elementDefinitions.Array.data[3].color.r
-      value: 0.20855574
-      objectReference: {fileID: 0}
-    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
-      propertyPath: elementDefinitions.Array.data[1].damageOnHit
-      value: 4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
-      propertyPath: elementDefinitions.Array.data[2].damageOnHit
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
-      propertyPath: elementDefinitions.Array.data[1].delayBetweenShots
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
-      propertyPath: elementDefinitions.Array.data[2].delayBetweenShots
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
-      propertyPath: elementDefinitions.Array.data[3].delayBetweenShots
-      value: 0.75
-      objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773393, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: m_RootOrder
       value: 9

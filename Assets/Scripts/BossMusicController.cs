@@ -8,7 +8,9 @@ public class BossMusicController : MonoBehaviour
     void FixedUpdate() {
         if (CameraMovement.IsOnScreen(transform.position) && !playing) {
             playing = true;
-            Camera.main.GetComponent<AudioSource>().clip = bossMusic;
+            AudioSource aS = Camera.main.GetComponent<AudioSource>();
+            aS.clip = bossMusic;
+            aS.Play();
         }
     }
 }
