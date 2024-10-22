@@ -17,6 +17,9 @@ public class EnemyDamage : MonoBehaviour
     private float waitTime;
     private float burnTime;
     private float sunderedTime;
+    public GameObject burningUI;
+    public GameObject sunderedUI;
+    public GameObject rootedUI;
     public int count = 1;
     // Start is called before the first frame update
     void Awake()
@@ -27,6 +30,9 @@ public class EnemyDamage : MonoBehaviour
         waitTime     =   0.0f;
         sunderedTime =   0.0f;
         burnTime     =   0.0f;
+        burningUI.SetActive(false);
+        sunderedUI.SetActive(false);
+        rootedUI.SetActive(false);
     }
 
     // Update is called once per frame
@@ -62,34 +68,43 @@ public class EnemyDamage : MonoBehaviour
     }
     void HandleProjectile(wandProjectile wProj, GameObject otherGO)
     {
+        // probably move statuses to new file   
         // primary grass
         if (wProj != null) {
             if (wandProjectile.def1.name == "Grass" && rootedCoolDown <= 0 && !isRooted) {
                 waitTime += 1.5f;        // rooted time for primary
                 isRooted = true;
+                rootedUI.SetActive(true);
+
             }
             // secondary grass
             if (wandProjectile.def2.name == "Grass" && rootedCoolDown <= 0 && !isRooted) {
                 waitTime += 0.5f;        // rooted time for secondary
                 isRooted = true;
+                rootedUI.SetActive(true);
             }  
             // primary fire
             if (wandProjectile.def1.name == "Fire" && !isBurning) {
                 burnTime += 2.0f;        // burning time for primary
                 isBurning = true;
+                burningUI.SetActive(true);
             }
             // secondary fire
             if (wandProjectile.def2.name == "Fire" && !isBurning) {
                 burnTime += 0.5f;        // burning time for secondary
                 isBurning = true;
+                burningUI.SetActive(true);
+
             }
             if (wandProjectile.def1.name == "Water" && !isSundered) {
                 sunderedTime += 1.8f;    // slowing time for primary
                 isSundered = true;
+                sunderedUI.SetActive(true);
             }
             if (wandProjectile.def2.name == "Water" && !isSundered) {
                 sunderedTime += 0.6f;    // slowing time for secondary
                 isSundered = true;
+                sunderedUI.SetActive(true);
             }
             if (wandProjectile.def1.weakElement == enemyElement.enemyElementofChoice) {
                 wProj.dmg = wProj.dmg * enemyElement.resMult;
@@ -113,6 +128,7 @@ public class EnemyDamage : MonoBehaviour
         enemyController.canMove = false;
         waitTime -= Time.deltaTime;
         if (waitTime <= 0) {
+            rootedUI.SetActive(false);
             isRooted = false;
             rootedCoolDown = 3.0f;          // wait 3 secs to root again
             enemyController.canMove = true;
@@ -124,6 +140,7 @@ public class EnemyDamage : MonoBehaviour
         healthController.Damage(6.0f * Time.deltaTime);
         if (burnTime <= 0) {
             isBurning = false;
+            burningUI.SetActive(false); 
         }
     }
     void Sundered()
@@ -139,6 +156,7 @@ public class EnemyDamage : MonoBehaviour
         if (sunderedTime <= 0) {
             count = 1;
             isSundered = false;
+            sunderedUI.SetActive(false);
             enemyController.walkingSpeed = enemyController.walkingSpeed * 2f;
             enemyController.moveDownSpeed = enemyController.moveDownSpeed * 2f;
             enemyController.jumpPower = enemyController.jumpPower * 2f;
