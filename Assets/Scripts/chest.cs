@@ -34,6 +34,7 @@ public class chest : MonoBehaviour
         {
             source.PlayOneShot(chestOpen);
             uiPopup.SetActive(true);
+            Time.timeScale = 0;
         }
     }
     public void OnTriggerExit(Collider c)
