@@ -20,6 +20,7 @@ public class ElementDefinition {
     public Sprite       sprite;
     public elementTypes weakElement         = elementTypes.None;
     public elementTypes strElement          = elementTypes.None;
+    public float[]          effectDurations;
     
 }
 public class ElementHandler : MonoBehaviour
