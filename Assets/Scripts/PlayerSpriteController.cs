@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerSpriteController : MonoBehaviour
 {
-    PlayerController player;
+    MovementController player;
 
     void Awake() {
-        player = transform.parent.GetComponent<PlayerController>();
+        player = transform.parent.GetComponent<MovementController>();
         setColorPlayer();
     }
     void FixedUpdate() {

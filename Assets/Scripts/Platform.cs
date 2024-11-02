@@ -9,7 +9,7 @@ public class Platform : MonoBehaviour
     public GameObject groundToReplace;
 
     [Header("Dynamic")]
-    public PlayerController player;
+    public GameObject player;
     public float distToTop;
     public Collider coll;
     public Vector3 lowerPoint;

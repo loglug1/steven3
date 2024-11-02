@@ -517,40 +517,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7292662365035269144, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
   m_PrefabInstance: {fileID: 2102209144}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &966293881 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7292662365035269138, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
-  m_PrefabInstance: {fileID: 2102209144}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 966293879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67a3af0fe59380843948dc3f0dfb7486, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &966293888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 966293879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2089ded27ae1344688626fd2e73b698, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  invincibilityTime: 1
-  healthController: {fileID: 0}
-  playerController: {fileID: 0}
-  isRooted: 0
-  isBurning: 0
-  isSundered: 0
-  isWeak: 0
-  isStrong: 0
-  rootedCoolDown: 0
-  burnCoolDown: 0
-  count: 1
 --- !u!114 &1012527320 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7558387474538926938, guid: 7487fcf4e45c5ae42b9199d71346a540, type: 3}
@@ -810,7 +776,7 @@ PrefabInstance:
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 966293881}
+      objectReference: {fileID: 966293879}
     - target: {fileID: 7311582965226773393, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -947,22 +913,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1598076508, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
-      propertyPath: eleTypes.Array.data[0]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1598076508, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
-      propertyPath: eleTypes.Array.data[1]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919930518605850460, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6652029744895830315, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7292662365035269139, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1010,14 +960,6 @@ PrefabInstance:
     - target: {fileID: 7292662365035269144, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7292662365035269151, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8384735881533357745, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}

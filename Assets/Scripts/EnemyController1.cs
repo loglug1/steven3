@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyControllerOLD : MonoBehaviour
 {
     [Header("Inscribed")]
     public float walkingSpeed = 6f;
@@ -25,7 +25,7 @@ public class EnemyController : MonoBehaviour
     public float jAxis;
     public float hAxis;
     public float vAxis;
-    public PlayerController player;
+    public GameObject player;
     public HealthController healthController;
 
     void Awake() {

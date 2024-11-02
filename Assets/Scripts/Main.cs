@@ -41,7 +41,7 @@ public class Main : MonoBehaviour
     static private Dictionary<elementTypes, ElementDefinition> ELE_DICT;
     [Header("Inscribed")]
     public ElementDefinition[] elementDefinitions;
-    public PlayerController player;
+    public GameObject player;
     // Start is called before the first frame update
     void Awake()
     {
@@ -58,7 +58,7 @@ public class Main : MonoBehaviour
         return(new ElementDefinition());
     }
 
-    static public PlayerController GET_PLAYER() {
+    static public GameObject GET_PLAYER() {
         return S.player;
     }
 

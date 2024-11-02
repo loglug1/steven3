@@ -257,6 +257,9 @@ GameObject:
   - component: {fileID: 7292662365035269151}
   - component: {fileID: 7292662365035269138}
   - component: {fileID: 7292662365035269137}
+  - component: {fileID: 3755567579964183293}
+  - component: {fileID: 966293888}
+  - component: {fileID: 1674569882685910270}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -374,18 +377,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a3af0fe59380843948dc3f0dfb7486, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkingSpeed: 6
-  moveDownSpeed: 75
-  jumpPower: 350
-  jumpDelay: 0.1
-  wallJumpInvertDelay: 0.2
-  rBody: {fileID: 0}
-  canJump: 1
-  onGround: 0
-  distToGround: 0
-  distToWall: 0
-  canDoubleJump: 0
-  movementDirection: 1
+  movementController: {fileID: 0}
 --- !u!114 &7292662365035269137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,6 +395,75 @@ MonoBehaviour:
   currHealth: 50
   mainColor: {r: 0.15686275, g: 0.4784314, b: 0.7411765, a: 1}
   lowColor: {r: 0.7484276, g: 0, b: 0, a: 1}
+--- !u!114 &3755567579964183293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7292662365035269144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1aa5e4fc38d00c409ff1db7529f5307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkingSpeed: 6
+  diveSpeed: 75
+  jumpPower: 350
+  wallJumpInvertDelay: 0.2
+  rBody: {fileID: 0}
+  canJump: 1
+  distToGround: 0
+  distToWall: 0
+  canDoubleJump: 0
+  movementDirection: 1
+  canMove: 1
+--- !u!114 &966293888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7292662365035269144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2089ded27ae1344688626fd2e73b698, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invincibilityTime: 1
+  healthController: {fileID: 0}
+  playerController: {fileID: 0}
+  isRooted: 0
+  isBurning: 0
+  isSundered: 0
+  isWeak: 0
+  isStrong: 0
+  rootedCoolDown: 0
+  burnCoolDown: 0
+  count: 1
+--- !u!114 &1674569882685910270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7292662365035269144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1aa5e4fc38d00c409ff1db7529f5307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkingSpeed: 6
+  diveSpeed: 75
+  jumpPower: 350
+  wallJumpInvertDelay: 0.2
+  rBody: {fileID: 0}
+  canJump: 1
+  distToGround: 0
+  distToWall: 0
+  canDoubleJump: 0
+  movementDirection: 1
+  canMove: 1
 --- !u!1001 &1412126022
 PrefabInstance:
   m_ObjectHideFlags: 0

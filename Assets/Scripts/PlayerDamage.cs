@@ -9,7 +9,7 @@ public class PlayerDamage : MonoBehaviour
 
     [Header("Dynamic")]
     public HealthController healthController;
-    public PlayerController  playerController;
+    public MovementController  playerController;
     public bool isRooted   = false;
     public bool isBurning  = false;
     public bool isSundered = false;
@@ -25,7 +25,7 @@ public class PlayerDamage : MonoBehaviour
     void Awake()
     {
         healthController = GetComponent<HealthController>();
-        playerController = GetComponent<PlayerController>();
+        playerController = GetComponent<MovementController>();
         waitTime     =   0.0f;
         sunderedTime =   0.0f;
         burnTime     =   0.0f;
@@ -120,7 +120,7 @@ public class PlayerDamage : MonoBehaviour
         if (count > 0) {
             count = count - 1;
             playerController.walkingSpeed = playerController.walkingSpeed * 0.5f;
-            playerController.moveDownSpeed = playerController.moveDownSpeed * 0.5f;
+            playerController.diveSpeed = playerController.diveSpeed * 0.5f;
             playerController.jumpPower = playerController.jumpPower * 0.5f;
         }
 
@@ -128,7 +128,7 @@ public class PlayerDamage : MonoBehaviour
             count = 1;
             isSundered = false;
             playerController.walkingSpeed = playerController.walkingSpeed * 2f;
-            playerController.moveDownSpeed = playerController.moveDownSpeed * 2f;
+            playerController.diveSpeed = playerController.diveSpeed * 2f;
             playerController.jumpPower = playerController.jumpPower * 2f;
         }
     }

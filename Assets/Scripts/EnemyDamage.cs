@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyDamage : MonoBehaviour
 {
     public HealthController healthController;
-    public EnemyController  enemyController;
+    public MovementController  enemyController;
     public EnemyElement     enemyElement;
     public bool isRooted   = false;
     public bool isBurning  = false;
@@ -25,7 +25,7 @@ public class EnemyDamage : MonoBehaviour
     void Awake()
     {
         healthController = GetComponent<HealthController>();
-        enemyController = GetComponent<EnemyController>();
+        enemyController = GetComponent<MovementController>();
         enemyElement = GetComponent<EnemyElement>();
         waitTime     =   0.0f;
         sunderedTime =   0.0f;
@@ -149,7 +149,7 @@ public class EnemyDamage : MonoBehaviour
         if (count > 0) {
             count = count - 1;
             enemyController.walkingSpeed = enemyController.walkingSpeed * 0.5f;
-            enemyController.moveDownSpeed = enemyController.moveDownSpeed * 0.5f;
+            enemyController.diveSpeed = enemyController.diveSpeed * 0.5f;
             enemyController.jumpPower = enemyController.jumpPower * 0.5f;
         }
 
@@ -158,7 +158,7 @@ public class EnemyDamage : MonoBehaviour
             isSundered = false;
             sunderedUI.SetActive(false);
             enemyController.walkingSpeed = enemyController.walkingSpeed * 2f;
-            enemyController.moveDownSpeed = enemyController.moveDownSpeed * 2f;
+            enemyController.diveSpeed = enemyController.diveSpeed * 2f;
             enemyController.jumpPower = enemyController.jumpPower * 2f;
         }
     }

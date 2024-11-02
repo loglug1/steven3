@@ -203,6 +203,7 @@ GameObject:
   - component: {fileID: 1706128081}
   - component: {fileID: 2093837098}
   - component: {fileID: 2093837106}
+  - component: {fileID: 3755567579964183293}
   m_Layer: 13
   m_Name: Enemy
   m_TagString: Untagged
@@ -336,28 +337,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2d98270a4bd87d47981b41ca4463851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkingSpeed: 4
-  moveDownSpeed: 75
-  jumpPower: 350
-  jumpDelay: 0.5
-  wallJumpInvertDelay: 0.2
   playerHoneDistance: 1
-  canMove: 1
   canSeePlayer: 0
   objectPermanence: 0
-  rBody: {fileID: 0}
-  canJump: 1
-  grounded: 0
+  jumpDelay: 0.5
   holdingWall: 0
-  distToGround: 0
-  distToWall: 0
-  canDoubleJump: 0
   movementDirection: 1
   jAxis: 0
   hAxis: 0
   vAxis: 0
   player: {fileID: 0}
   healthController: {fileID: 0}
+  movementController: {fileID: 0}
 --- !u!114 &2093837098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,6 +409,29 @@ MonoBehaviour:
   secondaryStrMult: 1.2
   resMult: 0.8
   secondaryResMult: 0.9
+--- !u!114 &3755567579964183293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7292662365035269144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1aa5e4fc38d00c409ff1db7529f5307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkingSpeed: 4
+  diveSpeed: 75
+  jumpPower: 350
+  wallJumpInvertDelay: 0.2
+  rBody: {fileID: 0}
+  canJump: 1
+  distToGround: 0
+  distToWall: 0
+  canDoubleJump: 0
+  movementDirection: 1
+  canMove: 1
 --- !u!1001 &914924031726629676
 PrefabInstance:
   m_ObjectHideFlags: 0
