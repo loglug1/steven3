@@ -29,6 +29,7 @@ public class PlayerDamage : MonoBehaviour
         waitTime     =   0.0f;
         sunderedTime =   0.0f;
         burnTime     =   0.0f;
+        ResetInvicibility();
     }
 
     // Update is called once per frame

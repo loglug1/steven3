@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Main : MonoBehaviour
 {
     static Main S;
-    static public Color PlayerColor;
+    static public Color PlayerColor = new Color(255/255f,147/255f,255/255f,255/255f);
     static public Color MenuPlayerColor;
     static public string macho = "HAPPY";
     static private Dictionary<elementTypes, ElementDefinition> ELE_DICT;
