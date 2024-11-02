@@ -16,15 +16,6 @@ public class wandProjectile : MonoBehaviour
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
-        // Optionally set the color of the projectile
-        // GetComponent<Renderer>().material.color = projectileColor;
-
-
-    }
-
-    void Update()
-    {
-
     }
 
     static public void Shoot(elementTypes ele1, elementTypes ele2, Vector3 vec, Transform pj_anc, Transform shotPointTrans)
@@ -45,13 +36,6 @@ public class wandProjectile : MonoBehaviour
         Vector3 pos = shotPointTrans.position;
         pos.z = 0; // Ensure z is 0 if it's a 2D game
         go.transform.position = pos;
-
-        // Set the color of the instantiated projectile
-        // Renderer renderer = go.GetComponent<Renderer>();
-        // if (renderer != null)
-        // {
-        //     renderer.material.color = def1.color; // Assuming ElementDefinition has a color property
-        // }
 
         // Get the Rigidbody component of the new projectile
         Rigidbody goRigid = go.GetComponent<Rigidbody>();

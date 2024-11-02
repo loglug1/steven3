@@ -913,6 +913,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1598076508, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
+      propertyPath: eleTypes.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598076508, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
+      propertyPath: eleTypes.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919930518605850460, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4042723358579005739, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4042723358579005739, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6652029744895830315, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7292662365035269139, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
       propertyPath: m_RootOrder
       value: 0
