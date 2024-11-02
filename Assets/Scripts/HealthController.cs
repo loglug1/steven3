@@ -8,7 +8,7 @@ public class HealthController : MonoBehaviour
     public float currHealth = 50f;
     public Color mainColor;
     public Color lowColor;
-    private EnemyElement elementChecker;
+    private ElementHandler elementChecker;
     
     // [Header("Dynamic")]
 
@@ -52,7 +52,7 @@ public class HealthController : MonoBehaviour
         if (otherGO.layer == LayerMask.NameToLayer("EnvironmentalHazards")) { 
             EnvironmentalHazard eH = otherGO.GetComponent<EnvironmentalHazard>();
             if (eH != null) {
-                elementChecker = GetComponent<EnemyElement>();
+                elementChecker = GetComponent<ElementHandler>();
 
                 if (elementChecker == null) { // player doesn't have enemyelement
                     Damage(Time.deltaTime * eH.damage);

@@ -51,7 +51,7 @@ public class PlayerDamage : MonoBehaviour
     //when enemy hits player
     void OnCollisionEnter(Collision c) {
         GameObject otherGO = c.gameObject;
-        EnemyElement eEle = otherGO.GetComponent<EnemyElement>();
+        ElementHandler eEle = otherGO.GetComponent<ElementHandler>();
 
         if (eEle != null) {
             //allow invicibility for some time
@@ -66,7 +66,7 @@ public class PlayerDamage : MonoBehaviour
         EnemyProjectile eProj = otherGO.GetComponent<EnemyProjectile>();
 
         if (eProj != null) {
-            //healthController.Damage(Main.GET_ELEMENT_DEFINITION(eProj.type).damageOnHit);
+            // handles status effect on hit
             HandleHit(eProj.type);
             Destroy(otherGO);
         }
