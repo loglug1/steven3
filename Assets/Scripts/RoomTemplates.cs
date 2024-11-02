@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class RoomTemplates : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject[] bottomRooms;
+    public GameObject[] topRooms;
+    public GameObject[] leftRooms;
+    public GameObject[] rightRooms;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public GameObject closedRoom;
 }
