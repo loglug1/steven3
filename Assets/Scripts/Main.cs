@@ -3,35 +3,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public enum elementTypes {
-    None,
-    Fire,
-    Water,
-    Grass
-}
-public enum Colors {
-    white,
-    orange,
-    blue,
-    green
-}
-
-[System.Serializable]
-public class ElementDefinition {
-    public elementTypes element             = elementTypes.None;
-    public GameObject projectilePrefab;
-    public float        damageOnHit         = 0;
-    public float        damagePerSec        = 0;
-    public float        delayBetweenShots   = 0;
-    public float        velocity            = 50;
-    public Color       color;
-    public string       name;
-    public Sprite       sprite;
-    public elementTypes weakElement         = elementTypes.None;
-    public elementTypes strElement          = elementTypes.None;
-    
-}
-
 public class Main : MonoBehaviour
 {
     static Main S;

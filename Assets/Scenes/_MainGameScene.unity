@@ -959,6 +959,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4042723358579005739, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4042723358579005739, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6652029744895830315, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
       propertyPath: m_Enabled
       value: 0

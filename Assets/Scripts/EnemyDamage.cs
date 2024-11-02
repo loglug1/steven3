@@ -6,7 +6,7 @@ public class EnemyDamage : MonoBehaviour
 {
     public HealthController healthController;
     public EnemyController  enemyController;
-    public EnemyElement     enemyElement;
+    public ElementHandler     elementHandling;
     public bool isRooted   = false;
     public bool isBurning  = false;
     public bool isSundered = false;
@@ -21,12 +21,15 @@ public class EnemyDamage : MonoBehaviour
     public GameObject sunderedUI;
     public GameObject rootedUI;
     public int count = 1;
-    // Start is called before the first frame update
+
+    // variables that hold current elements to make code shorter lol
+    public ElementDefinition currentDef1;
+    public ElementDefinition currentDef2;
     void Awake()
     {
         healthController = GetComponent<HealthController>();
         enemyController = GetComponent<EnemyController>();
-        enemyElement = GetComponent<EnemyElement>();
+        elementHandling = GetComponent<ElementHandler>();
         waitTime     =   0.0f;
         sunderedTime =   0.0f;
         burnTime     =   0.0f;
@@ -68,56 +71,52 @@ public class EnemyDamage : MonoBehaviour
     }
     void HandleProjectile(wandProjectile wProj, GameObject otherGO)
     {
-        // probably move statuses to new file   
-        // primary grass
+         
+        
         if (wProj != null) {
-            if (wandProjectile.def1.name == "Grass" && rootedCoolDown <= 0 && !isRooted) {
+
+            currentDef1 = wandProjectile.def1;
+            currentDef2 = wandProjectile.def2;
+            // primary grass
+            if (currentDef1.name == "Grass" && rootedCoolDown <= 0 && !isRooted) {
                 waitTime += 1.5f;        // rooted time for primary
                 isRooted = true;
                 rootedUI.SetActive(true);
 
             }
             // secondary grass
-            if (wandProjectile.def2.name == "Grass" && rootedCoolDown <= 0 && !isRooted) {
+            if (currentDef2.name == "Grass" && rootedCoolDown <= 0 && !isRooted) {
                 waitTime += 0.5f;        // rooted time for secondary
                 isRooted = true;
                 rootedUI.SetActive(true);
             }  
             // primary fire
-            if (wandProjectile.def1.name == "Fire" && !isBurning) {
+            if (currentDef1.name == "Fire" && !isBurning) {
                 burnTime += 2.0f;        // burning time for primary
                 isBurning = true;
                 burningUI.SetActive(true);
             }
             // secondary fire
-            if (wandProjectile.def2.name == "Fire" && !isBurning) {
+            if (currentDef2.name == "Fire" && !isBurning) {
                 burnTime += 0.5f;        // burning time for secondary
                 isBurning = true;
                 burningUI.SetActive(true);
 
             }
-            if (wandProjectile.def1.name == "Water" && !isSundered) {
+            if (currentDef1.name == "Water" && !isSundered) {
                 sunderedTime += 1.8f;    // slowing time for primary
                 isSundered = true;
                 sunderedUI.SetActive(true);
             }
-            if (wandProjectile.def2.name == "Water" && !isSundered) {
+            if (currentDef2.name == "Water" && !isSundered) {
                 sunderedTime += 0.6f;    // slowing time for secondary
                 isSundered = true;
                 sunderedUI.SetActive(true);
             }
-            if (wandProjectile.def1.weakElement == enemyElement.enemyElementofChoice) {
-                wProj.dmg = wProj.dmg * enemyElement.resMult;
-            }
-            if (wandProjectile.def2.weakElement == enemyElement.enemyElementofChoice) {
-                wProj.dmg = wProj.dmg * enemyElement.secondaryResMult;
-            }
-            if (wandProjectile.def1.strElement == enemyElement.enemyElementofChoice) {
-                wProj.dmg = wProj.dmg * enemyElement.strMult;
-            }
-            if (wandProjectile.def2.strElement == enemyElement.enemyElementofChoice) {
-                wProj.dmg = wProj.dmg * enemyElement.secondaryStrMult;
-            }
+
+            EnemyDamageCalculation(currentDef1, currentDef2, wProj); 
+
+           
             healthController.Damage(wProj.dmg);
             Destroy(otherGO);
         }
@@ -161,5 +160,22 @@ public class EnemyDamage : MonoBehaviour
             enemyController.moveDownSpeed = enemyController.moveDownSpeed * 2f;
             enemyController.jumpPower = enemyController.jumpPower * 2f;
         }
+    }
+
+    public float EnemyDamageCalculation(ElementDefinition currentDef1, ElementDefinition currentDef2, wandProjectile wProj)
+    {
+        if (currentDef1.weakElement == elementHandling.enemyElementofChoice) {
+            wProj.dmg = wProj.dmg * elementHandling.resMult;
+        }
+        if (currentDef2.weakElement == elementHandling.enemyElementofChoice) {
+            wProj.dmg = wProj.dmg * elementHandling.secondaryResMult;
+        }
+        if (currentDef1.strElement == elementHandling.enemyElementofChoice) {
+            wProj.dmg = wProj.dmg * elementHandling.strMult;
+        }
+        if (currentDef2.strElement == elementHandling.enemyElementofChoice) {
+            wProj.dmg = wProj.dmg * elementHandling.secondaryStrMult;        
+        }
+        return(wProj.dmg);
     }
 }
