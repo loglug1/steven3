@@ -29,29 +29,29 @@ public class MovementController : MonoBehaviour
         canDoubleJump = true;
     }
 
-    public void Move(float hAxis, float vAxis) {
+    public void Move(float hAxis, float vAxis, float jAxis) {
         if (!canMove) return;
 
         //jumping
-        if (vAxis == 0) {
+        if (jAxis == 0) {
             canJump = true;
         }
 
         bool grounded = IsGrounded();
 
-        if (grounded && canJump && vAxis == 1) {
+        if (grounded && canJump && jAxis == 1) {
             Jump();
         }
         
         //wall jumping (must check before double jump)
-        if (HoldingWall(hAxis) && canJump && vAxis == 1) {
+        if (HoldingWall(hAxis) && canJump && jAxis == 1) {
             InvertMovement();
             Invoke("InvertMovement",wallJumpInvertDelay);
             Jump(1.5f);
         }
 
         //double jumping
-        if (!grounded && canJump && canDoubleJump && vAxis == 1) {
+        if (!grounded && canJump && canDoubleJump && jAxis == 1) {
             Vector3 vel = rBody.velocity;
             vel.y = 0;
             rBody.velocity = vel;

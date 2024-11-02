@@ -58,7 +58,7 @@ public class EnemyController : MonoBehaviour
             jAxis = 0;
         }
 
-        movementController.Move(hAxis, jAxis);
+        movementController.Move(hAxis, vAxis, jAxis);
     }
 
     bool IsPlayerVisible() {

@@ -14,6 +14,6 @@ public class PlayerController : MonoBehaviour
         movementController = GetComponent<MovementController>();
     }
     void FixedUpdate() {
-        movementController.Move(Input.GetAxis("Horizontal"), Input.GetAxis("Jump") + Input.GetAxis("Vertical") / 2f);
+        movementController.Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), Input.GetAxis("Jump"));
     }
 }
