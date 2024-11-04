@@ -39,33 +39,45 @@ public class EnemyHitHandler : MonoBehaviour
         
         if (wProj != null) {
 
-            currentDef1 = wandProjectile.def1;
-            currentDef2 = wandProjectile.def2;
             
             //status effects
-            statusController.ApplyEffect(new List<elementTypes>{currentDef1.element, currentDef2.element});
+            statusController.ApplyEffect(wProj.eleDefs);
 
-            EnemyDamageCalculation(currentDef1, currentDef2, wProj); 
+            EnemyDamageCalculation(wProj.eleDefs, wProj); 
             healthController.Damage(wProj.dmg);
 
             Destroy(wProj.gameObject);
         }
     }
 
-    public float EnemyDamageCalculation(ElementDefinition currentDef1, ElementDefinition currentDef2, wandProjectile wProj)
+    public float EnemyDamageCalculation(List<ElementDefinition> ele, wandProjectile wProj)
     {
-        if (currentDef1.weakElement == elementHandling.enemyElementofChoice) {
-            wProj.dmg = wProj.dmg * elementHandling.resMult;
+        float i = 1f;
+        foreach (ElementDefinition elementDef in ele) {
+            if (isStrong(elementDef, elementHandling.enemyElementofChoice)) {
+                wProj.dmg = wProj.dmg + 5/i;  // this calculation is just placeholder for now to test functionality
+            }
+            if (isWeak(elementDef, elementHandling.enemyElementofChoice)) {
+                wProj.dmg = wProj.dmg - 2/i; // res is weak... change later to "weakMult" instead
+            }
+            i = i + 1f;
         }
-        if (currentDef2.weakElement == elementHandling.enemyElementofChoice) {
-            wProj.dmg = wProj.dmg * elementHandling.secondaryResMult;
-        }
-        if (currentDef1.strElement == elementHandling.enemyElementofChoice) {
-            wProj.dmg = wProj.dmg * elementHandling.strMult;
-        }
-        if (currentDef2.strElement == elementHandling.enemyElementofChoice) {
-            wProj.dmg = wProj.dmg * elementHandling.secondaryStrMult;        
-        }
+        Debug.Log(wProj.dmg);
         return(wProj.dmg);
+    }
+
+    static public bool isWeak(ElementDefinition playerElementDef, elementTypes enemyEle ) {
+        if (playerElementDef.weakElement == enemyEle) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    static public bool isStrong(ElementDefinition playerElementDef, elementTypes enemyEle) {
+        if (playerElementDef.strElement == enemyEle) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

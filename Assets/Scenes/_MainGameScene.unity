@@ -517,6 +517,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7292662365035269144, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
   m_PrefabInstance: {fileID: 2102209144}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &966293890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966293879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c284c0bddb04851479c22d191ed27dab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerWeapon: 0
+  jewels: 0
 --- !u!114 &1012527320 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7558387474538926938, guid: 7487fcf4e45c5ae42b9199d71346a540, type: 3}

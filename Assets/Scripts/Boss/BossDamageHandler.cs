@@ -30,7 +30,7 @@ public class BossDamageHandler : MonoBehaviour
         GameObject otherGO = c.gameObject;
         wandProjectile wProj = otherGO.GetComponent<wandProjectile>();
 
-        HandleProjectile(wProj, otherGO);
+        HandleProjectile(wProj.eleDefs, wProj, otherGO);
     }
 
     //meant for all other projectiles
@@ -38,9 +38,9 @@ public class BossDamageHandler : MonoBehaviour
         GameObject otherGO = c.gameObject;
         wandProjectile wProj = otherGO.GetComponent<wandProjectile>();
 
-        HandleProjectile(wProj, otherGO);
+        HandleProjectile(wProj.eleDefs, wProj, otherGO);
     }
-    void HandleProjectile(wandProjectile wProj, GameObject otherGO)
+    void HandleProjectile(List<ElementDefinition> ele, wandProjectile wProj, GameObject otherGO)
     {
         // primary grass
         if (wProj != null) {
@@ -49,18 +49,16 @@ public class BossDamageHandler : MonoBehaviour
                 bossType = elementChances[(int)Mathf.Floor(Random.Range(0,elementChances.Length))];
             }
 
-            if (wandProjectile.def1.weakElement == bossType) {
-                wProj.dmg = wProj.dmg * resMult;
+        float i = 1f;
+        foreach (ElementDefinition elementDef in ele) {
+            if (EnemyHitHandler.isStrong(elementDef, bossType)) {
+                wProj.dmg = wProj.dmg + 3f/i;  // this calculation is just placeholder for now to test functionality
             }
-            if (wandProjectile.def2.weakElement == bossType) {
-                wProj.dmg = wProj.dmg * secondaryResMult;
+            if (EnemyHitHandler.isWeak(elementDef, bossType)) {
+                wProj.dmg = wProj.dmg - 2f/i; // res is weak... change later to "weakMult" instead
             }
-            if (wandProjectile.def1.strElement == bossType) {
-                wProj.dmg = wProj.dmg * strMult;
-            }
-            if (wandProjectile.def2.strElement == bossType) {
-                wProj.dmg = wProj.dmg * secondaryStrMult;
-            }
+            i = i + 1f;
+        }
             healthController.Damage(wProj.dmg);
             Destroy(otherGO);
         }

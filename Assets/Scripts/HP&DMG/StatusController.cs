@@ -51,10 +51,10 @@ public class StatusController : MonoBehaviour
         }
     }
 
-    public void ApplyEffect(List<elementTypes> wandElems) { //uses list for elements in order to accommodate for more than two elements in the future
+    public void ApplyEffect(List<ElementDefinition> wandElems) { //uses list for elements in order to accommodate for more than two elements in the future
         for (int wandSlot = 0; wandSlot < wandElems.Count; wandSlot++) {
-            ElementDefinition elemDef = Main.GET_ELEMENT_DEFINITION(wandElems[wandSlot]);
-            switch(wandElems[wandSlot]) {
+            ElementDefinition elemDef = wandElems[wandSlot];
+            switch(elemDef.element) {
                 case elementTypes.Grass:
                     if (rootedCoolDown <= 0 && !isRooted) {
                         waitTime += elemDef.effectDurations[wandSlot];

@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     public bool canSeePlayer = false;
     public float objectPermanence = 0f;
     public float jumpDelay = 0.1f;
+    
 
     [Header("Dynamic")]
     public bool holdingWall = false;
@@ -71,6 +72,8 @@ public class EnemyController : MonoBehaviour
     }
 
     public void Die() {
+        Inventory.I.jewels += 1;
+        Debug.Log(Inventory.I.jewels);
         Destroy(gameObject);
     }
 }

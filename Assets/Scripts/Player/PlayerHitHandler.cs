@@ -44,7 +44,7 @@ public class PlayerHitHandler : MonoBehaviour
     }
 
     void HandleHit(elementTypes elemType) {
-        statusController.ApplyEffect(new List<elementTypes>{elemType});
+        statusController.ApplyEffect(new List<ElementDefinition>{Main.GET_ELEMENT_DEFINITION(elemType)});
         healthController.Damage(Main.GET_ELEMENT_DEFINITION(elemType).damageOnHit);
     }
 
