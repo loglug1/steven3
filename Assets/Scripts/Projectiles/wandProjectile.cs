@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class wandProjectile : MonoBehaviour
 {
-    static public ElementDefinition def1;
-    static public ElementDefinition def2;
-    static public Vector3           vel;
     public float                    dmg;
+    public List<ElementDefinition> eleDefs = new List<ElementDefinition>();
     private Rigidbody               rigid;
-    public bool                     deleteThis;
     public GameObject               go;
     // public Color projectileColor; // Variable to hold projectile color
 
@@ -18,24 +15,33 @@ public class wandProjectile : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
     }
 
-    static public void Shoot(elementTypes ele1, elementTypes ele2, Vector3 vec, Transform pj_anc, Transform shotPointTrans)
+    static public void Shoot(elementTypes[] elements, Vector3 vec, Transform pj_anc, Transform shotPointTrans)
     {
         GameObject go;
-        def1 = Main.GET_ELEMENT_DEFINITION(ele1);
-        def2 = Main.GET_ELEMENT_DEFINITION(ele2);
 
+        float tempDmg = 0;
+        float delay = 0;
+        Vector3 vel = new Vector3(0,0,0);
         // Calculate velocity and damage
-        vel = def1.velocity * (0.25f * def2.velocity) * vec;
-        float tempDmg = def1.damageOnHit + (0.5f * def2.damageOnHit);
+        for (int i = 0; i < elements.Length; ++i) {
+            vel     = ((1f/(i+1) * Main.GET_ELEMENT_DEFINITION(elements[i]).velocity) + vel.magnitude) * vec.normalized;
+            tempDmg = (1f/(i+1) * Main.GET_ELEMENT_DEFINITION(elements[i]).damageOnHit) + tempDmg;
+            delay   = Main.GET_ELEMENT_DEFINITION(elements[i]).delayBetweenShots + delay;
+        }
+        // vel = vel * vec;
+        delay = delay / elements.Length;
 
         // Instantiate the projectile prefab
-        go = Instantiate(def1.projectilePrefab, pj_anc.position, Quaternion.identity);
+        go = Instantiate(Main.GET_ELEMENT_DEFINITION(elements[0]).projectilePrefab, pj_anc.position, Quaternion.identity);
         go.GetComponent<wandProjectile>().dmg = tempDmg;
+        for (int i = 0; i < elements.Length; ++i) {
+            go.GetComponent<wandProjectile>().eleDefs.Insert(i, Main.GET_ELEMENT_DEFINITION(elements[i]));
+        }
 
         // Set the projectile's position
         Vector3 pos = shotPointTrans.position;
         pos.z = 0; // Ensure z is 0 if it's a 2D game
-        go.transform.position = pos;
+        go.transform.position = pos - new Vector3(.8f,0,0);
 
         // Get the Rigidbody component of the new projectile
         Rigidbody goRigid = go.GetComponent<Rigidbody>();
@@ -44,9 +50,7 @@ public class wandProjectile : MonoBehaviour
             goRigid.velocity = vel; // Apply the calculated velocity
         }
 
-        // Schedule next shot
-        // Assuming you have a way to manage the time for shooting
-        weapon.nextShotTime = Time.time + Mathf.Min(def1.delayBetweenShots, def2.delayBetweenShots);
+        weapon.nextShotTime = Time.time + delay;
     }
     public void OnCollisionEnter(Collision c) {
         GameObject gob = c.gameObject;

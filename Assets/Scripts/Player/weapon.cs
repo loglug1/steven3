@@ -3,35 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum weaponType {
-    wand
+    basicWand,
+    singleElementFocusWand,
+    multiElementFocusWand
 }
 
 public class weapon : MonoBehaviour
 {
-    [Header("dynamic")]
-    [SerializeField]
-    private weaponType          type = weaponType.wand;
+    [Header("inscribed")]
+    public weaponType          type;
+
+    [Header("Dynamic")]
     public  elementTypes[]      eleTypes;
     static public float         nextShotTime;
     private Transform           shotPointTrans;
     static public Transform     PROJECTILE_ANCHOR;
     private Renderer            ren;
-    static public ElementDefinition def;
-    static public ElementDefinition startingDef1;
-    static public ElementDefinition startingDef2;
+    // List<ElementDefinition> wandElementDefinitions = new List<ElementDefinition>();
 
     static public weapon w;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         w = this;
 
         ren = GetComponent<Renderer>();
 
-        startingDef1 = Main.GET_ELEMENT_DEFINITION(eleTypes[0]);
-        startingDef2 = Main.GET_ELEMENT_DEFINITION(eleTypes[1]);
 
-        UpdateColor(startingDef1, startingDef2);
+        // set to gray/basic
+        UpdateColor(Main.GET_ELEMENT_DEFINITION(elementTypes.None), Main.GET_ELEMENT_DEFINITION(elementTypes.None));
 
 
         if (PROJECTILE_ANCHOR == null) {
@@ -53,10 +53,15 @@ public class weapon : MonoBehaviour
             return;
         }
         switch(type) {
-            case weaponType.wand:
-                wandProjectile.Shoot(eleTypes[0], eleTypes[1], vec, PROJECTILE_ANCHOR, shotPointTrans);
+            case weaponType.basicWand:
+                wandProjectile.Shoot(eleTypes, vec, PROJECTILE_ANCHOR, shotPointTrans);
                 break;
+            case weaponType.multiElementFocusWand:
 
+                break;
+            case weaponType.singleElementFocusWand:
+
+                break;
         }
     }
     public void DetectInput() {
@@ -74,7 +79,7 @@ public class weapon : MonoBehaviour
             totalVec = totalVec + new Vector3(-1,0,0);
         }
         if (totalVec.magnitude > 0) {
-            ShootProj(totalVec);
+            ShootProj(totalVec.normalized);
         }
     }
     public void UpdateColor(ElementDefinition def1, ElementDefinition def2) {
