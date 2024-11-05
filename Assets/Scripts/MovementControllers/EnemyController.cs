@@ -1,6 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(MovementController))]
+[RequireComponent(typeof(SpriteController))]
 public class EnemyController : MonoBehaviour
 {
     [Header("Inscribed")]
@@ -19,11 +20,13 @@ public class EnemyController : MonoBehaviour
     public GameObject player;
     public HealthController healthController;
     public MovementController movementController;
+    public SpriteController spriteController;
 
     void Awake() {
         player = Main.GET_PLAYER();
         healthController = GetComponent<HealthController>();
         movementController = GetComponent<MovementController>();
+        spriteController = GetComponent<SpriteController>();
     }
     void FixedUpdate() {
         if (IsPlayerVisible()) {
@@ -60,6 +63,10 @@ public class EnemyController : MonoBehaviour
         }
 
         movementController.Move(hAxis, vAxis, jAxis);
+
+        if ((movementController.rBody.velocity.x > 0 && spriteController.flipped) || (movementController.rBody.velocity.x < 0 && !spriteController.flipped)) {
+            spriteController.Flip();
+        }
     }
 
     bool IsPlayerVisible() {

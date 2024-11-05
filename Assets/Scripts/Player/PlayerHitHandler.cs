@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(StatusController))]
+[RequireComponent(typeof(SpriteController))]
 public class PlayerHitHandler : MonoBehaviour
 {
     [Header("Inscribed")]
@@ -11,11 +12,13 @@ public class PlayerHitHandler : MonoBehaviour
     [Header("Dynamic")]
     public HealthController healthController;
     public StatusController statusController;
+    public SpriteController spriteController;
     // Start is called before the first frame update
     void Awake()
     {
         healthController = GetComponent<HealthController>();
         statusController = GetComponent<StatusController>();
+        spriteController = GetComponent<SpriteController>();
         ResetInvicibility();
     }
 
@@ -46,9 +49,22 @@ public class PlayerHitHandler : MonoBehaviour
     void HandleHit(elementTypes elemType) {
         statusController.ApplyEffect(new List<ElementDefinition>{Main.GET_ELEMENT_DEFINITION(elemType)});
         healthController.Damage(Main.GET_ELEMENT_DEFINITION(elemType).damageOnHit);
+        StartCoroutine(spriteController.Blink(new Color(1, 0, 0)));
     }
+
+    
 
     void ResetInvicibility() {
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), false);
+    }
+
+    public void OnTriggerStay(Collider c) {
+        GameObject otherGO = c.gameObject;
+        if (otherGO.layer == LayerMask.NameToLayer("EnvironmentalHazards")) { 
+            EnvironmentalHazard eH = otherGO.GetComponent<EnvironmentalHazard>();
+            if (eH != null) {
+                healthController.Damage(Time.deltaTime * eH.damage);
+            }
+        }
     }
 }
