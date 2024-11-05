@@ -46,30 +46,4 @@ public class HealthController : MonoBehaviour
             healthBar.color = mainColor;
         }
     }
-
-    public void OnTriggerStay(Collider c) {
-        GameObject otherGO = c.gameObject;
-        if (otherGO.layer == LayerMask.NameToLayer("EnvironmentalHazards")) { 
-            EnvironmentalHazard eH = otherGO.GetComponent<EnvironmentalHazard>();
-            if (eH != null) {
-                elementChecker = GetComponent<ElementHandler>();
-
-                if (elementChecker == null) { // player doesn't have enemyelement
-                    Damage(Time.deltaTime * eH.damage);
-                    return;
-                }
-
-                if (elementChecker.enemyElementofChoice == elementTypes.Grass && eH.hT == HazardType.Vines) {
-                    Damage(Time.deltaTime * 0);
-                }
-                else if (elementChecker.enemyElementofChoice == elementTypes.Fire && eH.hT == HazardType.Lava) {
-                    Damage(Time.deltaTime * 0);
-                }
-                else {
-                    Damage(Time.deltaTime * eH.damage);
-                    
-                }
-            }
-        }
-    }
 }

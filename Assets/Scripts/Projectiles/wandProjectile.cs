@@ -41,7 +41,7 @@ public class wandProjectile : MonoBehaviour
         // Set the projectile's position
         Vector3 pos = shotPointTrans.position;
         pos.z = 0; // Ensure z is 0 if it's a 2D game
-        go.transform.position = pos - new Vector3(.8f,0,0);
+        go.transform.position = pos;// - new Vector3(.8f,0,0); 
 
         // Get the Rigidbody component of the new projectile
         Rigidbody goRigid = go.GetComponent<Rigidbody>();
