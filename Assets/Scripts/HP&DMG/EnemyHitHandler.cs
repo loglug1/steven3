@@ -52,6 +52,7 @@ public class EnemyHitHandler : MonoBehaviour
 
     public float EnemyDamageCalculation(List<ElementDefinition> ele, wandProjectile wProj)
     {
+        // cycles through each element with decreasing effect
         float i = 1f;
         foreach (ElementDefinition elementDef in ele) {
             if (isStrong(elementDef, elementHandling.enemyElementofChoice)) {

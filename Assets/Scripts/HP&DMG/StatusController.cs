@@ -53,6 +53,8 @@ public class StatusController : MonoBehaviour
 
     public void ApplyEffect(List<ElementDefinition> wandElems) { //uses list for elements in order to accommodate for more than two elements in the future
         for (int wandSlot = 0; wandSlot < wandElems.Count; wandSlot++) {
+            // now actualy uses a list of element definitions for each proj, access each individually
+            // to check elem
             ElementDefinition elemDef = wandElems[wandSlot];
             switch(elemDef.element) {
                 case elementTypes.Grass:

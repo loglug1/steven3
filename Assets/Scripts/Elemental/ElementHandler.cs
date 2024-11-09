@@ -48,10 +48,10 @@ public class ElementHandler : MonoBehaviour
         rm.color = enemyEleDef.color;
     }
 
-    public void SetEnemyElement(elementTypes Element)
+    public void SetEnemyElement(elementTypes element)
     {
         // random set
-        enemyElementofChoice = Element;
+        enemyElementofChoice = element;
         // material is part of grandson for enemy
         Transform son = transform.GetChild(1);
         Transform grandson = son.GetChild(0);

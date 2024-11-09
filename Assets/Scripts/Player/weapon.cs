@@ -31,7 +31,7 @@ public class weapon : MonoBehaviour
 
 
         // set to gray/basic
-        UpdateColor(Main.GET_ELEMENT_DEFINITION(elementTypes.None), Main.GET_ELEMENT_DEFINITION(elementTypes.None));
+        
 
 
         if (PROJECTILE_ANCHOR == null) {
@@ -45,6 +45,7 @@ public class weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // constantly detect input
         DetectInput();
     }
     
@@ -52,6 +53,7 @@ public class weapon : MonoBehaviour
         if (Time.time < nextShotTime) {
             return;
         }
+        // different shoot for each wand
         switch(type) {
             case weaponType.basicWand:
                 wandProjectile.Shoot(eleTypes, vec, PROJECTILE_ANCHOR, shotPointTrans);
@@ -65,6 +67,7 @@ public class weapon : MonoBehaviour
         }
     }
     public void DetectInput() {
+        // creates direction vector based on directions being held down
         Vector3 totalVec = new Vector3(0,0,0);
         if(Input.GetKey("up")) {
             totalVec = totalVec + new Vector3(0,1,0);
@@ -82,7 +85,13 @@ public class weapon : MonoBehaviour
             ShootProj(totalVec.normalized);
         }
     }
-    public void UpdateColor(ElementDefinition def1, ElementDefinition def2) {
-        ren.material.color = (def1.color + def2.color) / 2.0f;
+    public void UpdateColor(elementTypes[] eleTypes) {
+        // passes in list of element types upon chosing an element
+        // sets color of wand to mix of element colors
+        int i;
+        for (i = 0; i < eleTypes.Length; ++i) {
+            ren.material.color = ren.material.color + Main.GET_ELEMENT_DEFINITION(eleTypes[i]).color;
+        }
+        ren.material.color = ren.material.color / (float)i;
     }
 }

@@ -16,7 +16,7 @@ public class button : MonoBehaviour
                 chest.c.uiPopup.SetActive(false);                   // deactivate popup
                 Destroy(chest.c.gameObject);                        // destroy chest
                 Time.timeScale = 1;
-                weapon.w.UpdateColor(Main.GET_ELEMENT_DEFINITION(weapon.w.eleTypes[0]), Main.GET_ELEMENT_DEFINITION(weapon.w.eleTypes[1])); // update color
+                weapon.w.UpdateColor(weapon.w.eleTypes); // update color
                 break;
             }
         }
@@ -31,7 +31,7 @@ public class button : MonoBehaviour
                 chest.c.uiPopup.SetActive(false);
                 Destroy(chest.c.gameObject);
                 Time.timeScale = 1;
-                weapon.w.UpdateColor(Main.GET_ELEMENT_DEFINITION(weapon.w.eleTypes[0]), Main.GET_ELEMENT_DEFINITION(weapon.w.eleTypes[1])); // update color
+                weapon.w.UpdateColor(weapon.w.eleTypes); // update color
                 break;
             }
         }       
