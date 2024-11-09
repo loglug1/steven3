@@ -694,12 +694,44 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1598076508, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
+      propertyPath: eleTypes.Array.size
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598076508, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
       propertyPath: eleTypes.Array.data[0]
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1598076508, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
       propertyPath: eleTypes.Array.data[1]
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598076508, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
+      propertyPath: eleTypes.Array.data[2]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598076508, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
+      propertyPath: eleTypes.Array.data[3]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598076508, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
+      propertyPath: eleTypes.Array.data[4]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598076508, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
+      propertyPath: eleTypes.Array.data[5]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598076508, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
+      propertyPath: eleTypes.Array.data[6]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598076508, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
+      propertyPath: eleTypes.Array.data[7]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1598076508, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
+      propertyPath: eleTypes.Array.data[8]
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919930518605850460, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
       propertyPath: m_Enabled
@@ -708,14 +740,6 @@ PrefabInstance:
     - target: {fileID: 6652029744895830315, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
       propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7292662365035269137, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
-      propertyPath: maxHealth
-      value: 10000
-      objectReference: {fileID: 0}
-    - target: {fileID: 7292662365035269137, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
-      propertyPath: currHealth
-      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 7292662365035269139, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
       propertyPath: m_RootOrder

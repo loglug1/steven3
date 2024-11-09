@@ -61,6 +61,7 @@ public class StatusController : MonoBehaviour
         for (int wandSlot = 0; wandSlot < wandElems.Count; wandSlot++) {
             // now actualy uses a list of element definitions for each proj, access each individually
             // to check elem
+            // Debug.Log(wandSlot);
             ElementDefinition elemDef = wandElems[wandSlot];
             switch(elemDef.element) {
                 case elementTypes.Grass:

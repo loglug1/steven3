@@ -27,13 +27,24 @@ public class PlayerHitHandler : MonoBehaviour
     //when enemy hits player
     void OnCollisionEnter(Collision c) {
         GameObject otherGO = c.gameObject;
-        ElementHandler eEle = otherGO.GetComponent<ElementHandler>();
+        Collider coll = c.collider;
 
+        ElementHandler eEle = otherGO.GetComponent<ElementHandler>();
         if (eEle != null) {
             //allow invicibility for some time
-            Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), true);
-            Invoke("ResetInvicibility", invincibilityTime);
+            InvincibleToLayer("Enemies", invincibilityTime);
             HandleHit(eEle.enemyElementofChoice);
+            return;
+        }
+
+        BossDamageHandler bossDamageHandler = otherGO.GetComponent<BossDamageHandler>();
+        if (bossDamageHandler != null) {
+            //allow invicibility for some time
+            InvincibleTo(coll, invincibilityTime);
+            //HandleHit(eEle.enemyElementofChoice);
+            spriteController.Tint(hitColor, hitBlinkTime);
+            healthController.Damage(Main.GET_ELEMENT_DEFINITION(elementTypes.None).damageOnHit);
+            return;
         }
     }
 
@@ -69,5 +80,26 @@ public class PlayerHitHandler : MonoBehaviour
                 healthController.Damage(Time.deltaTime * eH.damage);
             }
         }
+    }
+
+    public void InvincibleTo(Collider otherCollider, float time) {
+        StartCoroutine(_InvincibleTo(otherCollider, time));
+    }
+
+    IEnumerator _InvincibleTo(Collider otherCollider, float time) {
+        Collider c = GetComponent<Collider>();
+        Physics.IgnoreCollision(GetComponent<Collider>(), otherCollider, true);
+        yield return new WaitForSeconds(time);
+        Physics.IgnoreCollision(GetComponent<Collider>(), otherCollider, false);
+    }
+
+    public void InvincibleToLayer(string layerName, float time) {
+        StartCoroutine(_InvincibleToLayer(layerName, time));
+    }
+
+    IEnumerator _InvincibleToLayer(string layerName, float time) {
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer(layerName), true);
+        yield return new WaitForSeconds(time);
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer(layerName), false);
     }
 }
