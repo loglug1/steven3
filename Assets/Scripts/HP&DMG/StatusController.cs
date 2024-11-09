@@ -3,11 +3,17 @@ using UnityEngine;
 
 [RequireComponent(typeof(MovementController))]
 [RequireComponent(typeof(HealthController))]
+[RequireComponent(typeof(SpriteController))]
 public class StatusController : MonoBehaviour
 {
+    [Header("Inscribed")]
+    public Color hitColor = new Color(1, 0, 0);
+    public float hitBlinkTime = 0.25f;
+    [Header("Dynamic")]
     public HealthController healthController;
     public MovementController  movementController;
     public ElementHandler     elementHandling;
+    public SpriteController spriteController;
     public bool isRooted   = false;
     public bool isBurning  = false;
     public bool isSundered = false;
@@ -15,7 +21,7 @@ public class StatusController : MonoBehaviour
     public bool isStrong   = false;
     public float rootedCoolDown;
     public float burnCoolDown;
-    private float waitTime;
+    private float rootTime;
     private float burnTime;
     private float sunderedTime;
     public GameObject burningUI;
@@ -27,7 +33,8 @@ public class StatusController : MonoBehaviour
         healthController = GetComponent<HealthController>();
         movementController = GetComponent<MovementController>();
         elementHandling = GetComponent<ElementHandler>();
-        waitTime     =   0.0f;
+        spriteController = GetComponent<SpriteController>();
+        rootTime     =   0.0f;
         sunderedTime =   0.0f;
         burnTime     =   0.0f;
         burningUI.SetActive(false);
@@ -58,7 +65,8 @@ public class StatusController : MonoBehaviour
             switch(elemDef.element) {
                 case elementTypes.Grass:
                     if (rootedCoolDown <= 0 && !isRooted) {
-                        waitTime += elemDef.effectDurations[wandSlot];
+                        rootTime += elemDef.effectDurations[wandSlot];
+                        //spriteController.Tint(elemDef.color, rootTime);
                         isRooted = true;
                         rootedUI.SetActive(true);
                     }
@@ -66,6 +74,7 @@ public class StatusController : MonoBehaviour
                 case elementTypes.Fire:
                     if (!isBurning) {
                         burnTime += elemDef.effectDurations[wandSlot];
+                        spriteController.Tint(hitColor, burnTime);
                         isBurning = true;
                         burningUI.SetActive(true);
                     }
@@ -73,6 +82,7 @@ public class StatusController : MonoBehaviour
                 case elementTypes.Water:
                     if (!isSundered) {
                         sunderedTime += elemDef.effectDurations[wandSlot];
+                        //spriteController.Tint(elemDef.color, sunderedTime);
                         isSundered = true;
                         sunderedUI.SetActive(true);
                     }
@@ -85,8 +95,8 @@ public class StatusController : MonoBehaviour
     void Rooted()
     {
         movementController.canMove = false;
-        waitTime -= Time.deltaTime;
-        if (waitTime <= 0) {
+        rootTime -= Time.deltaTime;
+        if (rootTime <= 0) {
             rootedUI.SetActive(false);
             isRooted = false;
             rootedCoolDown = 3.0f;          // wait 3 secs to root again

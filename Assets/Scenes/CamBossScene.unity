@@ -328,67 +328,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 50, y: 60, z: 0}
---- !u!1001 &834634744
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1879539693}
-    m_Modifications:
-    - target: {fileID: 5013637111245749214, guid: c471f2b1e095da94b91f8a1a04a1637c, type: 3}
-      propertyPath: m_Name
-      value: BossController
-      objectReference: {fileID: 0}
-    - target: {fileID: 5013637111245749214, guid: c471f2b1e095da94b91f8a1a04a1637c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6415033383382713440, guid: c471f2b1e095da94b91f8a1a04a1637c, type: 3}
-      propertyPath: m_RootOrder
-      value: 54
-      objectReference: {fileID: 0}
-    - target: {fileID: 6415033383382713440, guid: c471f2b1e095da94b91f8a1a04a1637c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6415033383382713440, guid: c471f2b1e095da94b91f8a1a04a1637c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6415033383382713440, guid: c471f2b1e095da94b91f8a1a04a1637c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6415033383382713440, guid: c471f2b1e095da94b91f8a1a04a1637c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6415033383382713440, guid: c471f2b1e095da94b91f8a1a04a1637c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6415033383382713440, guid: c471f2b1e095da94b91f8a1a04a1637c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6415033383382713440, guid: c471f2b1e095da94b91f8a1a04a1637c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6415033383382713440, guid: c471f2b1e095da94b91f8a1a04a1637c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6415033383382713440, guid: c471f2b1e095da94b91f8a1a04a1637c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6415033383382713440, guid: c471f2b1e095da94b91f8a1a04a1637c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c471f2b1e095da94b91f8a1a04a1637c, type: 3}
 --- !u!1001 &952362983
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -508,8 +447,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invincibilityTime: 1
+  hitColor: {r: 1, g: 0, b: 0, a: 1}
+  hitBlinkTime: 0.25
   healthController: {fileID: 0}
   statusController: {fileID: 0}
+  spriteController: {fileID: 0}
 --- !u!114 &1012527320 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7558387474538926938, guid: 7487fcf4e45c5ae42b9199d71346a540, type: 3}
@@ -665,11 +607,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
---- !u!4 &1879539693 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4938817250850364286, guid: bd91bb9aaf800d646a6455729e9d6f15, type: 3}
-  m_PrefabInstance: {fileID: 780169407338511470}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1922594470 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7558387474984806315, guid: 7487fcf4e45c5ae42b9199d71346a540, type: 3}
@@ -771,6 +708,14 @@ PrefabInstance:
     - target: {fileID: 6652029744895830315, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7292662365035269137, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
+      propertyPath: maxHealth
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7292662365035269137, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
+      propertyPath: currHealth
+      value: 10000
       objectReference: {fileID: 0}
     - target: {fileID: 7292662365035269139, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
       propertyPath: m_RootOrder

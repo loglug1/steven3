@@ -8,7 +8,6 @@ public class BossMinionSpawner : MonoBehaviour
     public ElementHandler elementHandler;
 
     public void SpawnEnemy() {
-        
         GameObject e = Instantiate(enemyPrefab, transform);
         elementHandler = e.GetComponent<ElementHandler>();
         elementHandler.SetEnemyElement(enemyElement);

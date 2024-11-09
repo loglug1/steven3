@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using System.Linq;
 
 public class SpriteController : MonoBehaviour
 {
@@ -10,14 +11,15 @@ public class SpriteController : MonoBehaviour
 
     [Header("Dynamic")]
     public bool flipped = false;
+    public List<Color> tintColors;
     private Color _color;
     public Color color {
-        set { SetColor(value); }
+        set { _color = value; SetColor(value); }
         get { return _color; }
     }
 
+    //Only changes visible color, does not change the internal color variable
     void SetColor(Color color) {
-        _color = color;
         foreach(GameObject go in coloredSprites) {
             go.GetComponent<SpriteRenderer>().color = color;
         }
@@ -30,10 +32,25 @@ public class SpriteController : MonoBehaviour
         flipped = !flipped;
     }
 
-    public IEnumerator Blink(Color blinkColor) {
-        Color tempColor = color;
-        color = Color.Lerp(blinkColor, color, 0.5f);
-        yield return new WaitForSeconds(1f);
-        color = tempColor;
+    public void Tint(Color tintColor, float time) {
+        StartCoroutine(_Tint(tintColor, time));
+    }
+
+    IEnumerator _Tint(Color newTint, float time) {
+        tintColors.Add(newTint);
+        Color c = tintColors[0];
+        foreach(Color tint in tintColors.Distinct()) {
+            c = Color.Lerp(tint, c, (float)(1f/tintColors.Count));
+        }
+        SetColor(Color.Lerp(_color, c, 0.6f));
+        yield return new WaitForSeconds(time);
+        c = tintColors[0];
+        tintColors.Remove(newTint);
+        foreach(Color tint in tintColors.Distinct()) {
+            c = Color.Lerp(tint, c, (float)(1f/tintColors.Count));
+        }
+        SetColor(Color.Lerp(_color, c, 0.6f));
+        if (tintColors.Count == 0)
+            SetColor(_color);
     }
 }
