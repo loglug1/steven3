@@ -59,7 +59,7 @@ public class ElementHandler : MonoBehaviour
     public void SetEnemyElement(elementTypes element)
     {
         // random set
-        enemyElementofChoice = Element;
+        enemyElementofChoice = element;
         // // material is part of grandson for enemy
         // Transform son = transform.GetChild(1);
         // Transform grandson = son.GetChild(0);
