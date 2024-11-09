@@ -36,6 +36,7 @@ public class ElementHandler : MonoBehaviour
     public float            resMult = .80f;             // multiplier if resistant
     public float            secondaryResMult = .90f;    // multiplier if 2nd chosen and resistant
     public SpriteController spriteController;
+    static public int enemyLevel;
 
     void Awake() {
         spriteController = GetComponent<SpriteController>();

@@ -12,13 +12,10 @@ public class EnemyHitHandler : MonoBehaviour
     public StatusController statusController;
     public SpriteController spriteController;
 
-    // variables that hold current elements to make code shorter lol
-    public ElementDefinition currentDef1;
-    public ElementDefinition currentDef2;
     void Awake()
     {
         healthController = GetComponent<HealthController>();
-        elementHandling = GetComponent<ElementHandler>();
+        elementHandling  = GetComponent<ElementHandler>();
         statusController = GetComponent<StatusController>();
         spriteController = GetComponent<SpriteController>();
     }
@@ -45,7 +42,7 @@ public class EnemyHitHandler : MonoBehaviour
             spriteController.Tint(new Color(1, 0, 0), 0.25f);
             
             //status effects
-            statusController.ApplyEffect(wProj.eleDefs);
+            statusController.ApplyEffect(wProj.eleDefs, Inventory.I.playerElementLevels);
 
             EnemyDamageCalculation(wProj.eleDefs, wProj); 
             healthController.Damage(wProj.dmg);

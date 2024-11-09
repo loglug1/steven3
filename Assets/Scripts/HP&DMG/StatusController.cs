@@ -57,23 +57,25 @@ public class StatusController : MonoBehaviour
         }
     }
 
-    public void ApplyEffect(List<ElementDefinition> wandElems) { //uses list for elements in order to accommodate for more than two elements in the future
+    public void ApplyEffect(List<ElementDefinition> wandElems, Dictionary<elementTypes,int> levels) { //uses list for elements in order to accommodate for more than two elements in the future
         for (int wandSlot = 0; wandSlot < wandElems.Count; wandSlot++) {
             // now actualy uses a list of element definitions for each proj, access each individually
             // to check elem
+            Debug.Log(wandElems[wandSlot]);
             ElementDefinition elemDef = wandElems[wandSlot];
             switch(elemDef.element) {
                 case elementTypes.Grass:
                     if (rootedCoolDown <= 0 && !isRooted) {
-                        rootTime += elemDef.effectDurations[wandSlot];
+                        rootTime += (elemDef.effectDurations[wandSlot] + (0.4f * (float)levels[elementTypes.Grass]));
                         //spriteController.Tint(elemDef.color, rootTime);
+                        Debug.Log(rootTime);
                         isRooted = true;
                         rootedUI.SetActive(true);
                     }
                     break;
                 case elementTypes.Fire:
                     if (!isBurning) {
-                        burnTime += elemDef.effectDurations[wandSlot];
+                        burnTime += (elemDef.effectDurations[wandSlot] + (0.3f * (float)levels[elementTypes.Fire]));
                         spriteController.Tint(hitColor, burnTime);
                         isBurning = true;
                         burningUI.SetActive(true);
@@ -81,7 +83,7 @@ public class StatusController : MonoBehaviour
                     break;
                 case elementTypes.Water:
                     if (!isSundered) {
-                        sunderedTime += elemDef.effectDurations[wandSlot];
+                        sunderedTime += (elemDef.effectDurations[wandSlot] + (0.2f * (float)levels[elementTypes.Water]));
                         //spriteController.Tint(elemDef.color, sunderedTime);
                         isSundered = true;
                         sunderedUI.SetActive(true);

@@ -550,6 +550,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1481513999 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7311582965226773396, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+  m_PrefabInstance: {fileID: 1695462510}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1481514006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481513999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c284c0bddb04851479c22d191ed27dab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerWeapon: 0
+  jewels: 0
+  playerElements: 
 --- !u!1001 &1575971570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -777,6 +797,22 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 966293879}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: elementDefinitions.Array.data[1].effectDurations.Array.data[0]
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: elementDefinitions.Array.data[1].effectDurations.Array.data[1]
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: elementDefinitions.Array.data[2].effectDurations.Array.data[0]
+      value: 1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: elementDefinitions.Array.data[3].effectDurations.Array.data[0]
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773393, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: m_RootOrder
       value: 8

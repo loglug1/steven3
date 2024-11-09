@@ -33,7 +33,7 @@ public class PlayerHitHandler : MonoBehaviour
             //allow invicibility for some time
             Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemies"), true);
             Invoke("ResetInvicibility", invincibilityTime);
-            HandleHit(eEle.enemyElementofChoice);
+            HandleHit(eEle.enemyElementofChoice, ElementHandler.enemyLevel);
         }
     }
 
@@ -43,13 +43,17 @@ public class PlayerHitHandler : MonoBehaviour
 
         if (eProj != null) {
             // handles status effect on hit
-            HandleHit(eProj.type); //REPLACE WITH STATUS CONTROLLER
+            HandleHit(eProj.type, ElementHandler.enemyLevel); //REPLACE WITH STATUS CONTROLLER
             Destroy(otherGO);
         }
     }
 
-    void HandleHit(elementTypes elemType) {
-        statusController.ApplyEffect(new List<ElementDefinition>{Main.GET_ELEMENT_DEFINITION(elemType)});
+    void HandleHit(elementTypes elemType, int currentEnemyLevels) {
+        
+        Dictionary<elementTypes, int> enemyElementDict = new Dictionary<elementTypes, int>();
+        enemyElementDict.Add(elemType, currentEnemyLevels);
+        statusController.ApplyEffect(new List<ElementDefinition>{Main.GET_ELEMENT_DEFINITION(elemType)}, enemyElementDict);
+
         healthController.Damage(Main.GET_ELEMENT_DEFINITION(elemType).damageOnHit);
         spriteController.Tint(hitColor, hitBlinkTime);
     }
