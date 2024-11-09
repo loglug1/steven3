@@ -8,6 +8,8 @@ public class PlayerHitHandler : MonoBehaviour
 {
     [Header("Inscribed")]
     public float invincibilityTime = 1f;
+    public Color hitColor = new Color(1, 0, 0);
+    public float hitBlinkTime = 0.25f;
 
     [Header("Dynamic")]
     public HealthController healthController;
@@ -49,7 +51,7 @@ public class PlayerHitHandler : MonoBehaviour
     void HandleHit(elementTypes elemType) {
         statusController.ApplyEffect(new List<ElementDefinition>{Main.GET_ELEMENT_DEFINITION(elemType)});
         healthController.Damage(Main.GET_ELEMENT_DEFINITION(elemType).damageOnHit);
-        StartCoroutine(spriteController.Blink(new Color(1, 0, 0)));
+        spriteController.Tint(hitColor, hitBlinkTime);
     }
 
     
@@ -63,6 +65,7 @@ public class PlayerHitHandler : MonoBehaviour
         if (otherGO.layer == LayerMask.NameToLayer("EnvironmentalHazards")) { 
             EnvironmentalHazard eH = otherGO.GetComponent<EnvironmentalHazard>();
             if (eH != null) {
+                spriteController.Tint(hitColor, hitBlinkTime);
                 healthController.Damage(Time.deltaTime * eH.damage);
             }
         }

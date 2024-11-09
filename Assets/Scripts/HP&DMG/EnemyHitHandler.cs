@@ -42,7 +42,7 @@ public class EnemyHitHandler : MonoBehaviour
     {
         
         if (wProj != null) {
-            StartCoroutine(spriteController.Blink(new Color(1, 0, 0)));
+            spriteController.Tint(new Color(1, 0, 0), 0.25f);
             
             //status effects
             statusController.ApplyEffect(wProj.eleDefs);
