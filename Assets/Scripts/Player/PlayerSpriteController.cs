@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerSpriteController : MonoBehaviour
@@ -20,6 +18,6 @@ public class PlayerSpriteController : MonoBehaviour
 
     void setColorPlayer(){
         player.transform.GetChild(2).GetChild(0).GetComponent<Renderer>().material.color = Main.PlayerColor;
-        Debug.Log("color set");
+        //Debug.Log("color set");
     }
 }

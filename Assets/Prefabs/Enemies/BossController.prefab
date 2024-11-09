@@ -228,6 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 7292662365035269144, guid: 6a08bb395ef6018448f0ef1f8788ffff, type: 3}
   enemyElement: 1
+  elementHandler: {fileID: 0}
 --- !u!1 &7352606733365005842
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,6 +322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 7292662365035269144, guid: 6a08bb395ef6018448f0ef1f8788ffff, type: 3}
   enemyElement: 3
+  elementHandler: {fileID: 0}
 --- !u!1001 &1233379235785717272
 PrefabInstance:
   m_ObjectHideFlags: 0

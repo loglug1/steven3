@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 305686628209634935}
   - component: {fileID: 2957629181503767197}
   - component: {fileID: 8121233316004758747}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: WallChecker
   m_TagString: WallCheck
   m_Icon: {fileID: 2800000, guid: 7c60041557454db49a1376522a6b6905, type: 3}
@@ -76,3 +76,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WALL: 0
+  wallSpawned: 0
+  wallToSpawn: {fileID: 3725771516673797103, guid: e469ad466d0028649ac616c361dbd730, type: 3}

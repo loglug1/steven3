@@ -8,7 +8,7 @@ public class BossMinionSpawner : MonoBehaviour
     public ElementHandler elementHandler;
 
     public void SpawnEnemy() {
-        enemyPrefab.GetComponent<ElementHandler>().enemyElementChance = new elementTypes[1] {enemyElement}; //forces the chance to the element to be 100%
+        
         GameObject e = Instantiate(enemyPrefab, transform);
         elementHandler = e.GetComponent<ElementHandler>();
         elementHandler.SetEnemyElement(enemyElement);

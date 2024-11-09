@@ -23,6 +23,8 @@ public class ElementDefinition {
     public float[]          effectDurations;
     
 }
+
+[RequireComponent(typeof(SpriteController))]
 public class ElementHandler : MonoBehaviour
 {
     public SpriteRenderer   rm;                         // material to access for enemy color
@@ -33,32 +35,39 @@ public class ElementHandler : MonoBehaviour
     public float            secondaryStrMult = 1.22f;   // multiplier if 2nd chosen and strong
     public float            resMult = .80f;             // multiplier if resistant
     public float            secondaryResMult = .90f;    // multiplier if 2nd chosen and resistant
+    public SpriteController spriteController;
+
+    void Awake() {
+        spriteController = GetComponent<SpriteController>();
+    }
 
     // basic slime enemy element
     public void BasicEnemySpawn()
     {
         // random set
         enemyElementofChoice = enemyElementChance[Random.Range(0, enemyElementChance.Length)];
-        // material is part of grandson for enemy
-        Transform son = transform.GetChild(1);
-        Transform grandson = son.GetChild(0);
-        rm = grandson.GetComponent<SpriteRenderer>();
+        // // material is part of grandson for enemy
+        // Transform son = transform.GetChild(1);
+        // Transform grandson = son.GetChild(0);
+        // rm = grandson.GetComponent<SpriteRenderer>();
         enemyEleDef = Main.GET_ELEMENT_DEFINITION(enemyElementofChoice);
-        // change color based on element for enemy
-        rm.color = enemyEleDef.color;
+        spriteController.color = enemyEleDef.color;
+        // // change color based on element for enemy
+        // rm.color = enemyEleDef.color;
     }
 
     public void SetEnemyElement(elementTypes element)
     {
         // random set
-        enemyElementofChoice = element;
-        // material is part of grandson for enemy
-        Transform son = transform.GetChild(1);
-        Transform grandson = son.GetChild(0);
-        rm = grandson.GetComponent<SpriteRenderer>();
+        enemyElementofChoice = Element;
+        // // material is part of grandson for enemy
+        // Transform son = transform.GetChild(1);
+        // Transform grandson = son.GetChild(0);
+        // rm = grandson.GetComponent<SpriteRenderer>();
         enemyEleDef = Main.GET_ELEMENT_DEFINITION(enemyElementofChoice);
-        // change color based on element for enemy
-        rm.color = enemyEleDef.color;
+        spriteController.color = enemyEleDef.color;
+        // // change color based on element for enemy
+        // rm.color = enemyEleDef.color;
     }
     
 
