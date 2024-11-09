@@ -12,7 +12,9 @@ public class BossDamageHandler : MonoBehaviour
         set { SetType(value); }
     }
     private elementTypes _bossType = elementTypes.None;
-    public SpriteRenderer stemRenderer;
+    public Color hitColor = new Color(1, 0, 0);
+    public float hitBlinkTime = 0.25f;
+    public SpriteController spriteController;
     public elementTypes[] elementChances;
     public float            strMult = 1.3f;
     public float            secondaryStrMult = 1.2f;
@@ -22,15 +24,15 @@ public class BossDamageHandler : MonoBehaviour
     
     void Awake() {
         healthController = transform.parent.GetComponent<HealthController>();
-        stemRenderer = transform.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>();
+        spriteController = GetComponent<SpriteController>();
     }
 
     //meant for water projectiles
     void OnCollisionEnter(Collision c) {
         GameObject otherGO = c.gameObject;
         wandProjectile wProj = otherGO.GetComponent<wandProjectile>();
-
-        HandleProjectile(wProj.eleDefs, wProj, otherGO);
+        if (wProj != null)
+            HandleProjectile(wProj.eleDefs, wProj, otherGO);
     }
 
     //meant for all other projectiles
@@ -59,6 +61,7 @@ public class BossDamageHandler : MonoBehaviour
             }
             i = i + 1f;
         }
+            spriteController.Tint(hitColor, hitBlinkTime);
             healthController.Damage(wProj.dmg);
             Destroy(otherGO);
         }
@@ -66,6 +69,6 @@ public class BossDamageHandler : MonoBehaviour
 
     void SetType(elementTypes e) {
         _bossType = e;
-        stemRenderer.color = Main.GET_ELEMENT_DEFINITION(e).color;
+        spriteController.color = Main.GET_ELEMENT_DEFINITION(e).color;
     }
 }
