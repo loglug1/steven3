@@ -25,7 +25,7 @@ public class wandProjectile : MonoBehaviour
         // Calculate velocity and damage
         for (int i = 0; i < elements.Length; ++i) {
             vel     = ((1f/(i+1) * Main.GET_ELEMENT_DEFINITION(elements[i]).velocity) + vel.magnitude) * vec.normalized;
-            tempDmg = (1f/(i+1) * Main.GET_ELEMENT_DEFINITION(elements[i]).damageOnHit) + tempDmg;
+            tempDmg = (1f/(i+1) * Main.GET_ELEMENT_DEFINITION(elements[i]).damageOnHit) + tempDmg + Inventory.I.playerElementLevels[elements[i]];
             delay   = Main.GET_ELEMENT_DEFINITION(elements[i]).delayBetweenShots + delay;
         }
         // vel = vel * vec;

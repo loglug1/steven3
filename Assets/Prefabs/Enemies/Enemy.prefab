@@ -323,9 +323,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e39145cd425d748a4d22befc9b219e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 70
   healthBar: {fileID: 7292662364798377897}
-  currHealth: 50
+  currHealth: 70
   mainColor: {r: 0.7490196, g: 0, b: 0, a: 1}
   lowColor: {r: 0.7484276, g: 0, b: 0, a: 1}
 --- !u!114 &1706128081
@@ -368,6 +368,7 @@ MonoBehaviour:
   healthController: {fileID: 0}
   elementHandling: {fileID: 0}
   statusController: {fileID: 0}
+  spriteController: {fileID: 0}
   currentDef1:
     element: 0
     projectilePrefab: {fileID: 0}
@@ -475,9 +476,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6f70c252ba49e940964bb57b452ff92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitColor: {r: 1, g: 0, b: 0, a: 1}
+  hitBlinkTime: 0.25
   healthController: {fileID: 0}
   movementController: {fileID: 0}
   elementHandling: {fileID: 0}
+  spriteController: {fileID: 0}
   isRooted: 0
   isBurning: 0
   isSundered: 0
@@ -505,6 +509,7 @@ MonoBehaviour:
   - {fileID: 6670974938722392092}
   spriteAnchor: {fileID: 1895792047948791871}
   flipped: 0
+  tintColors: []
 --- !u!1001 &914924031726629676
 PrefabInstance:
   m_ObjectHideFlags: 0
