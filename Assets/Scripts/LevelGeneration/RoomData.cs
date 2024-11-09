@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class RoomData : MonoBehaviour
 {
-    public GameObject[] roomValidationPrefabs;
+    public List<GameObject> roomValidationPrefabs;
 }
