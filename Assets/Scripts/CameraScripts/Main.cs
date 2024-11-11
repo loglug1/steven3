@@ -3,6 +3,26 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+public enum ItemType {
+    potion,
+    crystal,
+    weapon,
+}
+public enum PotionType {
+    health,
+}
+[System.Serializable]
+public class ItemDefinition {
+    public ItemType type;
+    public elementTypes elementType;
+    public PotionType potionType;
+    public weaponType weaponType;
+    public float level;
+    public string name;
+    public string description;
+    public Sprite icon;
+    public int price;
+}
 public class Main : MonoBehaviour
 {
     static Main S;
@@ -10,9 +30,12 @@ public class Main : MonoBehaviour
     static public Color MenuPlayerColor;
     static public string macho = "HAPPY";
     static private Dictionary<elementTypes, ElementDefinition> ELE_DICT;
+    static private Dictionary<ItemType, List<ItemDefinition>> ITEM_DICT;
     [Header("Inscribed")]
     public ElementDefinition[] elementDefinitions;
+    public ItemDefinition[] items;
     public GameObject player;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -21,6 +44,9 @@ public class Main : MonoBehaviour
         foreach(ElementDefinition def in elementDefinitions) {
             ELE_DICT[def.element]=def;
         }        
+        foreach (ItemDefinition item in items) {
+            ITEM_DICT[item.type].Add(item);
+        }
     }
     static public ElementDefinition GET_ELEMENT_DEFINITION(elementTypes et) {
         if (ELE_DICT.ContainsKey(et)) {
