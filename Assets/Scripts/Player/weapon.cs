@@ -56,7 +56,7 @@ public class weapon : MonoBehaviour
         // different shoot for each wand
         switch(type) {
             case weaponType.basicWand:
-                wandProjectile.Shoot(eleTypes, vec, PROJECTILE_ANCHOR, shotPointTrans);
+                wandProjectile.BasicShoot(eleTypes, vec, PROJECTILE_ANCHOR, shotPointTrans);
                 break;
             case weaponType.multiElementFocusWand:
 
