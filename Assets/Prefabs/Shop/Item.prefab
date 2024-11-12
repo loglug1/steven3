@@ -122,7 +122,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4685608584112827874}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4900287238052266808}
+        m_TargetAssemblyTypeName: ShopItemController, Assembly-CSharp
+        m_MethodName: BuyItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &153092744792535841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -497,6 +509,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4685608585138005802}
+  - component: {fileID: 4900287238052266808}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -526,6 +539,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4900287238052266808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4685608585138005803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59676df6102f3b049acb8850c8e84a36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tooltipText: {fileID: 4685608584214526875}
+  price: {fileID: 4685608584389325785}
+  icon: {fileID: 4685608584112827874}
 --- !u!1 &4685608585317008580
 GameObject:
   m_ObjectHideFlags: 0

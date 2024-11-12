@@ -3,26 +3,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public enum ItemType {
-    potion,
-    crystal,
-    weapon,
-}
-public enum PotionType {
-    health,
-}
-[System.Serializable]
-public class ItemDefinition {
-    public ItemType type;
-    public elementTypes elementType;
-    public PotionType potionType;
-    public weaponType weaponType;
-    public float level;
-    public string name;
-    public string description;
-    public Sprite icon;
-    public int price;
-}
 public class Main : MonoBehaviour
 {
     static Main S;
@@ -32,8 +12,8 @@ public class Main : MonoBehaviour
     static private Dictionary<elementTypes, ElementDefinition> ELE_DICT;
     static private Dictionary<ItemType, List<ItemDefinition>> ITEM_DICT;
     [Header("Inscribed")]
-    public ElementDefinition[] elementDefinitions;
-    public ItemDefinition[] items;
+    public ElementDefinition[] elementDefinitions; //Definition Structure defined in Elemental/ElementHandler.cs
+    public ItemDefinition[] itemDefinitions; //Definition Structure defined in Shop/Shop.cs
     public GameObject player;
 
     // Start is called before the first frame update
@@ -43,8 +23,12 @@ public class Main : MonoBehaviour
         ELE_DICT = new Dictionary<elementTypes, ElementDefinition>();
         foreach(ElementDefinition def in elementDefinitions) {
             ELE_DICT[def.element]=def;
-        }        
-        foreach (ItemDefinition item in items) {
+        }
+        ITEM_DICT = new Dictionary<ItemType, List<ItemDefinition>>();
+        foreach (ItemDefinition item in itemDefinitions) {
+            if (!ITEM_DICT.ContainsKey(item.type)) {
+                ITEM_DICT[item.type] = new List<ItemDefinition>();
+            }
             ITEM_DICT[item.type].Add(item);
         }
     }
@@ -53,6 +37,13 @@ public class Main : MonoBehaviour
             return(ELE_DICT[et]);
         }
         return(new ElementDefinition());
+    }
+
+    static public List<ItemDefinition> GET_ITEM_POOL(ItemType itemType) {
+        if (ITEM_DICT.ContainsKey(itemType)) {
+            return ITEM_DICT[itemType];
+        }
+        return null;
     }
 
     static public GameObject GET_PLAYER() {
