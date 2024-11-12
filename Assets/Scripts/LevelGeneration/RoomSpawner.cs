@@ -13,6 +13,7 @@ public class RoomSpawner : MonoBehaviour
     private RoomTemplates templates;
     private int rand;
     public bool spawned = false;
+    public bool boundBox;
 
     void Start(){
         //Debug.Log("Started.");
@@ -39,12 +40,17 @@ public class RoomSpawner : MonoBehaviour
                 rand = Random.Range(0,templates.rightRooms.Length);
                 Instantiate(templates.rightRooms[rand], transform.position, templates.rightRooms[rand].transform.rotation);
                 // right door needed
+            }else if (openingDirection == 5){
+                return; //for bounding box
             }
             spawned = true;
         }
     }
 
     void OnTriggerEnter(Collider other){
+        if(boundBox==true){
+            return;
+        }
         //Debug.Log("Triggered");
         if(other.CompareTag("SpawnPoint")){
             if(other.GetComponent<RoomSpawner>().spawned == false && spawned == false){
