@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // used for choosing elements from chest and managing chest pop up, plus destroying chest upon element pickup
-public class button : MonoBehaviour
+public class ChestElementOption : MonoBehaviour
 {
-    public GameObject chestObject;
     static public void ChosenElementOne() 
     {
         // existing element, level up!
@@ -22,14 +21,14 @@ public class button : MonoBehaviour
             if(weapon.w.eleTypes[i] == elementTypes.None) 
             {
                 weapon.w.eleTypes[i] = chest.c.chosenElements[0];   // set player element to chosen
-                chest.c.uiPopup.SetActive(false);                   // deactivate popup
-                Destroy(chest.c.gameObject);                        // destroy chest
                 Time.timeScale = 1;
                 weapon.w.UpdateColor(weapon.w.eleTypes); // update color
                 Inventory.I.elementLevelUp(weapon.w.eleTypes[i], 1); // set to level 1
                 break;
             }
         }
+        Destroy(chest.c.gameObject);                        // destroy chest
+        PopupController.ClosePopup(); // deactivate popup
     }
     static public void ChosenElementTwo()
     {
@@ -47,13 +46,13 @@ public class button : MonoBehaviour
             if(weapon.w.eleTypes[i] == elementTypes.None) 
             {
                 weapon.w.eleTypes[i] = chest.c.chosenElements[1];
-                chest.c.uiPopup.SetActive(false);
-                Destroy(chest.c.gameObject);
                 Time.timeScale = 1;
                 weapon.w.UpdateColor(weapon.w.eleTypes); // update color
                 Inventory.I.elementLevelUp(weapon.w.eleTypes[i], 1); // set to level 1
                 break;
             }
-        }       
+        }      
+        Destroy(chest.c.gameObject);
+        PopupController.ClosePopup(); // deactivate popup 
     }
 }

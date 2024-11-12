@@ -19,6 +19,8 @@ public class ItemDefinition {
     public PotionType potionType;
     public float level;
     public string name;
+    public string flavorText;
+    [TextArea(0,2)]
     public string description;
     public Sprite icon;
     public int price;

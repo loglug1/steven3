@@ -154,6 +154,34 @@ MonoBehaviour:
     effectDurations:
     - 1.5
     - 0.5
+  itemDefinitions:
+  - type: 0
+    elementType: 0
+    potionType: 1
+    level: 10
+    name: Over the Counter Health Potion
+    flavorText: Feel improvement in seconds!
+    description: Heals 10 helath.
+    icon: {fileID: 21300000, guid: 1eaaa6fdc0208054e83c90ab5e6f5b81, type: 3}
+    price: 1
+  - type: 1
+    elementType: 1
+    potionType: 0
+    level: 1
+    name: Fire Crystal
+    flavorText: It feels warm to the touch.
+    description: Harness fire or upgrade your current fire.
+    icon: {fileID: 21300000, guid: 7671627cac126bb4aadd452aa33694d1, type: 3}
+    price: 5
+  - type: 2
+    elementType: 0
+    potionType: 0
+    level: 1
+    name: Wand Upgrade
+    flavorText: Batteries not included.
+    description: Allows wand to shoot an additional projectile, max 3.
+    icon: {fileID: 21300000, guid: 994ad7ad6e0effe4084ae7e6a9a08229, type: 3}
+    price: 10
   player: {fileID: 0}
 --- !u!114 &555138849
 MonoBehaviour:
@@ -169,7 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraIncrementX: 39.5
   cameraIncrementY: 22
-  player: {fileID: 0}
+  player: {fileID: 7292662365035269144, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
   camWidth: 0
   camHeight: 0
   camPosition: {x: 0, y: 0, z: 0}

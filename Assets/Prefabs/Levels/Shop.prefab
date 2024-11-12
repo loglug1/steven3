@@ -92,7 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e1c5102b88c4e4dbb148e5eea9e47e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  messagePrefab: {fileID: 0}
+  shopPopupPrefab: {fileID: 1299343502788668482, guid: 363dedda939f798948e8abb14928e812, type: 3}
+  items: []
 --- !u!1 &7413446160772702435
 GameObject:
   m_ObjectHideFlags: 0
