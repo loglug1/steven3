@@ -25,10 +25,9 @@ public class Inventory : MonoBehaviour
         // will be set by weapon choosing screen
         playerWeapon    = weaponType.singleElementFocusWand;
         WandDefinition playerWandDef = Main.GET_WAND_DEFINITION(playerWeapon);
-        playerElements = weapon.w.eleTypes = new elementTypes[playerWandDef.maxElementTypes];
+        playerElements  = new elementTypes[playerWandDef.maxElementTypes];
         for (int i = 0; i < playerElements.Length; i++) {
             playerElements[i] = elementTypes.None;
-            weapon.w.eleTypes[i]  = playerElements[i];
             Debug.Log(playerElements[i]);
         }
         weapon.w.type     = playerWeapon;   

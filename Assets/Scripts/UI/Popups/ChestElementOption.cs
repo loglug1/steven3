@@ -9,9 +9,9 @@ public class ChestElementOption : MonoBehaviour
     {
         bool exists = false;
         // existing element, level up!
-        for(int i = 0; i < weapon.w.eleTypes.Length; ++i) {
-            if(weapon.w.eleTypes[i] == chest.c.chosenElements[0]) {
-                Inventory.I.elementLevelUp(weapon.w.eleTypes[i], 1);
+        for(int i = 0; i < Inventory.I.playerElements.Length; ++i) {
+            if(Inventory.I.playerElements[i] == chest.c.chosenElements[0]) {
+                Inventory.I.elementLevelUp(Inventory.I.playerElements[i], 1);
                 exists = true;
                 break;
             }
@@ -19,24 +19,24 @@ public class ChestElementOption : MonoBehaviour
 
         // new element, open wand
         if (!exists) {
-            for(int i = 0; i < weapon.w.eleTypes.Length; ++i) 
+            for(int i = 0; i < Inventory.I.playerElements.Length; ++i) 
             {
-                if(weapon.w.eleTypes[i] == elementTypes.None) 
+                if(Inventory.I.playerElements[i] == elementTypes.None) 
                 {
-                    weapon.w.eleTypes[i] = chest.c.chosenElements[0];   // set player element to chosen
+                    Inventory.I.playerElements[i] = chest.c.chosenElements[0];   // set player element to chosen
                     exists = true;
                     Time.timeScale = 1;
-                    weapon.w.UpdateColor(weapon.w.eleTypes); // update color
-                    Inventory.I.elementLevelUp(weapon.w.eleTypes[i], 1); // set to level 1
+                    weapon.w.UpdateColor(Inventory.I.playerElements); // update color
+                    Inventory.I.elementLevelUp(Inventory.I.playerElements[i], 1); // set to level 1
                     break;
                 }
             }
         }
         // new element, non-open wand
         if (!exists) {
-            int eleAmt = weapon.w.eleTypes.Length;
-            weapon.w.eleTypes[eleAmt - 1] = chest.c.chosenElements[0];
-            weapon.w.UpdateColor(weapon.w.eleTypes);
+            int eleAmt = Inventory.I.playerElements.Length;
+            Inventory.I.playerElements[eleAmt - 1] = chest.c.chosenElements[0];
+            weapon.w.UpdateColor(Inventory.I.playerElements);
             Inventory.I.elementLevelUp(chest.c.chosenElements[0], 1);
         }
         Destroy(chest.c.gameObject);                        // destroy chest
@@ -46,9 +46,9 @@ public class ChestElementOption : MonoBehaviour
     {
         bool exists = false;
         // existing element
-        for(int i = 0; i < weapon.w.eleTypes.Length; ++i) {
-            if(weapon.w.eleTypes[i] == chest.c.chosenElements[1]) {
-                Inventory.I.elementLevelUp(weapon.w.eleTypes[i], 1);
+        for(int i = 0; i < Inventory.I.playerElements.Length; ++i) {
+            if(Inventory.I.playerElements[i] == chest.c.chosenElements[1]) {
+                Inventory.I.elementLevelUp(Inventory.I.playerElements[i], 1);
                 exists = true;
                 break;
             }
@@ -57,24 +57,24 @@ public class ChestElementOption : MonoBehaviour
         // new element
         // new element, open wand
         if (!exists) {
-            for(int i = 0; i < weapon.w.eleTypes.Length; ++i) 
+            for(int i = 0; i < Inventory.I.playerElements.Length; ++i) 
             {
-                if(weapon.w.eleTypes[i] == elementTypes.None) 
+                if(Inventory.I.playerElements[i] == elementTypes.None) 
                 {
-                    weapon.w.eleTypes[i] = chest.c.chosenElements[1];   // set player element to chosen
+                    Inventory.I.playerElements[i] = chest.c.chosenElements[1];   // set player element to chosen
                     exists = true;
                     Time.timeScale = 1;
-                    weapon.w.UpdateColor(weapon.w.eleTypes); // update color
-                    Inventory.I.elementLevelUp(weapon.w.eleTypes[i], 1); // set to level 1
+                    weapon.w.UpdateColor(Inventory.I.playerElements); // update color
+                    Inventory.I.elementLevelUp(Inventory.I.playerElements[i], 1); // set to level 1
                     break;
                 }
             }
         }
         // new element, non-open wand
         if (!exists) {
-            int eleAmt = weapon.w.eleTypes.Length;
-            weapon.w.eleTypes[eleAmt - 1] = chest.c.chosenElements[1];
-            weapon.w.UpdateColor(weapon.w.eleTypes);
+            int eleAmt = Inventory.I.playerElements.Length;
+            Inventory.I.playerElements[eleAmt - 1] = chest.c.chosenElements[1];
+            weapon.w.UpdateColor(Inventory.I.playerElements);
             Inventory.I.elementLevelUp(chest.c.chosenElements[1], 1);
         }    
         Destroy(chest.c.gameObject);
