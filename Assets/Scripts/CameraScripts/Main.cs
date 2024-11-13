@@ -13,6 +13,7 @@ public class Main : MonoBehaviour
     static private Dictionary<ItemType, List<ItemDefinition>> ITEM_DICT;
     [Header("Inscribed")]
     public ElementDefinition[] elementDefinitions; //Definition Structure defined in Elemental/ElementHandler.cs
+    public WandDefinition[]    wandDefinitions; // Definition Structure defined in weapon/Weapon.cs
     public ItemDefinition[] itemDefinitions; //Definition Structure defined in Shop/Shop.cs
     public GameObject player;
 
