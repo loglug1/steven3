@@ -80,7 +80,7 @@ public class EnemyController : MonoBehaviour
 
     public void Die() {
         Inventory.I.jewels += 1;
-        Debug.Log(Inventory.I.jewels);
+        Inventory.I.UpdateCurrency();
         Destroy(gameObject);
     }
 }

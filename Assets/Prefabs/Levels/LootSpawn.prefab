@@ -47,10 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f0e501d28d0ae499e5ede4bb9627f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chestOpen: {fileID: 8300000, guid: f6be101db97bb1f419436fccb93f9080, type: 3}
-  chestClose: {fileID: 8300000, guid: cd4dbdd67cb859345a7c4a52e5bfbb98, type: 3}
   elementChances: 01000000010000000100000001000000030000000300000003000000030000000200000002000000
   chosenElements: 0000000000000000
+  popupCanvas: {fileID: 4273867424462621106, guid: d4e162465bc79ba4e867421340a38fdb, type: 3}
+  chestOpen: {fileID: 8300000, guid: f6be101db97bb1f419436fccb93f9080, type: 3}
+  chestClose: {fileID: 8300000, guid: cd4dbdd67cb859345a7c4a52e5bfbb98, type: 3}
   uiPopup: {fileID: 7558387475689752568, guid: 7487fcf4e45c5ae42b9199d71346a540, type: 3}
   button1_text: {fileID: 0}
   button2_text: {fileID: 0}
@@ -68,6 +69,7 @@ MonoBehaviour:
     sprite: {fileID: 0}
     weakElement: 0
     strElement: 0
+    effectDurations: []
   def2:
     element: 0
     projectilePrefab: {fileID: 0}
@@ -80,6 +82,7 @@ MonoBehaviour:
     sprite: {fileID: 0}
     weakElement: 0
     strElement: 0
+    effectDurations: []
 --- !u!82 &-3922538549250178644
 AudioSource:
   m_ObjectHideFlags: 0

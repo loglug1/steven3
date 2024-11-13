@@ -8,13 +8,26 @@ public enum weaponType {
     multiElementFocusWand
 }
 
+[System.Serializable]
+public class WandDefinition {
+    // make definitions in main, with shop and elem defs, list is already there
+    public weaponType wandType;
+    public int maxElementTypes;
+    public int maxWandLevel; 
+    // usually the same as maxElementTypes, but I thought about how this might be different for the single element wand
+
+    // not sure if these will actually have damage/vel/delay mults, but just in case
+    [Header("Stat Mults")]
+    public float damageMult;
+    public float velocityMult;
+    public float delayMult;
+
+}
+
 public class weapon : MonoBehaviour
 {
-    [Header("inscribed")]
-    public weaponType          type;
-
     [Header("Dynamic")]
-    public  elementTypes[]      eleTypes;
+    public weaponType           type;
     static public float         nextShotTime;
     private Transform           shotPointTrans;
     static public Transform     PROJECTILE_ANCHOR;
@@ -53,16 +66,16 @@ public class weapon : MonoBehaviour
         if (Time.time < nextShotTime) {
             return;
         }
-        // different shoot for each wand
+        // different shoot for each wand (placeholder)
         switch(type) {
             case weaponType.basicWand:
-                wandProjectile.Shoot(eleTypes, vec, PROJECTILE_ANCHOR, shotPointTrans);
+                wandProjectile.BasicShoot(Inventory.I.playerElements, vec, PROJECTILE_ANCHOR, shotPointTrans);
                 break;
             case weaponType.multiElementFocusWand:
-
+                wandProjectile.BasicShoot(Inventory.I.playerElements, vec, PROJECTILE_ANCHOR, shotPointTrans);
                 break;
             case weaponType.singleElementFocusWand:
-
+                wandProjectile.BasicShoot(Inventory.I.playerElements, vec, PROJECTILE_ANCHOR, shotPointTrans);                
                 break;
         }
     }
