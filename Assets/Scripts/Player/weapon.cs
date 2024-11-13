@@ -70,13 +70,13 @@ public class weapon : MonoBehaviour
         // different shoot for each wand (placeholder)
         switch(type) {
             case weaponType.basicWand:
-                wandProjectile.BasicShoot(eleTypes, vec, PROJECTILE_ANCHOR, shotPointTrans);
+                wandProjectile.BasicShoot(Inventory.I.playerElements, vec, PROJECTILE_ANCHOR, shotPointTrans);
                 break;
             case weaponType.multiElementFocusWand:
-                wandProjectile.BasicShoot(eleTypes, vec, PROJECTILE_ANCHOR, shotPointTrans);
+                wandProjectile.BasicShoot(Inventory.I.playerElements, vec, PROJECTILE_ANCHOR, shotPointTrans);
                 break;
             case weaponType.singleElementFocusWand:
-                wandProjectile.BasicShoot(eleTypes, vec, PROJECTILE_ANCHOR, shotPointTrans);                
+                wandProjectile.BasicShoot(Inventory.I.playerElements, vec, PROJECTILE_ANCHOR, shotPointTrans);                
                 break;
         }
     }
