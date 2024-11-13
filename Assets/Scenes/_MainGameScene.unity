@@ -1224,7 +1224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: wandDefinitions.Array.data[2].delayMult
-      value: 1
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: wandDefinitions.Array.data[0].damageMult
@@ -1232,11 +1232,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: wandDefinitions.Array.data[1].damageMult
-      value: 1
+      value: 1.55
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: wandDefinitions.Array.data[2].damageMult
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: wandDefinitions.Array.data[0].maxWandLevel
@@ -1252,7 +1252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: wandDefinitions.Array.data[1].velocityMult
-      value: 1
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: wandDefinitions.Array.data[2].maxWandLevel
@@ -1260,7 +1260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: wandDefinitions.Array.data[2].velocityMult
-      value: 1
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: wandDefinitions.Array.data[0].maxElementTypes
@@ -1554,7 +1554,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5959443692815603711, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
 --- !u!1001 &404145808055578040
 PrefabInstance:

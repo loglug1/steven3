@@ -22,12 +22,13 @@ public class wandProjectile : MonoBehaviour
         float tempDmg = 0;
         float delay = 0;
         Vector3 vel = new Vector3(0,0,0);
+        WandDefinition currentWand = Main.GET_WAND_DEFINITION(Inventory.I.playerWeapon);
         // Calculate velocity and damage
         Debug.Log(elements.Length);
         for (int i = 0; i < elements.Length; ++i) {
-            vel     = ((1f/(i+1) * Main.GET_ELEMENT_DEFINITION(elements[i]).velocity) + vel.magnitude) * vec.normalized;
-            tempDmg = (1f/(i+1) * Main.GET_ELEMENT_DEFINITION(elements[i]).damageOnHit) + tempDmg + Inventory.I.playerElementLevels[elements[i]];
-            delay   = Main.GET_ELEMENT_DEFINITION(elements[i]).delayBetweenShots + delay;
+            vel     = (((1f/(i+1) * Main.GET_ELEMENT_DEFINITION(elements[i]).velocity) + vel.magnitude) * vec.normalized) * currentWand.velocityMult;
+            tempDmg = ((1f/(i+1) * Main.GET_ELEMENT_DEFINITION(elements[i]).damageOnHit) + tempDmg + Inventory.I.playerElementLevels[elements[i]]) * currentWand.damageMult;
+            delay   = (Main.GET_ELEMENT_DEFINITION(elements[i]).delayBetweenShots + delay) * currentWand.delayMult;
         }
         // vel = vel * vec;
         delay = delay / elements.Length;
