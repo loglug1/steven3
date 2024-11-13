@@ -46,7 +46,7 @@ public class Inventory : MonoBehaviour
     public void UpdateHealth(float currentPlayerHealth) 
     {
         currentPlayerHealth = (int)currentPlayerHealth;
-        HPText.SetText(currentPlayerHealth.ToString("00"));
+        if (HPText != null) HPText.SetText(currentPlayerHealth.ToString("00"));
         
     }
 

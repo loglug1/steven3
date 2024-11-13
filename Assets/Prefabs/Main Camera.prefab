@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7311582965226773392}
   - component: {fileID: 555138849}
   - component: {fileID: 6788933454939007303}
+  - component: {fileID: 1481514006}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -124,8 +125,8 @@ MonoBehaviour:
     weakElement: 2
     strElement: 3
     effectDurations:
-    - 2
-    - 0.5
+    - 1.5
+    - 0.4
   - element: 2
     projectilePrefab: {fileID: 5114822508641061237, guid: 4be833370d2d897499c9fe6b09ecf2c9, type: 3}
     damageOnHit: 6
@@ -138,7 +139,7 @@ MonoBehaviour:
     weakElement: 3
     strElement: 1
     effectDurations:
-    - 1.8
+    - 1.6
     - 0.6
   - element: 3
     projectilePrefab: {fileID: 213716773382589390, guid: c0076560b5d5b80439f2a205b21acf9d, type: 3}
@@ -152,8 +153,27 @@ MonoBehaviour:
     weakElement: 1
     strElement: 2
     effectDurations:
-    - 1.5
+    - 1.2
     - 0.5
+  wandDefinitions:
+  - wandType: 0
+    maxElementTypes: 2
+    maxWandLevel: 2
+    damageMult: 1
+    velocityMult: 1
+    delayMult: 1
+  - wandType: 1
+    maxElementTypes: 1
+    maxWandLevel: 5
+    damageMult: 1
+    velocityMult: 1
+    delayMult: 1
+  - wandType: 2
+    maxElementTypes: 3
+    maxWandLevel: 3
+    damageMult: 1
+    velocityMult: 1
+    delayMult: 1
   itemDefinitions:
   - type: 0
     elementType: 0
@@ -197,7 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraIncrementX: 39.5
   cameraIncrementY: 22
-  player: {fileID: 7292662365035269144, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
+  player: {fileID: 0}
   camWidth: 0
   camHeight: 0
   camPosition: {x: 0, y: 0, z: 0}
@@ -300,3 +320,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1481514006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7311582965226773396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c284c0bddb04851479c22d191ed27dab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerWeapon: 0
+  jewels: 0
+  jewelText: {fileID: 0}
+  HPText: {fileID: 0}
+  playerElements: 
+  playerWandLevel: 1
