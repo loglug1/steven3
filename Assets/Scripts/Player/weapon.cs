@@ -26,10 +26,8 @@ public class WandDefinition {
 
 public class weapon : MonoBehaviour
 {
-    [Header("inscribed")]
-    public weaponType          type;
-
     [Header("Dynamic")]
+    public weaponType           type;
     public  elementTypes[]      eleTypes;
     static public float         nextShotTime;
     private Transform           shotPointTrans;
@@ -69,16 +67,16 @@ public class weapon : MonoBehaviour
         if (Time.time < nextShotTime) {
             return;
         }
-        // different shoot for each wand
+        // different shoot for each wand (placeholder)
         switch(type) {
             case weaponType.basicWand:
                 wandProjectile.BasicShoot(eleTypes, vec, PROJECTILE_ANCHOR, shotPointTrans);
                 break;
             case weaponType.multiElementFocusWand:
-
+                wandProjectile.BasicShoot(eleTypes, vec, PROJECTILE_ANCHOR, shotPointTrans);
                 break;
             case weaponType.singleElementFocusWand:
-
+                wandProjectile.BasicShoot(eleTypes, vec, PROJECTILE_ANCHOR, shotPointTrans);                
                 break;
         }
     }

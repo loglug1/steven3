@@ -23,6 +23,7 @@ public class wandProjectile : MonoBehaviour
         float delay = 0;
         Vector3 vel = new Vector3(0,0,0);
         // Calculate velocity and damage
+        Debug.Log(elements.Length);
         for (int i = 0; i < elements.Length; ++i) {
             vel     = ((1f/(i+1) * Main.GET_ELEMENT_DEFINITION(elements[i]).velocity) + vel.magnitude) * vec.normalized;
             tempDmg = (1f/(i+1) * Main.GET_ELEMENT_DEFINITION(elements[i]).damageOnHit) + tempDmg + Inventory.I.playerElementLevels[elements[i]];
@@ -32,7 +33,13 @@ public class wandProjectile : MonoBehaviour
         delay = delay / elements.Length;
 
         for (int wandLevel = 1; wandLevel <= Inventory.I.playerWandLevel; ++wandLevel) {
-            go = Instantiate(Main.GET_ELEMENT_DEFINITION(elements[wandLevel - 1]).projectilePrefab, pj_anc.position, Quaternion.identity);
+            if (Inventory.I.playerWeapon == weaponType.singleElementFocusWand) {
+                go = Instantiate(Main.GET_ELEMENT_DEFINITION(elements[0]).projectilePrefab, pj_anc.position, Quaternion.identity);
+            }
+            else {
+                go = Instantiate(Main.GET_ELEMENT_DEFINITION(elements[wandLevel - 1]).projectilePrefab, pj_anc.position, Quaternion.identity);
+            }
+
             go.GetComponent<wandProjectile>().dmg = tempDmg;
             // o(n^2) :(
             for (int j = 0; j < elements.Length; ++j) {
@@ -43,7 +50,6 @@ public class wandProjectile : MonoBehaviour
             Vector3 pos = shotPointTrans.position;
             pos.z = 0; // Ensure z is 0 if it's a 2D game
             int offset = wandLevel;
-            Debug.Log(wandLevel);
             go.transform.position = pos + new Vector3(0,offset/2,0); 
 
             // Get the Rigidbody component of the new projectile
@@ -56,6 +62,8 @@ public class wandProjectile : MonoBehaviour
 
         weapon.nextShotTime = Time.time + delay;
     }
+
+
     public void OnCollisionEnter(Collision c) {
         GameObject gob = c.gameObject;
         if(gob.layer == LayerMask.NameToLayer("Ground")) {
