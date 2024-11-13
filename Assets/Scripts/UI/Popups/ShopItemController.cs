@@ -12,7 +12,7 @@ public class ShopItemController : MonoBehaviour
     public TMP_Text price;
     public Image icon;
     private ItemDefinition _item;
-    private bool canAfford;
+    private bool canAfford = true;
     private bool soldOut = false;
     public ItemDefinition item {
         get { return _item; }
@@ -40,7 +40,7 @@ public class ShopItemController : MonoBehaviour
         icon.sprite = newItem.icon;
     }
     public void BuyItem() {
-        if (canAfford && !soldOut) {
+        if (canAfford || !soldOut) {
             Inventory.I.jewels -= item.price;
             ItemHandler.UseItem(item);
             PopupController.ClosePopup();

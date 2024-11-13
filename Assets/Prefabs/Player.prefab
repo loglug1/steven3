@@ -221,7 +221,6 @@ GameObject:
   - component: {fileID: 6809699677504020697}
   - component: {fileID: 966293890}
   - component: {fileID: 3051711465898210380}
-  - component: {fileID: 5959443692815603711}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -448,24 +447,6 @@ MonoBehaviour:
   spriteAnchor: {fileID: 2943327329055798348}
   flipped: 0
   tintColors: []
---- !u!114 &5959443692815603711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7292662365035269144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c284c0bddb04851479c22d191ed27dab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerWeapon: 0
-  jewels: 0
-  jewelText: {fileID: 0}
-  HPText: {fileID: 0}
-  playerElements: 
-  playerWandLevel: 1
 --- !u!1001 &1412126022
 PrefabInstance:
   m_ObjectHideFlags: 0
