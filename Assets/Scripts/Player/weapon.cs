@@ -28,7 +28,6 @@ public class weapon : MonoBehaviour
 {
     [Header("Dynamic")]
     public weaponType           type;
-    public  elementTypes[]      eleTypes;
     static public float         nextShotTime;
     private Transform           shotPointTrans;
     static public Transform     PROJECTILE_ANCHOR;

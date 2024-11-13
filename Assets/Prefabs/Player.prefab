@@ -221,7 +221,6 @@ GameObject:
   - component: {fileID: 6809699677504020697}
   - component: {fileID: 966293890}
   - component: {fileID: 3051711465898210380}
-  - component: {fileID: 5959443692815603711}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -358,6 +357,7 @@ MonoBehaviour:
   maxHealth: 50
   healthBar: {fileID: 7292662364798377897}
   currHealth: 50
+  theHOLDER: 0
   mainColor: {r: 0.15686275, g: 0.4784314, b: 0.7411765, a: 1}
   lowColor: {r: 0.7484276, g: 0, b: 0, a: 1}
 --- !u!114 &3755567579964183293
@@ -395,9 +395,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6f70c252ba49e940964bb57b452ff92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitColor: {r: 1, g: 0, b: 0, a: 1}
+  hitBlinkTime: 0.25
   healthController: {fileID: 0}
   movementController: {fileID: 0}
   elementHandling: {fileID: 0}
+  spriteController: {fileID: 0}
   isRooted: 0
   isBurning: 0
   isSundered: 0
@@ -422,6 +425,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invincibilityTime: 1
+  hitColor: {r: 1, g: 0, b: 0, a: 1}
+  hitBlinkTime: 0.25
   healthController: {fileID: 0}
   statusController: {fileID: 0}
   spriteController: {fileID: 0}
@@ -441,20 +446,7 @@ MonoBehaviour:
   - {fileID: 4354646738356123999}
   spriteAnchor: {fileID: 2943327329055798348}
   flipped: 0
---- !u!114 &5959443692815603711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7292662365035269144}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c284c0bddb04851479c22d191ed27dab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerWeapon: 0
-  jewels: 0
+  tintColors: []
 --- !u!1001 &1412126022
 PrefabInstance:
   m_ObjectHideFlags: 0
