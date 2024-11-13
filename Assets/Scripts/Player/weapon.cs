@@ -8,6 +8,22 @@ public enum weaponType {
     multiElementFocusWand
 }
 
+[System.Serializable]
+public class WandDefinition {
+    // make definitions in main, with shop and elem defs, list is already there
+    public weaponType wandType;
+    public int maxElementTypes;
+    public int maxWandLevel; 
+    // usually the same as maxElementTypes, but I thought about how this might be different for the single element wand
+
+    // not sure if these will actually have damage/vel/delay mults, but just in case
+    [Header("Stat Mults")]
+    public float damageMult;
+    public float velocityMult;
+    public float delayMult;
+
+}
+
 public class weapon : MonoBehaviour
 {
     [Header("inscribed")]

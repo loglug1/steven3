@@ -51,8 +51,8 @@ public class Inventory : MonoBehaviour
             playerElementLevels.Add(elementToLevel, amount);
         }
     }
-    public void wandLevelUp() 
+    public void wandLevelUp(int level) 
     {
-        playerWandLevel += 1;
+        playerWandLevel += level;
     }
 }
