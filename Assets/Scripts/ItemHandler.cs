@@ -29,7 +29,7 @@ public class ItemHandler : MonoBehaviour
 {
     static public void UseItem(ItemDefinition item) {
         GameObject player = Main.GET_PLAYER();
-        Debug.Log("Bought " + item.name);
+        //Debug.Log("Bought " + item.name);
         switch(item.type) {
             case ItemType.weaponUpgrade:
                 Inventory.I.wandLevelUp(item.level);

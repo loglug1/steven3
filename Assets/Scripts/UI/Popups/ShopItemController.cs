@@ -40,7 +40,7 @@ public class ShopItemController : MonoBehaviour
         icon.sprite = newItem.icon;
     }
     public void BuyItem() {
-        if (canAfford || !soldOut) {
+        if (canAfford && !soldOut) {
             Inventory.I.jewels -= item.price;
             ItemHandler.UseItem(item);
             PopupController.ClosePopup();
