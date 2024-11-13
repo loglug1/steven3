@@ -22,8 +22,17 @@ public class Inventory : MonoBehaviour
     {
         I = this;
 
-        playerWeapon    = weapon.w.type;
-        playerElements  = weapon.w.eleTypes;
+        // will be set by weapon choosing screen
+        playerWeapon    = weaponType.singleElementFocusWand;
+        WandDefinition playerWandDef = Main.GET_WAND_DEFINITION(playerWeapon);
+        playerElements = weapon.w.eleTypes = new elementTypes[playerWandDef.maxElementTypes];
+        for (int i = 0; i < playerElements.Length; i++) {
+            playerElements[i] = elementTypes.None;
+            weapon.w.eleTypes[i]  = playerElements[i];
+            Debug.Log(playerElements[i]);
+        }
+        weapon.w.type     = playerWeapon;   
+
 
         foreach(elementTypes ele in playerElements) {
             elementLevelUp(ele, 0);
