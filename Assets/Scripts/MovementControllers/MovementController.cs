@@ -18,6 +18,9 @@ public class MovementController : MonoBehaviour
     public bool canDoubleJump;
     public int movementDirection = 1;
     public bool canMove = true;
+    public float prevHAxis = 0;
+    public float prevVAxis = 0;
+    public float prevJAxis = 0;
 
     void Awake() {
         rBody = GetComponent<Rigidbody>();
@@ -73,16 +76,20 @@ public class MovementController : MonoBehaviour
 
             //apply
             rBody.velocity = new Vector3(hMovement, rBody.velocity.y + vMovement, 0);
-
         }
+
+        //saves these so other classes (platforms) can read them
+        prevHAxis = hAxis;
+        prevVAxis = vAxis;
+        prevJAxis = jAxis;
     }
 
     bool IsGrounded() {
-        return Physics.Raycast(transform.position, Vector3.down, distToGround + 0.1f, ~LayerMask.NameToLayer("Ground"));
+        return Physics.Raycast(transform.position, Vector3.down, distToGround + 0.1f, LayerMask.GetMask("Ground", "Platforms"));
     }
 
     bool HoldingWall(float hAxis) { //checks raycast at head, midbody, and foot
-        return Physics.Raycast(transform.position + Vector3.down * distToGround * 0.9f, Vector3.right * hAxis * movementDirection, distToWall + 0.1f, LayerMask.GetMask("Ground")) || Physics.Raycast(transform.position + Vector3.up * distToGround, Vector3.right * hAxis * movementDirection, distToWall + 0.1f, LayerMask.GetMask("Ground")) || Physics.Raycast(transform.position, Vector3.right * hAxis * movementDirection, distToWall + 0.1f, LayerMask.GetMask("Ground"));
+        return Physics.Raycast(transform.position + Vector3.down * distToGround * 0.9f, Vector3.right * hAxis * movementDirection, distToWall + 0.1f, LayerMask.GetMask("Ground", "Platforms")) || Physics.Raycast(transform.position + Vector3.up * distToGround, Vector3.right * hAxis * movementDirection, distToWall + 0.1f, LayerMask.GetMask("Ground", "Platforms")) || Physics.Raycast(transform.position, Vector3.right * hAxis * movementDirection, distToWall + 0.1f, LayerMask.GetMask("Ground", "Platforms"));
     }
 
     void Jump(float multiplier = 1f) {
