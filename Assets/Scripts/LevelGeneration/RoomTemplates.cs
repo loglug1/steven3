@@ -40,7 +40,7 @@ public class RoomTemplates : MonoBehaviour
             if(rP.Count==0){
                 //hello
             }else{
-                Instantiate(rP[Random.Range(0,rP.Count-1)], rooms[i].transform.position, Quaternion.identity);
+                Instantiate(rP[Random.Range(0,rP.Count)], rooms[i].transform.position, Quaternion.identity);
             }
         }
     }
