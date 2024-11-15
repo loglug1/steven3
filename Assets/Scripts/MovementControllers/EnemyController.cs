@@ -53,8 +53,9 @@ public class EnemyController : MonoBehaviour
             if (player.transform.position.y > transform.position.y && movementController.canJump) {
                 jAxis = 1;
                 Invoke("ResetJAxis", jumpDelay); //mimic holding space for jumpDelay seconds
+                vAxis = 0;
             } else {
-                if (player.transform.position.y - player.GetComponent<Collider>().bounds.extents.y < transform.position.y) {
+                if (player.transform.position.y + player.GetComponent<Collider>().bounds.extents.y < transform.position.y) {
                     vAxis = -1;
                 } else {
                     vAxis = 0;

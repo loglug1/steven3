@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 1481514006}
   - component: {fileID: 833112389239459883}
   - component: {fileID: 3216838515816775592}
+  - component: {fileID: 7093061804339310999}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -187,7 +188,7 @@ MonoBehaviour:
     velocity: 8
     color: {r: 0.99371064, g: 0.99371064, b: 0.99371064, a: 1}
     name: None
-    sprite: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 177ea5ae311cec14989e5f0b0e6fa748, type: 3}
     weakElement: 0
     strElement: 0
     effectDurations: []
@@ -342,7 +343,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7311582965226773396}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 273fac28e6eb6ad45af090d33b259487, type: 3}
   m_Name: 
@@ -465,6 +466,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerWeapon: 0
+  playerWandDef:
+    wandType: 0
+    maxElementTypes: 0
+    maxWandLevel: 0
+    damageMult: 0
+    velocityMult: 0
+    delayMult: 0
   jewels: 0
   jewelText: {fileID: 0}
   HPText: {fileID: 0}
@@ -500,3 +508,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce9f52daba363cebe87dfe5829eabef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7093061804339310999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7311582965226773396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c284c0bddb04851479c22d191ed27dab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerWeapon: 0
+  playerWandDef:
+    wandType: 0
+    maxElementTypes: 0
+    maxWandLevel: 0
+    damageMult: 0
+    velocityMult: 0
+    delayMult: 0
+  jewels: 0
+  jewelText: {fileID: 0}
+  HPText: {fileID: 0}
+  playerElements: 
+  playerWandLevel: 1
