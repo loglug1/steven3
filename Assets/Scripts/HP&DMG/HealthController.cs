@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthController : MonoBehaviour
 {
@@ -43,6 +44,7 @@ public class HealthController : MonoBehaviour
             } else if ((e = GetComponent<EnemyController>()) != null) {
                 e.Die();
             } else if ((b = GetComponent<BossController>()) != null) {
+                SceneManager.LoadScene("WinScene");
                 Debug.Log("You Win!");
                 Destroy(gameObject);
             }
