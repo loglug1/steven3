@@ -7,6 +7,7 @@ public class Inventory : MonoBehaviour
 {
     public weaponType     playerWeapon;
     [Header("Dynamic")]
+    public WandDefinition playerWandDef;
     public int            jewels = 0;
     public TMP_Text       jewelText;
     public TMP_Text       HPText;
@@ -17,20 +18,19 @@ public class Inventory : MonoBehaviour
     
     // int bc not expected to ever have more than one wand, easy change to dict if ever changed
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         I = this;
 
         // will be set by weapon choosing screen
-        playerWeapon    = weaponType.singleElementFocusWand;
-        WandDefinition playerWandDef = Main.GET_WAND_DEFINITION(playerWeapon);
+        playerWeapon    = weaponType.basicWand;
+        playerWandDef = Main.GET_WAND_DEFINITION(playerWeapon);
         playerElements  = new elementTypes[playerWandDef.maxElementTypes];
         for (int i = 0; i < playerElements.Length; i++) {
             playerElements[i] = elementTypes.None;
             Debug.Log(playerElements[i]);
         }
-        weapon.w.type     = playerWeapon;   
+        // weapon.w.type     = playerWeapon;   
 
 
         foreach(elementTypes ele in playerElements) {
@@ -40,7 +40,7 @@ public class Inventory : MonoBehaviour
 
     public void UpdateCurrency() 
     {
-        jewelText.SetText(jewels.ToString("0"));
+        jewelText.SetText(jewels.ToString("00"));
     }
     public void UpdateHealth(float currentPlayerHealth) 
     {
@@ -54,10 +54,15 @@ public class Inventory : MonoBehaviour
         // add desired level to desired element if exists, else add it to the dictionary
         if (playerElementLevels.ContainsKey(elementToLevel)) {
             playerElementLevels[elementToLevel] += amount;
+            if (elementToLevel != elementTypes.None) {
+                PlayerElementUI.UIhelper.UpdateElementUI();
+            }
         }
         else {
             playerElementLevels.Add(elementToLevel, amount);
         }
+        
+    
     }
     public void wandLevelUp(int level) 
     {
