@@ -85,7 +85,6 @@ public class EnemyController : MonoBehaviour
 
     public void Die() {
         Inventory.I.jewels += 1;
-        Inventory.I.UpdateCurrency();
         Destroy(gameObject);
     }
 }

@@ -8,7 +8,7 @@ public class Inventory : MonoBehaviour
     public weaponType     playerWeapon;
     [Header("Dynamic")]
     public WandDefinition playerWandDef;
-    public int            jewels = 0;
+    private int            _jewels = 0;
     public TMP_Text       jewelText;
     public TMP_Text       HPText;
     static public         Inventory I;
@@ -17,7 +17,10 @@ public class Inventory : MonoBehaviour
     public Dictionary<elementTypes, int> playerElementLevels = new Dictionary<elementTypes, int>();
     
     // int bc not expected to ever have more than one wand, easy change to dict if ever changed
-
+    public int jewels {
+        set {_jewels = value; UpdateCurrency(); }
+        get {return _jewels; }
+    }
     void Awake()
     {
         I = this;
