@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 42447300}
   - component: {fileID: 42447302}
-  - component: {fileID: 42447301}
   m_Layer: 0
   m_Name: BlackBackgroundCamera
   m_TagString: Untagged
@@ -76,14 +75,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &42447301
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 42447299}
-  m_Enabled: 1
 --- !u!1 &7311582965226773396
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,7 +342,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7311582965226773396}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 273fac28e6eb6ad45af090d33b259487, type: 3}
   m_Name: 

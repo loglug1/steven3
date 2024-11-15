@@ -122,8 +122,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 111
-        height: 110
+        width: 666
+        height: 660
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,10 +141,10 @@ TextureImporter:
       name: walkingslimeSPRITESHEET_1
       rect:
         serializedVersion: 2
-        x: 111
+        x: 666
         y: 0
-        width: 111
-        height: 110
+        width: 666
+        height: 660
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,10 +162,10 @@ TextureImporter:
       name: walkingslimeSPRITESHEET_2
       rect:
         serializedVersion: 2
-        x: 222
+        x: 1332
         y: 0
-        width: 111
-        height: 110
+        width: 666
+        height: 660
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,10 +183,10 @@ TextureImporter:
       name: walkingslimeSPRITESHEET_3
       rect:
         serializedVersion: 2
-        x: 333
+        x: 1998
         y: 0
-        width: 111
-        height: 110
+        width: 666
+        height: 660
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,10 +204,10 @@ TextureImporter:
       name: walkingslimeSPRITESHEET_4
       rect:
         serializedVersion: 2
-        x: 444
+        x: 2664
         y: 0
-        width: 111
-        height: 110
+        width: 666
+        height: 660
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,10 +225,10 @@ TextureImporter:
       name: walkingslimeSPRITESHEET_5
       rect:
         serializedVersion: 2
-        x: 555
+        x: 3330
         y: 0
-        width: 111
-        height: 110
+        width: 666
+        height: 660
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -8,6 +8,8 @@ public class SpriteController : MonoBehaviour
     [Header("Inscribed")]
     public List<GameObject> coloredSprites;
     public GameObject spriteAnchor;
+    public List<Sprite> movementSpriteSheet;
+    public SpriteRenderer animatedSprite;
 
     [Header("Dynamic")]
     public bool flipped = false;
@@ -52,5 +54,9 @@ public class SpriteController : MonoBehaviour
         SetColor(Color.Lerp(_color, c, 0.6f));
         if (tintColors.Count == 0)
             SetColor(_color);
+    }
+
+    public void SetSpriteFromSheet(int spriteIndex) {
+        animatedSprite.sprite = movementSpriteSheet[spriteIndex];
     }
 }
