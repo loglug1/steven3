@@ -82,6 +82,11 @@ public class MovementController : MonoBehaviour
         prevHAxis = hAxis;
         prevVAxis = vAxis;
         prevJAxis = jAxis;
+
+        //stop z axis from changing ever so slightly
+        Vector3 pos = transform.position;
+        pos.z = 0;
+        transform.position = pos;
     }
 
     bool IsGrounded() {
