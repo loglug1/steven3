@@ -323,9 +323,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e39145cd425d748a4d22befc9b219e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 70
+  maxHealth: 55
   healthBar: {fileID: 7292662364798377897}
-  currHealth: 70
+  currHealth: 55
+  theHOLDER: 0
   mainColor: {r: 0.7490196, g: 0, b: 0, a: 1}
   lowColor: {r: 0.7484276, g: 0, b: 0, a: 1}
 --- !u!114 &1706128081
@@ -369,32 +370,6 @@ MonoBehaviour:
   elementHandling: {fileID: 0}
   statusController: {fileID: 0}
   spriteController: {fileID: 0}
-  currentDef1:
-    element: 0
-    projectilePrefab: {fileID: 0}
-    damageOnHit: 0
-    damagePerSec: 0
-    delayBetweenShots: 0
-    velocity: 50
-    color: {r: 0, g: 0, b: 0, a: 0}
-    name: 
-    sprite: {fileID: 0}
-    weakElement: 0
-    strElement: 0
-    effectDurations: []
-  currentDef2:
-    element: 0
-    projectilePrefab: {fileID: 0}
-    damageOnHit: 0
-    damagePerSec: 0
-    delayBetweenShots: 0
-    velocity: 50
-    color: {r: 0, g: 0, b: 0, a: 0}
-    name: 
-    sprite: {fileID: 0}
-    weakElement: 0
-    strElement: 0
-    effectDurations: []
 --- !u!114 &2093837106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,6 +406,9 @@ MonoBehaviour:
   canDoubleJump: 0
   movementDirection: 1
   canMove: 1
+  prevHAxis: 0
+  prevVAxis: 0
+  prevJAxis: 0
 --- !u!114 &-9142319243976406771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -508,6 +486,8 @@ MonoBehaviour:
   coloredSprites:
   - {fileID: 6670974938722392092}
   spriteAnchor: {fileID: 1895792047948791871}
+  movementSpriteSheet: []
+  animatedSprite: {fileID: 0}
   flipped: 0
   tintColors: []
 --- !u!1001 &914924031726629676
