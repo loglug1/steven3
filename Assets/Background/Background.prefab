@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camden: {fileID: 0}
-  parallaxEffect: -5
+  parallaxEffect: 0
 --- !u!1 &6347238142102488192
 GameObject:
   m_ObjectHideFlags: 0
@@ -1296,7 +1296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camden: {fileID: 0}
-  parallaxEffect: -4
+  parallaxEffect: 1
 --- !u!1 &6347238143998004854
 GameObject:
   m_ObjectHideFlags: 0
