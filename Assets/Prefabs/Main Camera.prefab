@@ -256,6 +256,7 @@ MonoBehaviour:
   - type: 2
     elementType: 0
     potionType: 0
+    wandType: 0
     level: 1
     name: Wand Upgrade
     flavorText: Batteries not included.
@@ -265,6 +266,7 @@ MonoBehaviour:
   - type: 1
     elementType: 1
     potionType: 0
+    wandType: 0
     level: 1
     name: Fire Crystal
     flavorText: It feels warm to the touch.
@@ -274,6 +276,7 @@ MonoBehaviour:
   - type: 1
     elementType: 1
     potionType: 0
+    wandType: 0
     level: 3
     name: Super Fire Crystal
     flavorText: It almost burns your hand.
@@ -283,6 +286,7 @@ MonoBehaviour:
   - type: 1
     elementType: 2
     potionType: 0
+    wandType: 0
     level: 3
     name: Super Water Crystal
     flavorText: It makes your fingers wrinkle.
@@ -292,6 +296,7 @@ MonoBehaviour:
   - type: 1
     elementType: 2
     potionType: 0
+    wandType: 0
     level: 1
     name: Water Crystal
     flavorText: It feels cool to the touch.
@@ -301,6 +306,7 @@ MonoBehaviour:
   - type: 1
     elementType: 3
     potionType: 0
+    wandType: 0
     level: 1
     name: Grass Crystal
     flavorText: It feels fuzzy to the touch.
@@ -310,6 +316,7 @@ MonoBehaviour:
   - type: 1
     elementType: 3
     potionType: 0
+    wandType: 0
     level: 3
     name: Super Grass Crystal
     flavorText: The vines tickle your palm.
@@ -319,6 +326,17 @@ MonoBehaviour:
   - type: 0
     elementType: 0
     potionType: 1
+    wandType: 0
+    level: 30
+    name: Prescription Health Potion
+    flavorText: Feel improvement in milliseconds!
+    description: Heals 30 health.
+    icon: {fileID: 21300000, guid: 1eaaa6fdc0208054e83c90ab5e6f5b81, type: 3}
+    price: 8
+  - type: 0
+    elementType: 0
+    potionType: 1
+    wandType: 0
     level: 10
     name: Over the Counter Health Potion
     flavorText: Feel improvement in seconds!
@@ -328,12 +346,46 @@ MonoBehaviour:
   - type: 0
     elementType: 0
     potionType: 1
-    level: 30
-    name: Prescription Health Potion
-    flavorText: Feel improvement in milliseconds!
-    description: Heals 30 health.
+    wandType: 0
+    level: 10
+    name: Over the Counter Health Potion
+    flavorText: Feel improvement in seconds!
+    description: Heals 10 health.
     icon: {fileID: 21300000, guid: 1eaaa6fdc0208054e83c90ab5e6f5b81, type: 3}
-    price: 8
+    price: 3
+  - type: 3
+    elementType: 0
+    potionType: 0
+    wandType: 1
+    level: 1
+    name: Single Element Focus Wand
+    flavorText: Dated Yet Effective!
+    description: "Harnesses one powerful element.\nStats: \n1.55x Damage \n1.2x Velocity
+      \n1x Fire Rate"
+    icon: {fileID: 21300000, guid: b2f524c7f299b6f46ab78a49408b0bb4, type: 3}
+    price: 0
+  - type: 3
+    elementType: 0
+    potionType: 0
+    wandType: 0
+    level: 1
+    name: Basic Wand
+    flavorText: Strong and Sturdy!
+    description: "Standard wand that harnesses two elements.\nStats: \n1x Damage
+      \n1x Velocity \n1x Fire Rate"
+    icon: {fileID: 21300000, guid: b2f524c7f299b6f46ab78a49408b0bb4, type: 3}
+    price: 0
+  - type: 3
+    elementType: 0
+    potionType: 0
+    wandType: 2
+    level: 1
+    name: Multi Element Focus Wand
+    flavorText: Crooked With Power!
+    description: "Advanced wand allows for the harnessing of 3 different elements.\nStats:
+      \n0.8x Damage \n1.3x Velocity \n0.9x Fire Rate"
+    icon: {fileID: 21300000, guid: b2f524c7f299b6f46ab78a49408b0bb4, type: 3}
+    price: 0
   player: {fileID: 0}
 --- !u!114 &555138849
 MonoBehaviour:
@@ -472,7 +524,6 @@ MonoBehaviour:
     damageMult: 0
     velocityMult: 0
     delayMult: 0
-  jewels: 0
   jewelText: {fileID: 0}
   HPText: {fileID: 0}
   playerElements: 

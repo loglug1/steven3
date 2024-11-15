@@ -7,6 +7,7 @@ public enum ItemType {
     potion,
     elementCrystal,
     weaponUpgrade,
+    wand,
 }
 public enum PotionType {
     none,
@@ -17,6 +18,7 @@ public class ItemDefinition {
     public ItemType type;
     public elementTypes elementType;
     public PotionType potionType;
+    public weaponType wandType;
     public int level;
     public string name;
     public string flavorText;
