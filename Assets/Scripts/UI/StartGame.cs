@@ -14,7 +14,7 @@ public Button startButton;
 	}
 
 	void OnClick(){
-        SceneManager.LoadScene("_MainGameScene");//whatever the start scene is
+        SceneManager.LoadScene("_Procedural Generation Finalization 1");//whatever the start scene is
 		Debug.Log ("start button clicked");
 	}
 }
