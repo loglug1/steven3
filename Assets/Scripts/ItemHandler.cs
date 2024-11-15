@@ -47,6 +47,11 @@ public class ItemHandler : MonoBehaviour
                         break;
                 }
                 break;
+            case ItemType.wand:
+                Debug.Log(item.wandType);
+                Inventory.I.playerWeapon = item.wandType;
+                Inventory.I.SetUpWandAtStart();
+                break;
         }
     }
 }
