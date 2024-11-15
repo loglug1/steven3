@@ -150,6 +150,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &488314537 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1738706030929964176, guid: 8371a337b952d3847801913414e13c05, type: 3}
+  m_PrefabInstance: {fileID: 1738706030315733687}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &488314541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488314537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e81e28617c227f846bcfb899050a40e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &586799238 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4153194086394083468, guid: c4f9332211a6af241be21396fcdff636, type: 3}
@@ -755,6 +772,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 966293879}
+    - target: {fileID: 555138849, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: player
       value: 
@@ -1331,6 +1352,10 @@ PrefabInstance:
     - target: {fileID: 1738706030354387190, guid: 8371a337b952d3847801913414e13c05, type: 3}
       propertyPath: m_Name
       value: HP/Currency
+      objectReference: {fileID: 0}
+    - target: {fileID: 1738706030415585125, guid: 8371a337b952d3847801913414e13c05, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8371a337b952d3847801913414e13c05, type: 3}
