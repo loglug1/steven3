@@ -26,12 +26,12 @@ public class wandProjectile : MonoBehaviour
         // Calculate velocity and damage
         Debug.Log(elements.Length);
         for (int i = 0; i < elements.Length; ++i) {
-            vel     = (((1f/(i+1) * Main.GET_ELEMENT_DEFINITION(elements[i]).velocity) + vel.magnitude) * vec.normalized) * currentWand.velocityMult;
+            vel     = (((1f/(i+1) * Main.GET_ELEMENT_DEFINITION(elements[i]).velocity) + vel.magnitude + Inventory.I.playerElementLevels[elements[i]]) * vec.normalized) * currentWand.velocityMult;
             tempDmg = ((1f/(i+1) * Main.GET_ELEMENT_DEFINITION(elements[i]).damageOnHit) + tempDmg + Inventory.I.playerElementLevels[elements[i]]) * currentWand.damageMult;
             delay   = (Main.GET_ELEMENT_DEFINITION(elements[i]).delayBetweenShots + delay) * currentWand.delayMult;
         }
         // vel = vel * vec;
-        delay = delay / elements.Length;
+        delay = delay / (elements.Length * 1.1f);
 
         for (int wandLevel = 1; wandLevel <= Inventory.I.playerWandLevel; ++wandLevel) {
             if (Inventory.I.playerWeapon == weaponType.singleElementFocusWand) {
