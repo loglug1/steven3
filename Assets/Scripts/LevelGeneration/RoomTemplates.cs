@@ -22,7 +22,7 @@ public class RoomTemplates : MonoBehaviour
                     Instantiate(boss, rooms[i].transform.position, Quaternion.identity);
                     spawnedBoss = true;
                     if(rooms.Count < 8 || rooms.Count >35){
-                        SceneManager.LoadScene("Procedural Generation Testing");
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                     }else if(rooms.Count >= 8 && rooms.Count <=35){
                         acceptedRoomGen=true;
                         validateRooms();

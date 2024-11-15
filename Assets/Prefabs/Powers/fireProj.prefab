@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 0
-  deleteThis: 0
+  eleDefs: []
   go: {fileID: 8136098084400355990}
 --- !u!1 &8699451058081308253
 GameObject:
@@ -141,6 +141,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5456802061488644072}
   - component: {fileID: 7598742836291499228}
+  - component: {fileID: 4734055537489849839}
   m_Layer: 0
   m_Name: ____fireProj
   m_TagString: Untagged
@@ -215,3 +216,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4734055537489849839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8699451058081308253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc7a95d67ea6b454698b2c9cfd51c1fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  degreesPerSecond: 180
+  time: 0
