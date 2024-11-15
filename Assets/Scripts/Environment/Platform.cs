@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Collider))]
 public class Platform : MonoBehaviour
 {
     [Header("Inscribed")]
@@ -11,30 +13,29 @@ public class Platform : MonoBehaviour
     [Header("Dynamic")]
     public GameObject player;
     public float distToTop;
-    public Collider coll;
+    public Collider platformCollider;
     public Vector3 lowerPoint;
 
     void Awake() {
                 
         if ((player = Main.GET_PLAYER()) && (player != null)) {
-            coll = GetComponent<Collider>();
-            distToTop = coll.bounds.extents.y;
+            platformCollider = GetComponent<Collider>();
+            distToTop = platformCollider.bounds.extents.y;
         } else {
             Debug.LogError("Could not find player! (Is the player instance linked in the Main script on the camera?)");
         }
     }
-
-    void FixedUpdate() {
-        if ((Input.GetAxis("Vertical") != -1) && (player.transform.position.y > transform.position.y + distToTop)) { //if player is above platform and not holding down
-            coll.enabled = true;
-            if(platformToGround==true){
-                lowerPoint= transform.position;
-                lowerPoint.y-=0.25f;
-                Instantiate(groundToReplace,lowerPoint,transform.rotation);
-                Destroy(this);
+    
+    public void FixedUpdate() {
+        Collider[] nearbyColliders = Physics.OverlapBox(transform.position, transform.localScale, Quaternion.identity, LayerMask.GetMask("Player", "Enemies"));
+        foreach (Collider c in nearbyColliders) {
+            MovementController movementController = c.GetComponent<MovementController>();
+            if (movementController == null) continue; //skip object if it doesn't have a movement controller
+            if ((movementController.prevVAxis != -1) && (c.gameObject.transform.position.y > transform.position.y + distToTop)) {
+                Physics.IgnoreCollision(platformCollider, c, false); //enable collision if not holding down and entity is above platform
+            } else {
+                Physics.IgnoreCollision(platformCollider, c, true);
             }
-        } else {
-            coll.enabled = false;
         }
     }
 }

@@ -1028,5 +1028,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: InventoryUICanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8928481396750751413, guid: 0ed0c399792420061b78d1899d779057, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -7.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ed0c399792420061b78d1899d779057, type: 3}

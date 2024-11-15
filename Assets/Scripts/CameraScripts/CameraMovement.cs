@@ -23,14 +23,16 @@ public class CameraMovement : MonoBehaviour
     {
         S = this;
 
-        camHeight=Camera.main.orthographicSize;
-        camWidth=camHeight*Camera.main.aspect;
-        camPosition = transform.position;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        camHeight=Camera.main.orthographicSize;
+        camWidth=camHeight*Camera.main.aspect;
+        camPosition = transform.position;
+        
         playerPos = player.transform.position;
         if(playerPos.x > camPosition.x + camWidth){
             camPosition.x += cameraIncrementX;
