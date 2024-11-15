@@ -60,4 +60,8 @@ public class CameraMovement : MonoBehaviour
     static public bool IsOnScreen(Vector3 pos) {
         return (pos.y < S.camPosition.y + S.camHeight) && (pos.y > S.camPosition.y - S.camHeight) && (pos.x < S.camPosition.x + S.camWidth) && (pos.x > S.camPosition.x - S.camWidth);
     }
+
+    static public bool IsOnOrNeighboringScreen(Vector3 pos) {
+        return (pos.y < S.camPosition.y + S.camHeight * 3f) && (pos.y > S.camPosition.y - S.camHeight * 3f) && (pos.x < S.camPosition.x + S.camWidth * 3f) && (pos.x > S.camPosition.x - S.camWidth * 3f);
+    }
 }
