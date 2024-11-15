@@ -29,8 +29,9 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        camHeight=Camera.main.orthographicSize;
-        camWidth=camHeight*Camera.main.aspect;
+        Camera thisCam = GetComponent<Camera>();
+        camHeight= thisCam.orthographicSize;
+        camWidth=camHeight*thisCam.aspect;
         camPosition = transform.position;
         
         playerPos = player.transform.position;

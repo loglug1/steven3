@@ -14,7 +14,7 @@ public class WallCheck : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other){
-        Debug.Log("triggered");
+        //Debug.Log("triggered");
         if((other.gameObject.GetComponent<WallCheck>().WALL != WALL)&&(wallSpawned==false)){
             if(!topBottom){
                 Instantiate(wallToSpawn, other.transform.position, Quaternion.Euler(0, 0, 0));
