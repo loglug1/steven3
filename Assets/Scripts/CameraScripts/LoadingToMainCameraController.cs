@@ -8,12 +8,14 @@ public class LoadingToMainCameraController : MonoBehaviour
     public Camera mainCamera;
     public GameObject roomTemplatesGO;
     public GameObject player;
+    public GameObject cavas;
     
     void Start()
     {
         loadingCamera.enabled=true;
         mainCamera.enabled=false;
         player.GetComponent<Rigidbody>().isKinematic=true;
+        cavas.SetActive(false);
     }
 
     void Update()
@@ -22,6 +24,7 @@ public class LoadingToMainCameraController : MonoBehaviour
             loadingCamera.enabled=false;
             mainCamera.enabled=true;
             player.GetComponent<Rigidbody>().isKinematic=false;
+            cavas.SetActive(true);
         }
     }
 }
