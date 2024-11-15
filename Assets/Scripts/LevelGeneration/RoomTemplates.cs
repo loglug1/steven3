@@ -35,7 +35,7 @@ public class RoomTemplates : MonoBehaviour
     }
 
     void validateRooms(){
-        for(int i = 0; i < rooms.Count; i++){
+        for(int i = 0; i < rooms.Count-1; i++){
             List<GameObject> rP = rooms[i].GetComponent<RoomData>().roomValidationPrefabs;
             if(rP.Count==0){
                 //hello
