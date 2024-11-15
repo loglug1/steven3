@@ -3,7 +3,7 @@ using UnityEngine;
 public class HealthController : MonoBehaviour
 {
     [Header("Inscribed")]
-    public float maxHealth = 60f;
+    public float maxHealth = 60f; 
     public HealthBarController healthBar;
     public float currHealth = 50f;
     public float theHOLDER = 0f;
