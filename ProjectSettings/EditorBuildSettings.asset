@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CreditsScene.unity
     guid: accf448cd57f0354597c195743f8b264
+  - enabled: 1
+    path: Assets/Scenes/_Procedural Generation Finalization 1.unity
+    guid: 755f027cfc1bbfb4d8ff3a8dd619800d
+  - enabled: 1
+    path: Assets/Scenes/GameOverScreen.unity
+    guid: b67ee29ff49d8f249a69c5383e68a46b
   m_configObjects: {}

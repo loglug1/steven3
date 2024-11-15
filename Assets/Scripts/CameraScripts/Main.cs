@@ -66,7 +66,7 @@ public class Main : MonoBehaviour
     }
 
     static public void GameOver() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("GameOverScreen");
     }
 
     
