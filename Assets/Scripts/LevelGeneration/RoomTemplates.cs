@@ -35,12 +35,12 @@ public class RoomTemplates : MonoBehaviour
     }
 
     void validateRooms(){
-        for(int i = 0; i < rooms.Count; i++){
+        for(int i = 0; i < rooms.Count-1; i++){
             List<GameObject> rP = rooms[i].GetComponent<RoomData>().roomValidationPrefabs;
             if(rP.Count==0){
                 //hello
             }else{
-                Instantiate(rP[Random.Range(0,rP.Count-1)], rooms[i].transform.position, Quaternion.identity);
+                Instantiate(rP[Random.Range(0,rP.Count)], rooms[i].transform.position, Quaternion.identity);
             }
         }
     }

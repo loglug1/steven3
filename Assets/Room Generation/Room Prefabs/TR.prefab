@@ -556,6 +556,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6546c86fa488fc428b5a955688eaf65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roomValidationPrefabs:
+  - {fileID: 2414702584092759181, guid: 99b3251ddb4b9bb4fa9c55a40ab5277b, type: 3}
 --- !u!1 &4801261443728739683
 GameObject:
   m_ObjectHideFlags: 0

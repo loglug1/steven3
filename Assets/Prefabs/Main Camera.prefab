@@ -1,5 +1,89 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &42447299
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 42447300}
+  - component: {fileID: 42447302}
+  - component: {fileID: 42447301}
+  m_Layer: 0
+  m_Name: BlackBackgroundCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &42447300
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42447299}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7311582965226773393}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &42447302
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42447299}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 1
+  orthographic size: 11
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 0
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!81 &42447301
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42447299}
+  m_Enabled: 1
 --- !u!1 &7311582965226773396
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,6 +98,9 @@ GameObject:
   - component: {fileID: 7311582965226773392}
   - component: {fileID: 555138849}
   - component: {fileID: 6788933454939007303}
+  - component: {fileID: 1481514006}
+  - component: {fileID: 833112389239459883}
+  - component: {fileID: 3216838515816775592}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -32,7 +119,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 42447300}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -64,7 +152,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 11
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -124,8 +212,8 @@ MonoBehaviour:
     weakElement: 2
     strElement: 3
     effectDurations:
-    - 2
-    - 0.5
+    - 1.5
+    - 0.4
   - element: 2
     projectilePrefab: {fileID: 5114822508641061237, guid: 4be833370d2d897499c9fe6b09ecf2c9, type: 3}
     damageOnHit: 6
@@ -138,7 +226,7 @@ MonoBehaviour:
     weakElement: 3
     strElement: 1
     effectDurations:
-    - 1.8
+    - 1.6
     - 0.6
   - element: 3
     projectilePrefab: {fileID: 213716773382589390, guid: c0076560b5d5b80439f2a205b21acf9d, type: 3}
@@ -152,27 +240,28 @@ MonoBehaviour:
     weakElement: 1
     strElement: 2
     effectDurations:
-    - 1.5
+    - 1.2
     - 0.5
+  wandDefinitions:
+  - wandType: 0
+    maxElementTypes: 2
+    maxWandLevel: 2
+    damageMult: 1
+    velocityMult: 1
+    delayMult: 1
+  - wandType: 1
+    maxElementTypes: 1
+    maxWandLevel: 5
+    damageMult: 1.55
+    velocityMult: 1.3
+    delayMult: 1
+  - wandType: 2
+    maxElementTypes: 3
+    maxWandLevel: 3
+    damageMult: 0.8
+    velocityMult: 1.3
+    delayMult: 0.9
   itemDefinitions:
-  - type: 0
-    elementType: 0
-    potionType: 1
-    level: 10
-    name: Over the Counter Health Potion
-    flavorText: Feel improvement in seconds!
-    description: Heals 10 helath.
-    icon: {fileID: 21300000, guid: 1eaaa6fdc0208054e83c90ab5e6f5b81, type: 3}
-    price: 1
-  - type: 1
-    elementType: 1
-    potionType: 0
-    level: 1
-    name: Fire Crystal
-    flavorText: It feels warm to the touch.
-    description: Harness fire or upgrade your current fire.
-    icon: {fileID: 21300000, guid: 7671627cac126bb4aadd452aa33694d1, type: 3}
-    price: 5
   - type: 2
     elementType: 0
     potionType: 0
@@ -182,6 +271,78 @@ MonoBehaviour:
     description: Allows wand to shoot an additional projectile, max 3.
     icon: {fileID: 21300000, guid: 994ad7ad6e0effe4084ae7e6a9a08229, type: 3}
     price: 10
+  - type: 1
+    elementType: 1
+    potionType: 0
+    level: 1
+    name: Fire Crystal
+    flavorText: It feels warm to the touch.
+    description: Harness fire or upgrade your current fire level.
+    icon: {fileID: 21300000, guid: 7671627cac126bb4aadd452aa33694d1, type: 3}
+    price: 5
+  - type: 1
+    elementType: 1
+    potionType: 0
+    level: 3
+    name: Super Fire Crystal
+    flavorText: It almost burns your hand.
+    description: Harness level 3 fire or upgrade your current fire level by 3.
+    icon: {fileID: 21300000, guid: 7671627cac126bb4aadd452aa33694d1, type: 3}
+    price: 13
+  - type: 1
+    elementType: 2
+    potionType: 0
+    level: 3
+    name: Super Water Crystal
+    flavorText: It makes your fingers wrinkle.
+    description: Harness level 3 water or upgrade your current water level by 3.
+    icon: {fileID: 21300000, guid: a4dfe798f325ed74db35decbfb2c100a, type: 3}
+    price: 13
+  - type: 1
+    elementType: 2
+    potionType: 0
+    level: 1
+    name: Water Crystal
+    flavorText: It feels cool to the touch.
+    description: Harness water or upgrade your current water level.
+    icon: {fileID: 21300000, guid: a4dfe798f325ed74db35decbfb2c100a, type: 3}
+    price: 5
+  - type: 1
+    elementType: 3
+    potionType: 0
+    level: 1
+    name: Grass Crystal
+    flavorText: It feels fuzzy to the touch.
+    description: Harness grass or upgrade your current grass level.
+    icon: {fileID: 21300000, guid: 16ea4f87a5c94e9428881d61e5143aa1, type: 3}
+    price: 5
+  - type: 1
+    elementType: 3
+    potionType: 0
+    level: 3
+    name: Super Grass Crystal
+    flavorText: The vines tickle your palm.
+    description: Harness level 3 grass or upgrade your current grass level by 3.
+    icon: {fileID: 21300000, guid: 16ea4f87a5c94e9428881d61e5143aa1, type: 3}
+    price: 13
+  - type: 0
+    elementType: 0
+    potionType: 1
+    level: 10
+    name: Over the Counter Health Potion
+    flavorText: Feel improvement in seconds!
+    description: Heals 10 health.
+    icon: {fileID: 21300000, guid: 1eaaa6fdc0208054e83c90ab5e6f5b81, type: 3}
+    price: 3
+  - type: 0
+    elementType: 0
+    potionType: 1
+    level: 30
+    name: Prescription Health Potion
+    flavorText: Feel improvement in milliseconds!
+    description: Heals 30 health.
+    icon: {fileID: 21300000, guid: 1eaaa6fdc0208054e83c90ab5e6f5b81, type: 3}
+    price: 8
   player: {fileID: 0}
 --- !u!114 &555138849
 MonoBehaviour:
@@ -197,7 +358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraIncrementX: 39.5
   cameraIncrementY: 22
-  player: {fileID: 7292662365035269144, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
+  player: {fileID: 0}
   camWidth: 0
   camHeight: 0
   camPosition: {x: 0, y: 0, z: 0}
@@ -300,3 +461,51 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1481514006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7311582965226773396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c284c0bddb04851479c22d191ed27dab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerWeapon: 0
+  jewels: 0
+  jewelText: {fileID: 0}
+  HPText: {fileID: 0}
+  playerElements: 
+  playerWandLevel: 1
+--- !u!114 &833112389239459883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7311582965226773396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5397f781992b16e198cf3f4a6c7907e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetWidth: 1920
+  targetHeight: 1080
+  dynamicMaxWidth: 2560
+  dynamicMaxHeight: 1440
+  useDynamicWidth: 0
+  useDynamicHeight: 0
+--- !u!114 &3216838515816775592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7311582965226773396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce9f52daba363cebe87dfe5829eabef4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
