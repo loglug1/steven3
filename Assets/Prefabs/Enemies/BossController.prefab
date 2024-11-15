@@ -112,6 +112,8 @@ MonoBehaviour:
   coloredSprites:
   - {fileID: 2509074352229234295}
   spriteAnchor: {fileID: 1318321069130585297}
+  movementSpriteSheet: []
+  animatedSprite: {fileID: 0}
   flipped: 0
   tintColors: []
 --- !u!1 &5013637111245749214
@@ -167,6 +169,7 @@ MonoBehaviour:
   maxHealth: 300
   healthBar: {fileID: 7746706778343035916}
   currHealth: 300
+  theHOLDER: 0
   mainColor: {r: 1, g: 0.42589384, b: 0, a: 1}
   lowColor: {r: 1, g: 0.020375557, b: 0, a: 1}
 --- !u!114 &301671022
@@ -192,7 +195,13 @@ MonoBehaviour:
   - {x: 8.6, y: -1.7, z: 0}
   - {x: -9.1, y: -1.7, z: 0}
   phaseTwoPositions:
-  - {x: -10.3, y: 2.8, z: 0}
+  - {x: 8, y: 6, z: 0}
+  - {x: 14.5, y: 5.2, z: 0}
+  - {x: 8.2, y: -7.4, z: 0}
+  - {x: -8.2, y: -7.4, z: 0}
+  - {x: -11.7, y: -3.9, z: 0}
+  - {x: -11.7, y: 4.5, z: 0}
+  - {x: 0, y: 7, z: 0}
   stevenTransform: {fileID: 0}
   currentAttack: 2
   currentPhase: 0

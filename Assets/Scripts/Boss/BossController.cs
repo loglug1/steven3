@@ -43,7 +43,7 @@ public class BossController : MonoBehaviour
         grassMinionSpawner = transform.GetChild(4).GetComponent<BossMinionSpawner>();
         stevenTransform = transform.GetChild(0);
 
-        GeneratePhaseTwoPositions();
+        //GeneratePhaseTwoPositions();
     }
     void FixedUpdate() {
         if (healthController.currHealth < healthController.maxHealth * 0.5f) {
