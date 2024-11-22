@@ -9,6 +9,7 @@ public class MovementController : MonoBehaviour
     public float diveSpeed = 75f;
     public float jumpPower = 350f;
     public float wallJumpInvertDelay = 0.2f;
+    public float terminalVelocity = 15f;
 
     [Header("Dynamic")]
     public Rigidbody rBody;
@@ -36,6 +37,8 @@ public class MovementController : MonoBehaviour
     public void Move(float hAxis, float vAxis, float jAxis) {
         if (!canMove) return;
 
+        Vector3 vel;
+
         //jumping
         if (jAxis == 0) {
             canJump = true;
@@ -56,7 +59,7 @@ public class MovementController : MonoBehaviour
 
         //double jumping
         if (!grounded && canJump && canDoubleJump && jAxis == 1) {
-            Vector3 vel = rBody.velocity;
+            vel = rBody.velocity;
             vel.y = 0;
             rBody.velocity = vel;
             Jump();
@@ -83,6 +86,11 @@ public class MovementController : MonoBehaviour
 
         //apply movement
         rBody.velocity = new Vector3(hMovement, rBody.velocity.y + vMovement, 0);
+
+        //terminal down velocity (fixes clipping)
+        vel = rBody.velocity;
+        vel.y = Mathf.Max(vel.y, -terminalVelocity);
+        rBody.velocity = vel;
 
         //saves these so other classes (platforms) can read them
         prevHAxis = hAxis;

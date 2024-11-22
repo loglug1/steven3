@@ -16,6 +16,9 @@ public class PlayerElementUI : MonoBehaviour
     }
     void FixedUpdate() 
     {
+        if (Inventory.I.playerElements.Length != playerElementComparison.Length) {
+            playerElementComparison = new elementTypes[Inventory.I.playerElements.Length];
+        }
         if (!Enumerable.Equals(playerElementComparison, Inventory.I.playerElements)) {
             UpdateElementUI();
         }
@@ -49,5 +52,6 @@ public class PlayerElementUI : MonoBehaviour
             tempText.SetActive(true); // display level
         }
         Inventory.I.playerElements.CopyTo(playerElementComparison , 0);
+        
     }
 }

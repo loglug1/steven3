@@ -5,8 +5,8 @@ using TMPro;
 
 public class Inventory : MonoBehaviour
 {
-    public weaponType     playerWeapon;
     [Header("Dynamic")]
+    public weaponType     playerWeapon;
     public WandDefinition playerWandDef;
     private int            _jewels = 0;
     public TMP_Text       jewelText;
@@ -26,19 +26,6 @@ public class Inventory : MonoBehaviour
         I = this;
 
         // will be set by weapon choosing screen
-        playerWeapon    = weaponType.basicWand;
-        playerWandDef = Main.GET_WAND_DEFINITION(playerWeapon);
-        playerElements  = new elementTypes[playerWandDef.maxElementTypes];
-        for (int i = 0; i < playerElements.Length; i++) {
-            playerElements[i] = elementTypes.None;
-            Debug.Log(playerElements[i]);
-        }
-        // weapon.w.type     = playerWeapon;   
-
-
-        foreach(elementTypes ele in playerElements) {
-            elementLevelUp(ele, 0);
-        }
     }
 
     public void UpdateCurrency() 
@@ -100,6 +87,20 @@ public class Inventory : MonoBehaviour
             Inventory.I.playerElements[eleAmt - 1] = item.elementType;
             weapon.w.UpdateColor(Inventory.I.playerElements);
             Inventory.I.elementLevelUp(item.elementType, item.level);
+        }
+    }
+    public void SetUpWandAtStart() 
+    {
+        playerWandDef = Main.GET_WAND_DEFINITION(playerWeapon);
+        playerElements  = new elementTypes[playerWandDef.maxElementTypes];
+        for (int i = 0; i < playerElements.Length; i++) {
+            playerElements[i] = elementTypes.None;
+            Debug.Log(playerElements[i]);
+        }  
+
+
+        foreach(elementTypes ele in playerElements) {
+            elementLevelUp(ele, 0);
         }
     }
 }
