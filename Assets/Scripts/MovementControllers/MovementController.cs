@@ -21,6 +21,7 @@ public class MovementController : MonoBehaviour
     public float prevHAxis = 0;
     public float prevVAxis = 0;
     public float prevJAxis = 0;
+    public float wallJumpVelocity;
 
     void Awake() {
         rBody = GetComponent<Rigidbody>();
@@ -48,8 +49,8 @@ public class MovementController : MonoBehaviour
         
         //wall jumping (must check before double jump)
         if (HoldingWall(hAxis) && canJump && jAxis == 1) {
-            InvertMovement();
-            Invoke("InvertMovement",wallJumpInvertDelay);
+            wallJumpVelocity = -hAxis * walkingSpeed;
+            Invoke("ResetWallJump",wallJumpInvertDelay);
             Jump(1.5f);
         }
 
@@ -68,15 +69,20 @@ public class MovementController : MonoBehaviour
 
         bool holdingWall = HoldingWall(hAxis);
 
-        if (!holdingWall) {
+        float hMovement;
+        float vMovement;
+        if (!holdingWall && wallJumpVelocity == 0f) {
             //walking
-            float hMovement = hAxis * walkingSpeed * movementDirection;
-            //moveDown
-            float vMovement = Mathf.Min(vAxis, 0f) * diveSpeed * Time.deltaTime;
-
-            //apply
-            rBody.velocity = new Vector3(hMovement, rBody.velocity.y + vMovement, 0);
+            hMovement = hAxis * walkingSpeed * movementDirection;
+        } else {
+            //used for wall jumping
+            hMovement = wallJumpVelocity;
         }
+        //moveDown
+        vMovement = Mathf.Min(vAxis, 0f) * diveSpeed * Time.deltaTime;
+
+        //apply movement
+        rBody.velocity = new Vector3(hMovement, rBody.velocity.y + vMovement, 0);
 
         //saves these so other classes (platforms) can read them
         prevHAxis = hAxis;
@@ -105,5 +111,9 @@ public class MovementController : MonoBehaviour
 
     void InvertMovement() {
         movementDirection *= -1;
+    }
+
+    void ResetWallJump() {
+        wallJumpVelocity = 0f;
     }
 }
