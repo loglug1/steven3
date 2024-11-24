@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public enum eAttackTypes {
     spawnMinions,
@@ -24,6 +25,8 @@ public class BossController : MonoBehaviour
     RockSpawner rockSpawner;
     BossMagicProjectiles projectileSpawner;
     public Transform stevenTransform;
+    public GameObject triggerSprite;
+    public GameObject bossSprite;
     [Header("Dynamic")]
     public eAttackTypes currentAttack = eAttackTypes.shootProjectiles;
     public int currentPhase = 0;
