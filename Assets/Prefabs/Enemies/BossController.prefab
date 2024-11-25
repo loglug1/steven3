@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 6415033383382713440}
   - component: {fileID: 301671021}
   - component: {fileID: 301671022}
+  - component: {fileID: 420721140744704779}
   m_Layer: 0
   m_Name: BossController
   m_TagString: Untagged
@@ -213,6 +214,19 @@ MonoBehaviour:
   projectileCoolDown: 0
   moveStep: 0
   speedIncreased: 0
+--- !u!114 &420721140744704779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5013637111245749214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3cf38e34bc665149923d5886fe7d03f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossMusic: {fileID: 8300000, guid: a0328a03bfcb72c44a71e35aac2fe6da, type: 3}
 --- !u!1 &6818359765863749259
 GameObject:
   m_ObjectHideFlags: 0
