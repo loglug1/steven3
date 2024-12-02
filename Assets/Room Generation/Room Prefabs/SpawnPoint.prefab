@@ -48,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openingDirection: 0
   spawned: 0
+  boundBox: 0
+  closedRoom: {fileID: 9147575843330131692, guid: 1e42b7b8a20a3544a966d17d219640e0, type: 3}
 --- !u!65 &3118526527115072144
 BoxCollider:
   m_ObjectHideFlags: 0
