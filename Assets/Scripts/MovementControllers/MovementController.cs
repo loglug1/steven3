@@ -30,6 +30,8 @@ public class MovementController : MonoBehaviour
         distToGround = c.bounds.extents.y;
         distToWall = c.bounds.extents.x;
 
+        wallJumpVelocity = 0;
+
         canJump = true;
         canDoubleJump = true;
     }
