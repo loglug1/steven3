@@ -6,7 +6,9 @@ public enum elementTypes {
     Fire,
     Water,
     Grass,
-    Ice
+    Ice,
+    Poison,
+    Rock
 }
 [System.Serializable]
 public class ElementDefinition {

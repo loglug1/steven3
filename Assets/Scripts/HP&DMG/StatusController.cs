@@ -17,12 +17,17 @@ public class StatusController : MonoBehaviour
     public bool isFrozen   = false;
     public bool isBurning  = false;
     public bool isSundered = false;
+    public bool isPoisoned = false;
     public bool isWeak     = false;
     public bool isStrong   = false;
+    public int burnStack;
+    public int poisonStack;
+    public int poisonEffectDmg;
     public float frozenCoolDown;
     public float burnCoolDown;
     private float freezeTime;
     private float burnTime;
+    private float poisonTime;
     private float sunderedTime;
     public GameObject burningUI;
     public GameObject sunderedUI;
@@ -55,6 +60,9 @@ public class StatusController : MonoBehaviour
         if (isSundered) {
             Sundered();
         }
+        if (isPoisoned) {
+            Poisoned();
+        }
     }
 
     public void ApplyEffect(List<ElementDefinition> wandElems, Dictionary<elementTypes,int> levels) { //uses list for elements in order to accommodate for more than two elements in the future
@@ -74,10 +82,15 @@ public class StatusController : MonoBehaviour
                     break;
                 case elementTypes.Fire:
                     if (!isBurning) {
+                        burnStack = 0;
                         burnTime += (elemDef.effectDuration + (0.3f * (float)levels[elementTypes.Fire]));
                         spriteController.Tint(hitColor, burnTime);
                         isBurning = true;
                         burningUI.SetActive(true);
+                    }
+                    if (isBurning && burnStack < 3) {
+                        burnStack += 1;
+                        burnTime += 0.5f;
                     }
                     break;
                 case elementTypes.Water:
@@ -86,6 +99,20 @@ public class StatusController : MonoBehaviour
                         //spriteController.Tint(elemDef.color, sunderedTime);
                         isSundered = true;
                         sunderedUI.SetActive(true);
+                    }
+                    break;
+                case elementTypes.Poison:
+                    if (!isPoisoned) {
+                        poisonStack = 0;
+                        poisonEffectDmg = 0;
+                        poisonTime += (elemDef.effectDuration + (0.5f * (float)levels[elementTypes.Poison]));
+                        spriteController.Tint(hitColor,poisonTime);
+                        isPoisoned = true;
+                        // NEED TO MAKE A POISON UI ELEMENT
+                    }
+                    if (isPoisoned && poisonStack < 5) {
+                        poisonStack += 1;
+                        poisonEffectDmg += 1;
                     }
                     break;
             }
@@ -145,6 +172,16 @@ public class StatusController : MonoBehaviour
             movementController.walkingSpeed = movementController.walkingSpeed * 2f;
             movementController.diveSpeed = movementController.diveSpeed * 2f;
             movementController.jumpPower = movementController.jumpPower * 2f;
+        }
+    }
+    void Poisoned()
+    {
+        poisonTime -= Time.deltaTime;
+        healthController.Damage((2.0f + poisonEffectDmg) * Time.deltaTime);
+        Debug.Log("poison dmg: " + (4.0f + (poisonEffectDmg * Time.deltaTime)));
+        if (poisonTime <= 0) {
+            isPoisoned = false;
+            // POISON UI ELEMENT FALSE
         }
     }
 }

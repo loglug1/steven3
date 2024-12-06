@@ -425,7 +425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rm: {fileID: 0}
   enemyElementofChoice: 0
-  enemyElementChance: 00000000010000000200000003000000
+  enemyElementChance: 000000000100000002000000030000000400000005000000
   enemyEleDef:
     element: 0
     projectilePrefab: {fileID: 0}
@@ -465,8 +465,12 @@ MonoBehaviour:
   isFrozen: 0
   isBurning: 0
   isSundered: 0
+  isPoisoned: 0
   isWeak: 0
   isStrong: 0
+  burnStack: 0
+  poisonStack: 0
+  poisonEffectDmg: 0
   frozenCoolDown: 0
   burnCoolDown: 0
   burningUI: {fileID: 1008808541}
