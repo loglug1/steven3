@@ -7,14 +7,14 @@ public class ChestElementOption : MonoBehaviour
 {
     static public void ChosenElementOne() 
     {
-        Inventory.ObtainElementCrystal(new ItemDefinition{type = ItemType.elementCrystal, elementType = chest.c.chosenElements[0], level = 1});
+        Inventory.ObtainElementCrystal(chest.c.items[0]);
         PopupController.ClosePopup(); // deactivate popup
-        Destroy(chest.c.gameObject);                        // destroy chest
+        Destroy(chest.c.gameObject); // destroy chest
     }
     static public void ChosenElementTwo()
     {
-        Inventory.ObtainElementCrystal(new ItemDefinition{type = ItemType.elementCrystal, elementType = chest.c.chosenElements[1], level = 1});
+        Inventory.ObtainElementCrystal(chest.c.items[1]);
         PopupController.ClosePopup(); // deactivate popup
-        Destroy(chest.c.gameObject);                        // destroy chest
+        Destroy(chest.c.gameObject); // destroy chest
     }
 }

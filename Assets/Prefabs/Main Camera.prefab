@@ -265,6 +265,9 @@ MonoBehaviour:
     description: Allows wand to shoot an additional projectile, max 3.
     icon: {fileID: 21300000, guid: 994ad7ad6e0effe4084ae7e6a9a08229, type: 3}
     price: 10
+    itemPools:
+    - pool: 3
+      weight: 1
   - type: 1
     elementType: 1
     potionType: 0
@@ -275,6 +278,11 @@ MonoBehaviour:
     description: Harness fire or upgrade your current fire level.
     icon: {fileID: 21300000, guid: 7671627cac126bb4aadd452aa33694d1, type: 3}
     price: 5
+    itemPools:
+    - pool: 2
+      weight: 2
+    - pool: 4
+      weight: 2
   - type: 1
     elementType: 1
     potionType: 0
@@ -285,16 +293,9 @@ MonoBehaviour:
     description: Harness level 3 fire or upgrade your current fire level by 3.
     icon: {fileID: 21300000, guid: 7671627cac126bb4aadd452aa33694d1, type: 3}
     price: 13
-  - type: 1
-    elementType: 2
-    potionType: 0
-    wandType: 0
-    level: 3
-    name: Super Water Crystal
-    flavorText: It makes your fingers wrinkle.
-    description: Harness level 3 water or upgrade your current water level by 3.
-    icon: {fileID: 21300000, guid: a4dfe798f325ed74db35decbfb2c100a, type: 3}
-    price: 13
+    itemPools:
+    - pool: 2
+      weight: 1
   - type: 1
     elementType: 2
     potionType: 0
@@ -305,6 +306,24 @@ MonoBehaviour:
     description: Harness water or upgrade your current water level.
     icon: {fileID: 21300000, guid: a4dfe798f325ed74db35decbfb2c100a, type: 3}
     price: 5
+    itemPools:
+    - pool: 2
+      weight: 2
+    - pool: 4
+      weight: 1
+  - type: 1
+    elementType: 2
+    potionType: 0
+    wandType: 0
+    level: 3
+    name: Super Water Crystal
+    flavorText: It makes your fingers wrinkle.
+    description: Harness level 3 water or upgrade your current water level by 3.
+    icon: {fileID: 21300000, guid: a4dfe798f325ed74db35decbfb2c100a, type: 3}
+    price: 13
+    itemPools:
+    - pool: 2
+      weight: 1
   - type: 1
     elementType: 3
     potionType: 0
@@ -315,6 +334,11 @@ MonoBehaviour:
     description: Harness grass or upgrade your current grass level.
     icon: {fileID: 21300000, guid: 16ea4f87a5c94e9428881d61e5143aa1, type: 3}
     price: 5
+    itemPools:
+    - pool: 2
+      weight: 2
+    - pool: 4
+      weight: 2
   - type: 1
     elementType: 3
     potionType: 0
@@ -325,6 +349,9 @@ MonoBehaviour:
     description: Harness level 3 grass or upgrade your current grass level by 3.
     icon: {fileID: 21300000, guid: 16ea4f87a5c94e9428881d61e5143aa1, type: 3}
     price: 13
+    itemPools:
+    - pool: 2
+      weight: 1
   - type: 0
     elementType: 0
     potionType: 1
@@ -335,6 +362,9 @@ MonoBehaviour:
     description: Heals 30 health.
     icon: {fileID: 21300000, guid: 1eaaa6fdc0208054e83c90ab5e6f5b81, type: 3}
     price: 8
+    itemPools:
+    - pool: 1
+      weight: 1
   - type: 0
     elementType: 0
     potionType: 1
@@ -345,16 +375,11 @@ MonoBehaviour:
     description: Heals 10 health.
     icon: {fileID: 21300000, guid: 1eaaa6fdc0208054e83c90ab5e6f5b81, type: 3}
     price: 3
-  - type: 0
-    elementType: 0
-    potionType: 1
-    wandType: 0
-    level: 10
-    name: Over the Counter Health Potion
-    flavorText: Feel improvement in seconds!
-    description: Heals 10 health.
-    icon: {fileID: 21300000, guid: 1eaaa6fdc0208054e83c90ab5e6f5b81, type: 3}
-    price: 3
+    itemPools:
+    - pool: 1
+      weight: 2
+    - pool: 4
+      weight: 1
   - type: 3
     elementType: 0
     potionType: 0
@@ -366,6 +391,9 @@ MonoBehaviour:
       \n1x Fire Rate"
     icon: {fileID: 21300000, guid: b2f524c7f299b6f46ab78a49408b0bb4, type: 3}
     price: 0
+    itemPools:
+    - pool: 5
+      weight: 1
   - type: 3
     elementType: 0
     potionType: 0
@@ -377,6 +405,9 @@ MonoBehaviour:
       \n1x Velocity \n1x Fire Rate"
     icon: {fileID: 21300000, guid: b2f524c7f299b6f46ab78a49408b0bb4, type: 3}
     price: 0
+    itemPools:
+    - pool: 5
+      weight: 1
   - type: 3
     elementType: 0
     potionType: 0
@@ -388,6 +419,9 @@ MonoBehaviour:
       \n0.8x Damage \n1.3x Velocity \n0.9x Fire Rate"
     icon: {fileID: 21300000, guid: b2f524c7f299b6f46ab78a49408b0bb4, type: 3}
     price: 0
+    itemPools:
+    - pool: 5
+      weight: 1
   player: {fileID: 0}
 --- !u!114 &555138849
 MonoBehaviour:

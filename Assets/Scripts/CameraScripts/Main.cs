@@ -10,12 +10,12 @@ public class Main : MonoBehaviour
     static public Color MenuPlayerColor;
     static public string macho = "HAPPY";
     static private Dictionary<elementTypes, ElementDefinition> ELE_DICT;
-    static private Dictionary<ItemType, List<ItemDefinition>> ITEM_DICT;
+    static private Dictionary<ItemPool, List<ItemDefinition>> ITEM_DICT;
     static private Dictionary<weaponType, WandDefinition> WAND_DICT;
     [Header("Inscribed")]
     public ElementDefinition[] elementDefinitions; //Definition Structure defined in Elemental/ElementHandler.cs
     public WandDefinition[]    wandDefinitions; // Definition Structure defined in weapon/Weapon.cs
-    public ItemDefinition[] itemDefinitions; //Definition Structure defined in Shop/Shop.cs
+    public ItemDefinition[] itemDefinitions; //Definition Structure defined in ItemHandler.cs
     public GameObject player;
 
     // Start is called before the first frame update
@@ -28,12 +28,18 @@ public class Main : MonoBehaviour
             ELE_DICT[def.element]=def;
         }
         // item defs
-        ITEM_DICT = new Dictionary<ItemType, List<ItemDefinition>>();
+        ITEM_DICT = new Dictionary<ItemPool, List<ItemDefinition>>();
         foreach (ItemDefinition item in itemDefinitions) {
-            if (!ITEM_DICT.ContainsKey(item.type)) {
-                ITEM_DICT[item.type] = new List<ItemDefinition>();
+            foreach (WeightedItemPool itemPool in item.itemPools) {
+                //create pool list in dictionary if it doesn't exist
+                if (!ITEM_DICT.ContainsKey(itemPool.pool)) {
+                    ITEM_DICT[itemPool.pool] = new List<ItemDefinition>{item};
+                }
+                //add item to pool (weight) times
+                for (int i = 0; i < itemPool.weight; i++) {
+                    ITEM_DICT[itemPool.pool].Add(item);
+                }
             }
-            ITEM_DICT[item.type].Add(item);
         }
         // wand defs
         WAND_DICT = new Dictionary<weaponType, WandDefinition>();
@@ -54,9 +60,17 @@ public class Main : MonoBehaviour
         return(new WandDefinition());
     }
 
-    static public List<ItemDefinition> GET_ITEM_POOL(ItemType itemType) {
-        if (ITEM_DICT.ContainsKey(itemType)) {
-            return ITEM_DICT[itemType];
+    static public List<ItemDefinition> GET_ITEM_POOL(ItemPool pool) {
+        if (ITEM_DICT.ContainsKey(pool)) {
+            return ITEM_DICT[pool];
+        }
+        return null;
+    }
+    static public ItemDefinition GET_RANDOM_ITEM(ItemPool pool) {
+        List<ItemDefinition> items;
+        if (ITEM_DICT.ContainsKey(pool)) {
+            items = ITEM_DICT[pool];
+            return items[Random.Range(0,items.Count)];
         }
         return null;
     }
