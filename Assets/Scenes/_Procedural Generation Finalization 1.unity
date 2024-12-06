@@ -718,6 +718,10 @@ PrefabInstance:
       propertyPath: jewelText
       value: 
       objectReference: {fileID: 984788323}
+    - target: {fileID: 1327794555236617228, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: player
       value: 

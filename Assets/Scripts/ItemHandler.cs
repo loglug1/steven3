@@ -54,6 +54,7 @@ public class ItemHandler : MonoBehaviour
             case ItemType.elementCrystal:
                 //add element
                 Inventory.ObtainElementCrystal(item);
+                AudioController.PlayClip("obtain-element");
                 break;
             case ItemType.potion:
                 switch(item.potionType) {
@@ -61,6 +62,7 @@ public class ItemHandler : MonoBehaviour
                         player.GetComponent<HealthController>().Heal((float)item.level);
                         break;
                 }
+                AudioController.PlayClip("drink-potion");
                 break;
             case ItemType.wand:
                 // used for wand selector at start, potentially use for buying wand from shop later

@@ -66,9 +66,9 @@ public class Inventory : MonoBehaviour
         bool exists = false;
         for(int i = 0; i < Inventory.I.playerElements.Length; ++i) {
             if(Inventory.I.playerElements[i] == item.elementType) {
-                Inventory.I.elementLevelUp(Inventory.I.playerElements[i], 1);
+                Inventory.I.elementLevelUp(Inventory.I.playerElements[i], item.level);
                 exists = true;
-                break;
+                return;
             }
         }
         // player is purchasing as a new element for a wand with an empty slot
@@ -79,7 +79,7 @@ public class Inventory : MonoBehaviour
                     exists = true;
                     weapon.w.UpdateColor(Inventory.I.playerElements);
                     Inventory.I.elementLevelUp(item.elementType, item.level);
-                    break;
+                    return;
                 }
             }
         }
