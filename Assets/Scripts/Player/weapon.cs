@@ -67,6 +67,7 @@ public class weapon : MonoBehaviour
             return;
         }
         // different shoot for each wand (placeholder)
+        AudioController.PlayClip("shoot");
         switch(type) {
             case weaponType.basicWand:
                 wandProjectile.BasicShoot(Inventory.I.playerElements, vec, PROJECTILE_ANCHOR, shotPointTrans);

@@ -60,10 +60,19 @@ public class PlayerHitHandler : MonoBehaviour
             HandleHit(eProj.type, ElementHandler.enemyLevel); //REPLACE WITH STATUS CONTROLLER
             Destroy(otherGO);
         }
+
+        if (otherGO.layer == LayerMask.NameToLayer("EnvironmentalHazards")) { 
+            EnvironmentalHazard eH = otherGO.GetComponent<EnvironmentalHazard>();
+            if (eH != null) {
+                AudioController.RepeatClip("vine-hurt");
+            }
+        }
     }
 
     void HandleHit(elementTypes elemType, int currentEnemyLevels) {
         
+        AudioController.PlayClip("enemyHit");
+
         Dictionary<elementTypes, int> enemyElementDict = new Dictionary<elementTypes, int>();
         enemyElementDict.Add(elemType, currentEnemyLevels);
         statusController.ApplyEffect(new List<ElementDefinition>{Main.GET_ELEMENT_DEFINITION(elemType)}, enemyElementDict);
@@ -85,6 +94,17 @@ public class PlayerHitHandler : MonoBehaviour
             if (eH != null) {
                 spriteController.Tint(hitColor, hitBlinkTime);
                 healthController.Damage(Time.deltaTime * eH.damage);
+                AudioController.RepeatClip("vine-hurt");
+            }
+        }
+    }
+
+    public void OnTriggerExit(Collider c) {
+        GameObject otherGO = c.gameObject;
+        if (otherGO.layer == LayerMask.NameToLayer("EnvironmentalHazards")) { 
+            EnvironmentalHazard eH = otherGO.GetComponent<EnvironmentalHazard>();
+            if (eH != null) {
+                AudioController.StopClip();
             }
         }
     }

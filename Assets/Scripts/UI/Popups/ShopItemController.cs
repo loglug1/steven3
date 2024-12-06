@@ -41,6 +41,7 @@ public class ShopItemController : MonoBehaviour
     }
     public void BuyItem() {
         if (canAfford && !soldOut) {
+            AudioController.PlayClip("shopPurchase");
             PopupController.ClosePopup();
             Inventory.I.jewels -= item.price;
             ItemHandler.UseItem(item);
