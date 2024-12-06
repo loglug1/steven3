@@ -189,7 +189,7 @@ MonoBehaviour:
     damagePerSec: 0
     delayBetweenShots: 0.8
     velocity: 6
-    color: {r: 0.99371064, g: 0.99371064, b: 0.99371064, a: 1}
+    color: {r: 0.7735849, g: 0.7735849, b: 0.7735849, a: 1}
     name: None
     sprite: {fileID: 21300000, guid: 78e95d012390d1347aa59d2ea793fefb, type: 3}
     weakElement: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
     effectDuration: 0
   - element: 1
     projectilePrefab: {fileID: 8136098084400355990, guid: ed80c1331b7abca4f8094237b0b717c8, type: 3}
-    damageOnHit: 4
+    damageOnHit: 2
     damagePerSec: 3
     delayBetweenShots: 0.7
     velocity: 8
@@ -209,11 +209,11 @@ MonoBehaviour:
     effectDuration: 1.5
   - element: 2
     projectilePrefab: {fileID: 5114822508641061237, guid: 4be833370d2d897499c9fe6b09ecf2c9, type: 3}
-    damageOnHit: 5.5
+    damageOnHit: 4.5
     damagePerSec: 0
     delayBetweenShots: 1
     velocity: 3
-    color: {r: 0.0926782, g: 0.6288689, b: 0.8930817, a: 1}
+    color: {r: 0.086908154, g: 0.28839543, b: 0.8773585, a: 1}
     name: Water
     sprite: {fileID: 21300000, guid: 57a445070fad765429838d818a5c723c, type: 3}
     weakElement: 3
@@ -221,7 +221,7 @@ MonoBehaviour:
     effectDuration: 1.6
   - element: 3
     projectilePrefab: {fileID: 213716773382589390, guid: c0076560b5d5b80439f2a205b21acf9d, type: 3}
-    damageOnHit: 5.2
+    damageOnHit: 4
     damagePerSec: 0
     delayBetweenShots: 0.75
     velocity: 10
@@ -245,9 +245,9 @@ MonoBehaviour:
     effectDuration: 1.2
   - element: 5
     projectilePrefab: {fileID: 5114822508641061237, guid: 6d185fc3aa7f0ce4fba6f7abb8b10992, type: 3}
-    damageOnHit: 0.75
+    damageOnHit: 0.5
     damagePerSec: 0
-    delayBetweenShots: 0.75
+    delayBetweenShots: 1
     velocity: 8
     color: {r: 0.3633895, g: 0.15082464, b: 0.51572317, a: 1}
     name: Poison
@@ -304,7 +304,7 @@ MonoBehaviour:
     - pool: 2
       weight: 2
     - pool: 4
-      weight: 2
+      weight: 3
   - type: 1
     elementType: 1
     potionType: 0
@@ -370,7 +370,7 @@ MonoBehaviour:
     - pool: 2
       weight: 2
     - pool: 4
-      weight: 2
+      weight: 3
   - type: 1
     elementType: 3
     potionType: 0
@@ -462,7 +462,7 @@ MonoBehaviour:
     potionType: 0
     wandType: 0
     level: 1
-    name: Poison
+    name: Poison Crystal
     flavorText: It stings...
     description: '+1 level to poison or adds poison to the wand.
 
@@ -475,13 +475,13 @@ MonoBehaviour:
     price: 0
     itemPools:
     - pool: 4
-      weight: 2
+      weight: 3
   - type: 1
     elementType: 5
     potionType: 0
     wandType: 0
     level: 3
-    name: Poison
+    name: Super Poison Crystal
     flavorText: It stings...
     description: '+3 level to poison or adds poison to the wand.
 
@@ -500,7 +500,7 @@ MonoBehaviour:
     potionType: 0
     wandType: 0
     level: 3
-    name: Ice
+    name: Super Ice Crystal
     flavorText: Your hand feels numb...
     description: '+3 level to ice or adds ice to the wand.
 
@@ -516,7 +516,7 @@ MonoBehaviour:
     potionType: 0
     wandType: 0
     level: 1
-    name: Ice
+    name: Ice Crystal
     flavorText: Where's my coat...
     description: '+1 level to ice or adds ice to the wand.
 
@@ -526,7 +526,7 @@ MonoBehaviour:
     price: 0
     itemPools:
     - pool: 4
-      weight: 2
+      weight: 3
   player: {fileID: 0}
 --- !u!114 &555138849
 MonoBehaviour:
