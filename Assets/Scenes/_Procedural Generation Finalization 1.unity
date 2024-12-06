@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18029127, g: 0.22572401, b: 0.3069303, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -724,7 +724,7 @@ PrefabInstance:
       objectReference: {fileID: 1741557011}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: itemDefinitions.Array.size
-      value: 13
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: elementDefinitions.Array.size
@@ -733,7 +733,7 @@ PrefabInstance:
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: itemDefinitions.Array.data[12].icon
       value: 
-      objectReference: {fileID: 21300000, guid: b2f524c7f299b6f46ab78a49408b0bb4, type: 3}
+      objectReference: {fileID: 21300000, guid: 93264ee8f94f5f24cbdde6829773bddf, type: 3}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: itemDefinitions.Array.data[12].name
       value: Poison
@@ -743,7 +743,55 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[13].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 93264ee8f94f5f24cbdde6829773bddf, type: 3}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[13].name
+      value: Poison
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[13].type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[14].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 1168923508cec154987a171d5cdd8e71, type: 3}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[14].name
+      value: Ice
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[14].type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[15].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 1168923508cec154987a171d5cdd8e71, type: 3}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[15].name
+      value: Ice
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[15].type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: itemDefinitions.Array.data[12].level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[13].level
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[14].level
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[15].level
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
@@ -755,13 +803,25 @@ PrefabInstance:
       value: Poison
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: elementDefinitions.Array.data[1].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 69b8d3ee696ec6249b66a186ecc9aeba, type: 3}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: elementDefinitions.Array.data[2].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 57a445070fad765429838d818a5c723c, type: 3}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: elementDefinitions.Array.data[3].sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c0dc8ae3b96e4784fafbfedc0ed7957a, type: 3}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: elementDefinitions.Array.data[4].sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 177ea5ae311cec14989e5f0b0e6fa748, type: 3}
+      objectReference: {fileID: 21300000, guid: 1168923508cec154987a171d5cdd8e71, type: 3}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: elementDefinitions.Array.data[5].sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 177ea5ae311cec14989e5f0b0e6fa748, type: 3}
+      objectReference: {fileID: 21300000, guid: 93264ee8f94f5f24cbdde6829773bddf, type: 3}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: itemDefinitions.Array.data[12].wandType
       value: 0
@@ -807,6 +867,14 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[2].flavorText
+      value: '"Third" degree burn...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[6].flavorText
+      value: The vines prick your palm. You feel lightheaded...
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: elementDefinitions.Array.data[3].velocity
       value: 10
       objectReference: {fileID: 0}
@@ -819,16 +887,128 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[0].description
+      value: Allows wand to shoot an additional projectile.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: itemDefinitions.Array.data[12].flavorText
-      value: my balls
+      value: It stings...
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[13].flavorText
+      value: It stings...
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[14].flavorText
+      value: Your hand feels numb...
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[15].flavorText
+      value: Where's my coat...
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[1].description
+      value: Harness fire or upgrade your current fire level. Low damage, medium
+        speed; applies burn on hit. Keep shooting the enemy while burned to extend
+        it.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[2].description
+      value: 'Harness level 3 fire or upgrade your current fire level by 3. Low damage,
+        medium speed; applies burn to enemies. Keep shooting while they are burned
+        to extend it.
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[3].description
+      value: 'Harness water or upgrade your current water level. High damage, low
+        speed, slows enemies on hit.
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[4].description
+      value: 'Harness level 3 water or upgrade your current water level by 3. High
+        damage, low speed, slows enemies on hit.
+
+
+        Slow moving, high damage,
+        and slows enemies on hit.
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[5].description
+      value: 'Harness grass or upgrade your current grass level.
+
+        Grass grants
+        life steal on kill equal to the element level.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[6].description
+      value: 'Harness level 3 grass or upgrade your current grass level by 3.
+
+        Grass
+        grants life steal on kill, granting health equal to the element level.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[7].description
+      value: Heals 30 health. Can overheal.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[8].description
+      value: Heals 10 health. Can overheal.
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: itemDefinitions.Array.data[12].description
-      value: my balls
+      value: '+1 level to poison or adds poison to the wand.
+
+        Keep firing
+        at an enemy while poisoned to add poison stacks and increase the damage done.
+
+        Low
+        impact damage but poison stacks hurt...'
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: itemDefinitions.Array.data[12].elementType
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[13].description
+      value: '+3 level to poison or adds poison to the wand.
+
+        Keep firing
+        at an enemy while poisoned to add poison stacks and increase the damage done.
+
+        Low
+        impact damage but poison stacks hurt...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[13].elementType
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[14].description
+      value: '+3 level to ice or adds ice to the wand.
+
+        Low damage, high
+        speed, freezes the enemy.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[14].elementType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[15].description
+      value: '+1 level to ice or adds ice to the wand.
+
+        Low damage, high
+        speed, freezes the enemy.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[15].elementType
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: elementDefinitions.Array.data[4].strElement
@@ -881,11 +1061,11 @@ PrefabInstance:
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: elementDefinitions.Array.data[4].projectilePrefab
       value: 
-      objectReference: {fileID: 5114822508641061237, guid: 4be833370d2d897499c9fe6b09ecf2c9, type: 3}
+      objectReference: {fileID: 5114822508641061237, guid: 4afc32d340c9ef04cbe44d00989716e9, type: 3}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: elementDefinitions.Array.data[5].projectilePrefab
       value: 
-      objectReference: {fileID: 72012815015929179, guid: 849dbb80b884da34e99be0884da7d034, type: 3}
+      objectReference: {fileID: 5114822508641061237, guid: 6d185fc3aa7f0ce4fba6f7abb8b10992, type: 3}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: elementDefinitions.Array.data[4].delayBetweenShots
       value: 0.75
@@ -899,6 +1079,18 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[13].itemPools.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[14].itemPools.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[15].itemPools.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: elementDefinitions.Array.data[4].effectDurations.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -907,8 +1099,32 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[13].itemPools.Array.data[0].pool
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[14].itemPools.Array.data[0].pool
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[15].itemPools.Array.data[0].pool
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: itemDefinitions.Array.data[12].itemPools.Array.data[0].weight
-      value: 10
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[13].itemPools.Array.data[0].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[14].itemPools.Array.data[0].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: itemDefinitions.Array.data[15].itemPools.Array.data[0].weight
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: elementDefinitions.Array.data[3].effectDurations.Array.data[0]
