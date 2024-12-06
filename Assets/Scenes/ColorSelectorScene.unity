@@ -2429,7 +2429,7 @@ PrefabInstance:
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 7292662365035269138, guid: bdc7bcbff26c6c745ba681da06b319ca, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773393, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: m_RootOrder
       value: 0
