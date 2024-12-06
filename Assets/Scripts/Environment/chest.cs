@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
+using Unity.VisualScripting;
 
 public class chest : MonoBehaviour
 {   
     [Header("Inscribed")]
-    public elementTypes[] elementChances;           // chances for elements, currently 4/10 fire 4/10 grass 2/10 water
-    public elementTypes[] chosenElements;    // chosen elements
+    public ItemPool itemPool;
     public GameObject popupCanvas;
 
     [SerializeField]
@@ -16,10 +17,10 @@ public class chest : MonoBehaviour
     [SerializeField]
     private AudioClip chestClose;
 
-    [Header("Dynamic")]
     private AudioSource source;
-    public ElementDefinition def1;
-    public ElementDefinition def2;
+    [Header("Dynamic")]
+    public List<ItemDefinition> items;    // random items chosen on spawn
+    public bool open = false;
 
     static public chest c;        
               
@@ -30,37 +31,38 @@ public class chest : MonoBehaviour
         go = collid.gameObject;
         if(go.GetComponent<PlayerController>() != null) 
         {
-            ChestCanvasController canvas = Instantiate(popupCanvas).GetComponent<ChestCanvasController>();
+            ShopCanvasController canvas = Instantiate(popupCanvas).GetComponent<ShopCanvasController>();
 
-            canvas.button2_text.text = def2.name;
-            canvas.but2.GetComponent<Image>().sprite = def2.sprite;
-            canvas.button1_text.text = def1.name;
-            canvas.but1.GetComponent<Image>().sprite = def1.sprite;
+            canvas.items[0].item = items[0];
+            canvas.items[1].item = items[1];
 
             source.PlayOneShot(chestOpen);
+            open = true;
             Time.timeScale = 0;
         }
     }
-    public void OnTriggerExit(Collider c)
-    {
-        GameObject go = c.gameObject;
-        if (go.GetComponent<PlayerController>() != null) {
+    public void FixedUpdate() {
+        if (open) {
             source.PlayOneShot(chestClose);
-            //PopupController.ClosePopup();
+            open = false;
         }
     }
     void Awake() {
-        chosenElements[0] = elementChances[Random.Range(0, elementChances.Length)];         // 1st chosen 
-        def1 = Main.GET_ELEMENT_DEFINITION(chosenElements[0]);
+        items.Add(Main.GET_RANDOM_ITEM(itemPool));// 1st chosen 
 
-        elementTypes elementChose = elementChances[Random.Range(0, elementChances.Length)]; 
+        //check if pool contains more than one type of item
+        List<ItemType> poolTypes = Main.GET_ITEM_POOL(itemPool).Select(i => i.type).Distinct().ToList();
+        bool containsMultipleTypes = poolTypes.Count > 1;
+        
+
+        ItemDefinition tempItem = Main.GET_RANDOM_ITEM(itemPool);
         // 2nd, make sure its not the same
-        while (elementChose == chosenElements[0]) {
-            elementChose = elementChances[Random.Range(0, elementChances.Length)];
+        if (containsMultipleTypes) {
+            while (items.Any(i => i.type == tempItem.type)) {
+                tempItem = Main.GET_RANDOM_ITEM(itemPool);
+            }
         }
-        chosenElements[1] = elementChose;     // 2nd chosen
-
-        def2 = Main.GET_ELEMENT_DEFINITION(chosenElements[1]);
+        items.Add(tempItem); // 2nd chosen
 
         source = GetComponent<AudioSource>(); // chest sound player
     }

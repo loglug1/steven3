@@ -8,7 +8,7 @@ public class PromptWandChange : MonoBehaviour
     List<ItemDefinition> wands;
     void Awake() {
         GameObject popup = Instantiate(wandPickerPopupPrefab);
-        wands = Main.GET_ITEM_POOL(ItemType.wand);
+        wands = Main.GET_ITEM_POOL(ItemPool.weaponChoice);
         ShopCanvasController canvasController = popup.GetComponent<ShopCanvasController>();
         if (canvasController != null) {
             canvasController.items[0].item = wands[0];

@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class PopupController : MonoBehaviour
 {
-    static PopupController S;
+    static Stack<PopupController> S;
+    public bool isClosable = true;
 
     void Awake() {
-        S = this;
+        if (S == null) S = new Stack<PopupController>();
+        S.Push(this);
         Time.timeScale = 0;
     }
 
     void Update() {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
+        if (Input.GetKeyDown(KeyCode.Escape) && isClosable) {
             ClosePopup();
         }
     }
@@ -23,6 +25,6 @@ public class PopupController : MonoBehaviour
     }
 
     static public void ClosePopup() {
-        Destroy(S.gameObject);
+        Destroy(S.Pop().gameObject);
     }
 }
