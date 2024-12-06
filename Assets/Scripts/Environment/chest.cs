@@ -31,7 +31,7 @@ public class chest : MonoBehaviour
         go = collid.gameObject;
         if(go.GetComponent<PlayerController>() != null) 
         {
-            ShopCanvasController canvas = Instantiate(popupCanvas).GetComponent<ShopCanvasController>();
+            ChestCanvasController canvas = Instantiate(popupCanvas).GetComponent<ChestCanvasController>();
 
             canvas.items[0].item = items[0];
             canvas.items[1].item = items[1];
