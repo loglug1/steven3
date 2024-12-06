@@ -304,7 +304,7 @@ MonoBehaviour:
     - pool: 2
       weight: 2
     - pool: 4
-      weight: 2
+      weight: 3
   - type: 1
     elementType: 1
     potionType: 0
@@ -370,7 +370,7 @@ MonoBehaviour:
     - pool: 2
       weight: 2
     - pool: 4
-      weight: 2
+      weight: 3
   - type: 1
     elementType: 3
     potionType: 0
@@ -462,7 +462,7 @@ MonoBehaviour:
     potionType: 0
     wandType: 0
     level: 1
-    name: Poison
+    name: Poison Crystal
     flavorText: It stings...
     description: '+1 level to poison or adds poison to the wand.
 
@@ -475,7 +475,7 @@ MonoBehaviour:
     price: 0
     itemPools:
     - pool: 4
-      weight: 2
+      weight: 3
   - type: 1
     elementType: 5
     potionType: 0
@@ -516,7 +516,7 @@ MonoBehaviour:
     potionType: 0
     wandType: 0
     level: 1
-    name: Ice
+    name: Ice Crystal
     flavorText: Where's my coat...
     description: '+1 level to ice or adds ice to the wand.
 
@@ -526,7 +526,7 @@ MonoBehaviour:
     price: 0
     itemPools:
     - pool: 4
-      weight: 2
+      weight: 3
   player: {fileID: 0}
 --- !u!114 &555138849
 MonoBehaviour:
