@@ -75,7 +75,6 @@ public class StatusController : MonoBehaviour
                     if (frozenCoolDown <= 0 && !isFrozen) {
                         freezeTime += (elemDef.effectDuration + (0.4f * (float)levels[elementTypes.Ice]));
                         //spriteController.Tint(elemDef.color, freezeTime);
-                        Debug.Log(freezeTime);
                         isFrozen = true;
                         frozenUI.SetActive(true);
                     }
