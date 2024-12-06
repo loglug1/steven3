@@ -23,7 +23,6 @@ public class StatusController : MonoBehaviour
     public bool isStrong   = false;
     public int burnStack;
     public int poisonStack;
-    public int poisonEffectDmg;
     public float frozenCoolDown;
     public float burnCoolDown;
     private float freezeTime;
@@ -82,7 +81,7 @@ public class StatusController : MonoBehaviour
                         spriteController.Tint(hitColor, burnTime);
                         isBurning = true;
                     }
-                    if (isBurning && burnStack < 3) {
+                    if (isBurning && burnStack < 2) {
                         burnStack += 1;
                         burnTime += 0.5f;
                     }
@@ -97,15 +96,13 @@ public class StatusController : MonoBehaviour
                 case elementTypes.Poison:
                     if (!isPoisoned) {
                         poisonStack = 0;
-                        poisonEffectDmg = 0;
                         poisonTime += (elemDef.effectDuration + (0.5f * (float)levels[elementTypes.Poison]));
                         spriteController.Tint(hitColor,poisonTime);
                         isPoisoned = true;
                         // NEED TO MAKE A POISON UI ELEMENT
                     }
-                    if (isPoisoned && poisonStack < 5) {
+                    if (isPoisoned && poisonStack < 3) {
                         poisonStack += 1;
-                        poisonEffectDmg += 1;
                     }
                     break;
                 default:
@@ -146,7 +143,7 @@ public class StatusController : MonoBehaviour
     void Burning()
     {
         burnTime -= Time.deltaTime;
-        healthController.Damage(6.0f * Time.deltaTime);
+        healthController.Damage((2.0f + (float)burnStack) * Time.deltaTime);
         if (burnTime <= 0) {
             isBurning = false;
             statusBarController.RemoveIndicator(elementTypes.Fire);
@@ -174,8 +171,7 @@ public class StatusController : MonoBehaviour
     void Poisoned()
     {
         poisonTime -= Time.deltaTime;
-        healthController.Damage((2.0f + poisonEffectDmg) * Time.deltaTime);
-        Debug.Log("poison dmg: " + (4.0f + (poisonEffectDmg * Time.deltaTime)));
+        healthController.Damage((2.0f + (float)poisonStack) * Time.deltaTime);
         if (poisonTime <= 0) {
             isPoisoned = false;
             statusBarController.RemoveIndicator(elementTypes.Poison);
