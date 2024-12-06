@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5c52a398d67bd204f85a8bb7f3134be2, type: 2}
-  m_sharedMaterial: {fileID: -636180090797791257, guid: 5c52a398d67bd204f85a8bb7f3134be2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 202f83a737dee6d81a8981ac814aa195, type: 2}
+  m_sharedMaterial: {fileID: 5740862297210234003, guid: 202f83a737dee6d81a8981ac814aa195, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_margin: {x: 34.17903, y: -16.283724, z: 16.962246, w: -9.498808}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1738706030354387190
@@ -283,8 +283,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5c52a398d67bd204f85a8bb7f3134be2, type: 2}
-  m_sharedMaterial: {fileID: -636180090797791257, guid: 5c52a398d67bd204f85a8bb7f3134be2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 202f83a737dee6d81a8981ac814aa195, type: 2}
+  m_sharedMaterial: {fileID: 5740862297210234003, guid: 202f83a737dee6d81a8981ac814aa195, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -347,7 +347,7 @@ MonoBehaviour:
   m_margin: {x: 14.24814, y: 2.7138915, z: 16.962246, w: -9.498808}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1738706030421587678
@@ -437,6 +437,7 @@ GameObject:
   - component: {fileID: 1738706030929964191}
   - component: {fileID: 1738706030929964189}
   - component: {fileID: 1738706030929964190}
+  - component: {fileID: 984788324}
   m_Layer: 5
   m_Name: Heart
   m_TagString: Untagged
@@ -502,3 +503,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &984788324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738706030929964176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e81e28617c227f846bcfb899050a40e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

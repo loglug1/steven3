@@ -72,8 +72,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomValidationPrefabs:
-  - {fileID: 1947360340671841344, guid: bbfcc6fe13f053d409212a506a2b3540, type: 3}
-  - {fileID: 7690194798633186809, guid: 128c770d32a437b478aa202413106748, type: 3}
+  - {fileID: 1947360340671841344, guid: 62ee525da435c0973b6388b91070b42b, type: 3}
+  - {fileID: 7690194798633186809, guid: 3cefd1cbef9fc5ad3a8cf41aa52246c3, type: 3}
 --- !u!1 &732453791328258270
 GameObject:
   m_ObjectHideFlags: 0

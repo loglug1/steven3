@@ -15,6 +15,7 @@ public class RoomTemplates : MonoBehaviour
     public bool spawnedBoss;
     public GameObject boss;
     public bool acceptedRoomGen;
+    //public int prevRoomCount;
     void Update(){
         if(waitTime<=0 && spawnedBoss==false){
             for(int i = 0; i < rooms.Count; i++){
@@ -29,9 +30,14 @@ public class RoomTemplates : MonoBehaviour
                     }
                 }
             }
-        }else if (!spawnedBoss){
+        }else if (!spawnedBoss){ 
             waitTime -= Time.deltaTime;
         }
+        // }else if (prevRooms == rooms.Count){
+        //     waitTime = -1; // if at any point the rooms.Count has not updated, this means the 
+        // }
+        //prevRoomCount = rooms.Count; //this prob wont work, we need to find the invoked function
+        //update prevRoom number
     }
 
     void validateRooms(){

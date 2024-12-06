@@ -14,11 +14,12 @@ public class RoomSpawner : MonoBehaviour
     private int rand;
     public bool spawned = false;
     public bool boundBox;
+    public GameObject closedRoom;
 
     void Start(){
         //Debug.Log("Started.");
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplates>();
-        Invoke("Spawn", 0.5f);
+        Invoke("Spawn", 0.2f);
     }
 
     void Spawn(){
@@ -54,7 +55,7 @@ public class RoomSpawner : MonoBehaviour
         //Debug.Log("Triggered");
         if(other.CompareTag("SpawnPoint")){
             if(other.GetComponent<RoomSpawner>().spawned == false && spawned == false){
-                Instantiate(templates.closedRoom, transform.position, Quaternion.identity);
+                Instantiate(closedRoom, transform.position, Quaternion.identity); //this line gives nullref? fixed by having the prefab attached to this object itself, have yet to see error reoccur
                 Destroy(gameObject);
                 Debug.Log("Destroyed");
             }

@@ -9,6 +9,7 @@ public class MovementController : MonoBehaviour
     public float diveSpeed = 75f;
     public float jumpPower = 350f;
     public float wallJumpInvertDelay = 0.2f;
+    public float terminalVelocity = 15f;
 
     [Header("Dynamic")]
     public Rigidbody rBody;
@@ -21,6 +22,7 @@ public class MovementController : MonoBehaviour
     public float prevHAxis = 0;
     public float prevVAxis = 0;
     public float prevJAxis = 0;
+    public float wallJumpVelocity;
 
     void Awake() {
         rBody = GetComponent<Rigidbody>();
@@ -28,12 +30,16 @@ public class MovementController : MonoBehaviour
         distToGround = c.bounds.extents.y;
         distToWall = c.bounds.extents.x;
 
+        wallJumpVelocity = 0;
+
         canJump = true;
         canDoubleJump = true;
     }
 
     public void Move(float hAxis, float vAxis, float jAxis) {
         if (!canMove) return;
+
+        Vector3 vel;
 
         //jumping
         if (jAxis == 0) {
@@ -48,14 +54,14 @@ public class MovementController : MonoBehaviour
         
         //wall jumping (must check before double jump)
         if (HoldingWall(hAxis) && canJump && jAxis == 1) {
-            InvertMovement();
-            Invoke("InvertMovement",wallJumpInvertDelay);
+            wallJumpVelocity = -hAxis * walkingSpeed;
+            Invoke("ResetWallJump",wallJumpInvertDelay);
             Jump(1.5f);
         }
 
         //double jumping
         if (!grounded && canJump && canDoubleJump && jAxis == 1) {
-            Vector3 vel = rBody.velocity;
+            vel = rBody.velocity;
             vel.y = 0;
             rBody.velocity = vel;
             Jump();
@@ -68,15 +74,25 @@ public class MovementController : MonoBehaviour
 
         bool holdingWall = HoldingWall(hAxis);
 
-        if (!holdingWall) {
+        float hMovement;
+        float vMovement;
+        if (!holdingWall && wallJumpVelocity == 0f) {
             //walking
-            float hMovement = hAxis * walkingSpeed * movementDirection;
-            //moveDown
-            float vMovement = Mathf.Min(vAxis, 0f) * diveSpeed * Time.deltaTime;
-
-            //apply
-            rBody.velocity = new Vector3(hMovement, rBody.velocity.y + vMovement, 0);
+            hMovement = hAxis * walkingSpeed * movementDirection;
+        } else {
+            //used for wall jumping
+            hMovement = wallJumpVelocity;
         }
+        //moveDown
+        vMovement = Mathf.Min(vAxis, 0f) * diveSpeed * Time.deltaTime;
+
+        //apply movement
+        rBody.velocity = new Vector3(hMovement, rBody.velocity.y + vMovement, 0);
+
+        //terminal down velocity (fixes clipping)
+        vel = rBody.velocity;
+        vel.y = Mathf.Max(vel.y, -terminalVelocity);
+        rBody.velocity = vel;
 
         //saves these so other classes (platforms) can read them
         prevHAxis = hAxis;
@@ -105,5 +121,9 @@ public class MovementController : MonoBehaviour
 
     void InvertMovement() {
         movementDirection *= -1;
+    }
+
+    void ResetWallJump() {
+        wallJumpVelocity = 0f;
     }
 }

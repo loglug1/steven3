@@ -5,7 +5,7 @@ public class EnemySpawn : MonoBehaviour
     [Header("Inscribed")]
     public GameObject enemyPrefab;
     [Header("Dynamic")]
-    bool onScreen;
+    bool active;
 
     void OnDrawGizmos()
     {
@@ -15,16 +15,22 @@ public class EnemySpawn : MonoBehaviour
     }
 
     void FixedUpdate() {
-        if (onScreen != CameraMovement.IsOnScreen(transform.position)) { //if the state of being on screen is different from last frame
+        if (!active && CameraMovement.IsOnScreen(transform.position)) { // only enable when on the current screen
             foreach(Transform child in transform) { //gets transform of children (no idea why this works)
-                child.gameObject.SetActive(!child.gameObject.activeSelf);
+                child.gameObject.SetActive(true);
             }
-            onScreen = !onScreen;
+            active = true;
+        }
+        if (active && !CameraMovement.IsOnOrNeighboringScreen(transform.position)) { // only disable when the camera is two rooms away
+            foreach(Transform child in transform) { //gets transform of children (no idea why this works)
+                child.gameObject.SetActive(false);
+            }
+            active = false;
         }
     }
 
     void Awake() {
-        onScreen = false;
+        active = false;
         GameObject enemy1 = Instantiate(enemyPrefab, transform);
         enemy1.SetActive(false);
     }
