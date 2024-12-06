@@ -197,40 +197,64 @@ MonoBehaviour:
     effectDuration: 0
   - element: 1
     projectilePrefab: {fileID: 8136098084400355990, guid: ed80c1331b7abca4f8094237b0b717c8, type: 3}
-    damageOnHit: 5
+    damageOnHit: 4
     damagePerSec: 3
     delayBetweenShots: 0.7
     velocity: 8
     color: {r: 0.9056604, g: 0.49585694, b: 0.14524728, a: 0.99215686}
     name: Fire
-    sprite: {fileID: 21300000, guid: 7671627cac126bb4aadd452aa33694d1, type: 3}
+    sprite: {fileID: 21300000, guid: 69b8d3ee696ec6249b66a186ecc9aeba, type: 3}
     weakElement: 2
     strElement: 3
-    effectDuration: 0
+    effectDuration: 1.5
   - element: 2
     projectilePrefab: {fileID: 5114822508641061237, guid: 4be833370d2d897499c9fe6b09ecf2c9, type: 3}
-    damageOnHit: 5.75
+    damageOnHit: 5.5
     damagePerSec: 0
     delayBetweenShots: 1
     velocity: 3
     color: {r: 0.0926782, g: 0.6288689, b: 0.8930817, a: 1}
     name: Water
-    sprite: {fileID: 21300000, guid: a4dfe798f325ed74db35decbfb2c100a, type: 3}
+    sprite: {fileID: 21300000, guid: 57a445070fad765429838d818a5c723c, type: 3}
     weakElement: 3
     strElement: 1
-    effectDuration: 0
+    effectDuration: 1.6
   - element: 3
     projectilePrefab: {fileID: 213716773382589390, guid: c0076560b5d5b80439f2a205b21acf9d, type: 3}
-    damageOnHit: 4.5
+    damageOnHit: 5.2
     damagePerSec: 0
     delayBetweenShots: 0.75
-    velocity: 8
+    velocity: 10
     color: {r: 0.20855574, g: 0.59748423, b: 0.28263736, a: 1}
     name: Grass
-    sprite: {fileID: 21300000, guid: 16ea4f87a5c94e9428881d61e5143aa1, type: 3}
+    sprite: {fileID: 21300000, guid: c0dc8ae3b96e4784fafbfedc0ed7957a, type: 3}
     weakElement: 1
     strElement: 2
     effectDuration: 0
+  - element: 4
+    projectilePrefab: {fileID: 5114822508641061237, guid: 4afc32d340c9ef04cbe44d00989716e9, type: 3}
+    damageOnHit: 4.2
+    damagePerSec: 0
+    delayBetweenShots: 0.75
+    velocity: 8
+    color: {r: 0, g: 0.9239001, b: 1, a: 1}
+    name: Ice
+    sprite: {fileID: 21300000, guid: 1168923508cec154987a171d5cdd8e71, type: 3}
+    weakElement: 1
+    strElement: 3
+    effectDuration: 1.2
+  - element: 5
+    projectilePrefab: {fileID: 5114822508641061237, guid: 6d185fc3aa7f0ce4fba6f7abb8b10992, type: 3}
+    damageOnHit: 0.75
+    damagePerSec: 0
+    delayBetweenShots: 0.75
+    velocity: 8
+    color: {r: 0.3633895, g: 0.15082464, b: 0.51572317, a: 1}
+    name: Poison
+    sprite: {fileID: 21300000, guid: 93264ee8f94f5f24cbdde6829773bddf, type: 3}
+    weakElement: 2
+    strElement: 3
+    effectDuration: 5
   wandDefinitions:
   - wandType: 0
     maxElementTypes: 2
@@ -258,9 +282,9 @@ MonoBehaviour:
     level: 1
     name: Wand Upgrade
     flavorText: Batteries not included.
-    description: Allows wand to shoot an additional projectile, max 3.
+    description: Allows wand to shoot an additional projectile.
     icon: {fileID: 21300000, guid: 994ad7ad6e0effe4084ae7e6a9a08229, type: 3}
-    price: 10
+    price: 15
     itemPools:
     - pool: 3
       weight: 1
@@ -271,8 +295,10 @@ MonoBehaviour:
     level: 1
     name: Fire Crystal
     flavorText: It feels warm to the touch.
-    description: Harness fire or upgrade your current fire level.
-    icon: {fileID: 21300000, guid: 7671627cac126bb4aadd452aa33694d1, type: 3}
+    description: Harness fire or upgrade your current fire level. Low damage, medium
+      speed; applies burn on hit. Keep shooting the enemy while burned to extend
+      it.
+    icon: {fileID: 21300000, guid: 69b8d3ee696ec6249b66a186ecc9aeba, type: 3}
     price: 5
     itemPools:
     - pool: 2
@@ -285,9 +311,13 @@ MonoBehaviour:
     wandType: 0
     level: 3
     name: Super Fire Crystal
-    flavorText: It almost burns your hand.
-    description: Harness level 3 fire or upgrade your current fire level by 3.
-    icon: {fileID: 21300000, guid: 7671627cac126bb4aadd452aa33694d1, type: 3}
+    flavorText: '"Third" degree burn...'
+    description: 'Harness level 3 fire or upgrade your current fire level by 3. Low
+      damage, medium speed; applies burn to enemies. Keep shooting while they are
+      burned to extend it.
+
+'
+    icon: {fileID: 21300000, guid: 69b8d3ee696ec6249b66a186ecc9aeba, type: 3}
     price: 13
     itemPools:
     - pool: 2
@@ -299,14 +329,15 @@ MonoBehaviour:
     level: 1
     name: Water Crystal
     flavorText: It feels cool to the touch.
-    description: Harness water or upgrade your current water level.
-    icon: {fileID: 21300000, guid: a4dfe798f325ed74db35decbfb2c100a, type: 3}
+    description: "Harness water or upgrade your current water level. \nHigh damage,
+      low speed, slows enemies on hit.\n"
+    icon: {fileID: 21300000, guid: 57a445070fad765429838d818a5c723c, type: 3}
     price: 5
     itemPools:
     - pool: 2
       weight: 2
     - pool: 4
-      weight: 1
+      weight: 2
   - type: 1
     elementType: 2
     potionType: 0
@@ -314,8 +345,10 @@ MonoBehaviour:
     level: 3
     name: Super Water Crystal
     flavorText: It makes your fingers wrinkle.
-    description: Harness level 3 water or upgrade your current water level by 3.
-    icon: {fileID: 21300000, guid: a4dfe798f325ed74db35decbfb2c100a, type: 3}
+    description: "Harness level 3 water or upgrade your current water level by 3.
+      \nHigh damage, low speed, slows enemies on hit.\n\nSlow moving, high damage,
+      and slows enemies on hit.\n"
+    icon: {fileID: 21300000, guid: 57a445070fad765429838d818a5c723c, type: 3}
     price: 13
     itemPools:
     - pool: 2
@@ -327,8 +360,11 @@ MonoBehaviour:
     level: 1
     name: Grass Crystal
     flavorText: It feels fuzzy to the touch.
-    description: Harness grass or upgrade your current grass level.
-    icon: {fileID: 21300000, guid: 16ea4f87a5c94e9428881d61e5143aa1, type: 3}
+    description: 'Harness grass or upgrade your current grass level.
+
+      Grass
+      grants life steal on kill equal to the element level.'
+    icon: {fileID: 21300000, guid: c0dc8ae3b96e4784fafbfedc0ed7957a, type: 3}
     price: 5
     itemPools:
     - pool: 2
@@ -341,9 +377,12 @@ MonoBehaviour:
     wandType: 0
     level: 3
     name: Super Grass Crystal
-    flavorText: The vines tickle your palm.
-    description: Harness level 3 grass or upgrade your current grass level by 3.
-    icon: {fileID: 21300000, guid: 16ea4f87a5c94e9428881d61e5143aa1, type: 3}
+    flavorText: You feel lightheaded...
+    description: 'Harness level 3 grass or upgrade your current grass level by 3.
+
+      Grass
+      grants life steal on kill, granting health equal to the element level.'
+    icon: {fileID: 21300000, guid: c0dc8ae3b96e4784fafbfedc0ed7957a, type: 3}
     price: 13
     itemPools:
     - pool: 2
@@ -355,7 +394,7 @@ MonoBehaviour:
     level: 30
     name: Prescription Health Potion
     flavorText: Feel improvement in milliseconds!
-    description: Heals 30 health.
+    description: Heals 30 health. Can overheal.
     icon: {fileID: 21300000, guid: 1eaaa6fdc0208054e83c90ab5e6f5b81, type: 3}
     price: 8
     itemPools:
@@ -368,14 +407,14 @@ MonoBehaviour:
     level: 10
     name: Over the Counter Health Potion
     flavorText: Feel improvement in seconds!
-    description: Heals 10 health.
+    description: Heals 10 health. Can overheal.
     icon: {fileID: 21300000, guid: 1eaaa6fdc0208054e83c90ab5e6f5b81, type: 3}
     price: 3
     itemPools:
     - pool: 1
       weight: 2
     - pool: 4
-      weight: 1
+      weight: 2
   - type: 3
     elementType: 0
     potionType: 0
@@ -418,6 +457,76 @@ MonoBehaviour:
     itemPools:
     - pool: 5
       weight: 1
+  - type: 1
+    elementType: 5
+    potionType: 0
+    wandType: 0
+    level: 1
+    name: Poison
+    flavorText: It stings...
+    description: '+1 level to poison or adds poison to the wand.
+
+      Keep firing
+      at an enemy while poisoned to add poison stacks and increase the damage done.
+
+      Low
+      impact damage but poison stacks hurt...'
+    icon: {fileID: 21300000, guid: 93264ee8f94f5f24cbdde6829773bddf, type: 3}
+    price: 0
+    itemPools:
+    - pool: 4
+      weight: 2
+  - type: 1
+    elementType: 5
+    potionType: 0
+    wandType: 0
+    level: 3
+    name: Poison
+    flavorText: It stings...
+    description: '+3 level to poison or adds poison to the wand.
+
+      Keep firing
+      at an enemy while poisoned to add poison stacks and increase the damage done.
+
+      Low
+      impact damage but poison stacks hurt...'
+    icon: {fileID: 21300000, guid: 93264ee8f94f5f24cbdde6829773bddf, type: 3}
+    price: 0
+    itemPools:
+    - pool: 4
+      weight: 1
+  - type: 1
+    elementType: 4
+    potionType: 0
+    wandType: 0
+    level: 3
+    name: Ice
+    flavorText: Your hand feels numb...
+    description: '+3 level to ice or adds ice to the wand.
+
+      Low damage, high
+      speed, freezes the enemy.'
+    icon: {fileID: 21300000, guid: 1168923508cec154987a171d5cdd8e71, type: 3}
+    price: 0
+    itemPools:
+    - pool: 4
+      weight: 1
+  - type: 1
+    elementType: 4
+    potionType: 0
+    wandType: 0
+    level: 1
+    name: Ice
+    flavorText: Where's my coat...
+    description: '+1 level to ice or adds ice to the wand.
+
+      Low damage, high
+      speed, freezes the enemy.'
+    icon: {fileID: 21300000, guid: 1168923508cec154987a171d5cdd8e71, type: 3}
+    price: 0
+    itemPools:
+    - pool: 4
+      weight: 2
   player: {fileID: 0}
 --- !u!114 &555138849
 MonoBehaviour:
