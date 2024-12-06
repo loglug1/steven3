@@ -896,7 +896,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: itemDefinitions.Array.data[6].flavorText
-      value: The vines prick your palm. You feel lightheaded...
+      value: You feel lightheaded...
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: elementDefinitions.Array.data[3].velocity
@@ -946,21 +946,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: itemDefinitions.Array.data[3].description
-      value: 'Harness water or upgrade your current water level. High damage, low
-        speed, slows enemies on hit.
-
-'
+      value: "Harness water or upgrade your current water level. \nHigh damage, low
+        speed, slows enemies on hit.\n"
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: itemDefinitions.Array.data[4].description
-      value: 'Harness level 3 water or upgrade your current water level by 3. High
-        damage, low speed, slows enemies on hit.
-
-
-        Slow moving, high damage,
-        and slows enemies on hit.
-
-'
+      value: "Harness level 3 water or upgrade your current water level by 3. \nHigh
+        damage, low speed, slows enemies on hit.\n\nSlow moving, high damage, and
+        slows enemies on hit.\n"
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: itemDefinitions.Array.data[5].description
@@ -1043,12 +1036,20 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
-      propertyPath: elementDefinitions.Array.data[3].damageOnHit
+      propertyPath: elementDefinitions.Array.data[1].damageOnHit
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: elementDefinitions.Array.data[2].damageOnHit
       value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: elementDefinitions.Array.data[3].damageOnHit
+      value: 5.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: elementDefinitions.Array.data[4].damageOnHit
-      value: 4.5
+      value: 4.2
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: elementDefinitions.Array.data[4].weakElement
@@ -1056,7 +1057,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: elementDefinitions.Array.data[5].damageOnHit
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: elementDefinitions.Array.data[5].weakElement
