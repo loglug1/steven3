@@ -31,11 +31,11 @@ public class PlayerHitHandler : MonoBehaviour
 
         ElementHandler eEle = otherGO.GetComponent<ElementHandler>();
         if (eEle != null) {
-            //allow invicibility for some time
-
             HandleHit(eEle.enemyElementofChoice, ElementHandler.enemyLevel);
 
+            //allow invicibility for some time
             InvincibleToLayer("Enemies", invincibilityTime);
+
             return;
         }
 

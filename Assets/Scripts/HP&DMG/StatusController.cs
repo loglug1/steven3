@@ -9,6 +9,7 @@ public class StatusController : MonoBehaviour
     [Header("Inscribed")]
     public Color hitColor = new Color(1, 0, 0);
     public float hitBlinkTime = 0.25f;
+    public StatusBarController statusBarController;
     [Header("Dynamic")]
     public HealthController healthController;
     public MovementController  movementController;
@@ -28,9 +29,6 @@ public class StatusController : MonoBehaviour
     private float burnTime;
     private float poisonTime;
     private float sunderedTime;
-    public GameObject burningUI;
-    public GameObject sunderedUI;
-    public GameObject frozenUI;
     public int activeSunderedCount = 1;
 
     void Awake() {
@@ -41,9 +39,6 @@ public class StatusController : MonoBehaviour
         freezeTime     =   0.0f;
         sunderedTime =   0.0f;
         burnTime     =   0.0f;
-        burningUI.SetActive(false);
-        sunderedUI.SetActive(false);
-        frozenUI.SetActive(false);
     }
 
     void Update() {
@@ -75,7 +70,7 @@ public class StatusController : MonoBehaviour
                         freezeTime += (elemDef.effectDuration + (0.4f * (float)levels[elementTypes.Ice]));
                         //spriteController.Tint(elemDef.color, freezeTime);
                         isFrozen = true;
-                        frozenUI.SetActive(true);
+                        statusBarController.AddIndicator(elementTypes.Ice);
                     }
                     break;
                 case elementTypes.Fire:
@@ -84,7 +79,7 @@ public class StatusController : MonoBehaviour
                         burnTime += (elemDef.effectDuration + (0.3f * (float)levels[elementTypes.Fire]));
                         spriteController.Tint(hitColor, burnTime);
                         isBurning = true;
-                        burningUI.SetActive(true);
+                        statusBarController.AddIndicator(elementTypes.Fire);
                     }
                     if (isBurning && burnStack < 2) {
                         burnStack += 1;
@@ -96,7 +91,7 @@ public class StatusController : MonoBehaviour
                         sunderedTime += (elemDef.effectDuration + (0.2f * (float)levels[elementTypes.Water]));
                         //spriteController.Tint(elemDef.color, sunderedTime);
                         isSundered = true;
-                        sunderedUI.SetActive(true);
+                        statusBarController.AddIndicator(elementTypes.Water);
                     }
                     break;
                 case elementTypes.Poison:
@@ -105,6 +100,7 @@ public class StatusController : MonoBehaviour
                         poisonTime += (elemDef.effectDuration + (0.5f * (float)levels[elementTypes.Poison]));
                         spriteController.Tint(hitColor,poisonTime);
                         isPoisoned = true;
+                        statusBarController.AddIndicator(elementTypes.Poison);
                         // NEED TO MAKE A POISON UI ELEMENT
                     }
                     if (isPoisoned && poisonStack < 3) {
@@ -136,8 +132,8 @@ public class StatusController : MonoBehaviour
         movementController.canMove = false;
         freezeTime -= Time.deltaTime;
         if (freezeTime <= 0) {
-            frozenUI.SetActive(false);
             isFrozen = false;
+            statusBarController.RemoveIndicator(elementTypes.Ice);
             frozenCoolDown = 3.0f;          // wait 3 secs to root again
             movementController.canMove = true;
         }
@@ -148,7 +144,7 @@ public class StatusController : MonoBehaviour
         healthController.Damage((2.0f + (float)burnStack) * Time.deltaTime);
         if (burnTime <= 0) {
             isBurning = false;
-            burningUI.SetActive(false); 
+            statusBarController.RemoveIndicator(elementTypes.Fire);
         }
     }
     void Sundered()
@@ -164,7 +160,7 @@ public class StatusController : MonoBehaviour
         if (sunderedTime <= 0) {
             activeSunderedCount = 1;
             isSundered = false;
-            sunderedUI.SetActive(false);
+            statusBarController.RemoveIndicator(elementTypes.Water);
             movementController.walkingSpeed = movementController.walkingSpeed * 2f;
             movementController.diveSpeed = movementController.diveSpeed * 2f;
             movementController.jumpPower = movementController.jumpPower * 2f;
@@ -176,7 +172,7 @@ public class StatusController : MonoBehaviour
         healthController.Damage((2.0f + (float)poisonStack) * Time.deltaTime);
         if (poisonTime <= 0) {
             isPoisoned = false;
-            // POISON UI ELEMENT FALSE
+            statusBarController.RemoveIndicator(elementTypes.Poison);
         }
     }
 }
