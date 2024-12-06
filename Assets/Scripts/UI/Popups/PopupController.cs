@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,8 +19,9 @@ public class PopupController : MonoBehaviour
     }
 
     void OnDestroy() {
-        S = null;
-        Time.timeScale = 1;
+        if (S.Count < 1) {
+            Time.timeScale = 1;
+        }
     }
 
     static public void ClosePopup() {

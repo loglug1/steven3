@@ -5,6 +5,8 @@ using TMPro;
 
 public class Inventory : MonoBehaviour
 {
+    [Header("Inscribed")]
+    public GameObject slotChooserPrefab;
     [Header("Dynamic")]
     public weaponType     playerWeapon;
     public WandDefinition playerWandDef;
@@ -81,13 +83,30 @@ public class Inventory : MonoBehaviour
                 }
             }
         }
-        // choose to replace last element
-        if (!exists) {
-            int eleAmt = Inventory.I.playerElements.Length;
-            Inventory.I.playerElements[eleAmt - 1] = item.elementType;
-            weapon.w.UpdateColor(Inventory.I.playerElements);
-            Inventory.I.elementLevelUp(item.elementType, item.level);
+
+        // since there is only one just replace and skip the popup
+        if (I.playerElements.Length == 1) {
+            ReplaceElement(item, 0);
+            return;
         }
+
+        // show popup to replace element
+        if (!exists) {
+            WandSlotCanvasController slotChooser = Instantiate(I.slotChooserPrefab).GetComponent<WandSlotCanvasController>();
+            Debug.Log(slotChooser != null);
+            for (int i = 0; i < Inventory.I.playerElements.Length; i++) {
+                WandSlotButton button = slotChooser.AddButton();
+                button.element = Main.GET_ELEMENT_DEFINITION(Inventory.I.playerElements[i]);
+                button.slot = i;
+                button.newElement = item;
+                button.title.text = I.playerElementLevels[Inventory.I.playerElements[i]].ToString("00");
+            }
+        }
+    }
+    public static void ReplaceElement(ItemDefinition item, int slot) {
+        Inventory.I.playerElements[slot] = item.elementType;
+        weapon.w.UpdateColor(Inventory.I.playerElements);
+        Inventory.I.elementLevelUp(item.elementType, item.level);
     }
     public void SetUpWandAtStart() 
     {
@@ -95,7 +114,7 @@ public class Inventory : MonoBehaviour
         playerElements  = new elementTypes[playerWandDef.maxElementTypes];
         for (int i = 0; i < playerElements.Length; i++) {
             playerElements[i] = elementTypes.None;
-            Debug.Log(playerElements[i]);
+            // Debug.Log(playerElements[i]);
         }  
 
 

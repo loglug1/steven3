@@ -23,7 +23,8 @@ public class ChestItemController : MonoBehaviour
         icon.sprite = newItem.icon;
     }
     public void ObtainItem() {
-        ItemHandler.UseItem(item);
         PopupController.ClosePopup();
+        ItemHandler.UseItem(item);
+        if (chest.c != null) Destroy(chest.c.gameObject);
     }
 }
