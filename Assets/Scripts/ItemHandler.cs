@@ -48,7 +48,7 @@ public class ItemHandler : MonoBehaviour
                 }
                 break;
             case ItemType.wand:
-                Debug.Log(item.wandType);
+                // used for wand selector at start, potentially use for buying wand from shop later
                 Inventory.I.playerWeapon = item.wandType;
                 Inventory.I.SetUpWandAtStart();
                 break;
