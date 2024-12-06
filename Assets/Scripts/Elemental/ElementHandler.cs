@@ -5,7 +5,8 @@ public enum elementTypes {
     None,
     Fire,
     Water,
-    Grass
+    Grass,
+    Ice
 }
 [System.Serializable]
 public class ElementDefinition {
@@ -20,7 +21,7 @@ public class ElementDefinition {
     public Sprite       sprite;
     public elementTypes weakElement         = elementTypes.None;
     public elementTypes strElement          = elementTypes.None;
-    public float[]          effectDurations;
+    public float          effectDuration;
     
 }
 

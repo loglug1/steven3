@@ -387,6 +387,7 @@ MonoBehaviour:
   prevHAxis: 0
   prevVAxis: 0
   prevJAxis: 0
+  wallJumpVelocity: 0
 --- !u!114 &6809699677504020697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,16 +406,16 @@ MonoBehaviour:
   movementController: {fileID: 0}
   elementHandling: {fileID: 0}
   spriteController: {fileID: 0}
-  isRooted: 0
+  isFrozen: 0
   isBurning: 0
   isSundered: 0
   isWeak: 0
   isStrong: 0
-  rootedCoolDown: 0
+  frozenCoolDown: 0
   burnCoolDown: 0
   burningUI: {fileID: 3147248480097611883}
   sunderedUI: {fileID: 7160306881044112640}
-  rootedUI: {fileID: 4290718889842532546}
+  frozenUI: {fileID: 4290718889842532546}
   activeSunderedCount: 1
 --- !u!114 &966293890
 MonoBehaviour:
@@ -782,7 +783,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8448954812571778891, guid: 2b4bd6da6505a604eac9d309d32194df, type: 3}
       propertyPath: m_Name
-      value: Rooted
+      value: Frozen
       objectReference: {fileID: 0}
     - target: {fileID: 8448954812571778891, guid: 2b4bd6da6505a604eac9d309d32194df, type: 3}
       propertyPath: m_IsActive
