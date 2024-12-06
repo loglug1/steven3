@@ -33,7 +33,7 @@ public class Main : MonoBehaviour
             foreach (WeightedItemPool itemPool in item.itemPools) {
                 //create pool list in dictionary if it doesn't exist
                 if (!ITEM_DICT.ContainsKey(itemPool.pool)) {
-                    ITEM_DICT[itemPool.pool] = new List<ItemDefinition>{item};
+                    ITEM_DICT[itemPool.pool] = new List<ItemDefinition>();
                 }
                 //add item to pool (weight) times
                 for (int i = 0; i < itemPool.weight; i++) {

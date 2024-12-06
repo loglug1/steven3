@@ -39,7 +39,7 @@ public class BossSpawner : MonoBehaviour
             triggerSprite.transform.position = pos;
             yield return new WaitForSeconds(animationStepTime);
         }
-        Instantiate(bossPrefab);
+        Instantiate(bossPrefab, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

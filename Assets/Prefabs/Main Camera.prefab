@@ -552,6 +552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c284c0bddb04851479c22d191ed27dab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotChooserPrefab: {fileID: 1299343502788668482, guid: 2e5b3647b410247d2b3103093996ba97, type: 3}
   playerWeapon: 0
   playerWandDef:
     wandType: 0

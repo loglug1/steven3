@@ -41,9 +41,9 @@ public class ShopItemController : MonoBehaviour
     }
     public void BuyItem() {
         if (canAfford && !soldOut) {
+            PopupController.ClosePopup();
             Inventory.I.jewels -= item.price;
             ItemHandler.UseItem(item);
-            PopupController.ClosePopup();
         }
     }
 }
