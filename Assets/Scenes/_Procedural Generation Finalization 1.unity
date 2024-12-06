@@ -754,6 +754,26 @@ PrefabInstance:
       propertyPath: elementDefinitions.Array.data[2].color.r
       value: 0.086908154
       objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: elementDefinitions.Array.data[1].damageOnHit
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: elementDefinitions.Array.data[2].damageOnHit
+      value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: elementDefinitions.Array.data[3].damageOnHit
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: elementDefinitions.Array.data[5].damageOnHit
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
+      propertyPath: elementDefinitions.Array.data[5].delayBetweenShots
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773393, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: m_RootOrder
       value: 1
