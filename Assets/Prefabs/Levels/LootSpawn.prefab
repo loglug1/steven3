@@ -47,37 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3f0e501d28d0ae499e5ede4bb9627f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elementChances: 0100000001000000010000000100000003000000030000000300000003000000020000000200000004000000040000000400000004000000
-  chosenElements: 0000000000000000
-  popupCanvas: {fileID: 4273867424462621106, guid: d4e162465bc79ba4e867421340a38fdb, type: 3}
+  itemPool: 4
+  popupCanvas: {fileID: 1299343502788668482, guid: fe8f9bdd837ed51e0ac2a9daec0d5f87, type: 3}
   chestOpen: {fileID: 8300000, guid: f6be101db97bb1f419436fccb93f9080, type: 3}
   chestClose: {fileID: 8300000, guid: cd4dbdd67cb859345a7c4a52e5bfbb98, type: 3}
-  def1:
-    element: 0
-    projectilePrefab: {fileID: 0}
-    damageOnHit: 0
-    damagePerSec: 0
-    delayBetweenShots: 0
-    velocity: 50
-    color: {r: 0, g: 0, b: 0, a: 0}
-    name: 
-    sprite: {fileID: 0}
-    weakElement: 0
-    strElement: 0
-    effectDurations: []
-  def2:
-    element: 0
-    projectilePrefab: {fileID: 0}
-    damageOnHit: 0
-    damagePerSec: 0
-    delayBetweenShots: 0
-    velocity: 50
-    color: {r: 0, g: 0, b: 0, a: 0}
-    name: 
-    sprite: {fileID: 0}
-    weakElement: 0
-    strElement: 0
-    effectDurations: []
+  items: []
 --- !u!82 &-3922538549250178644
 AudioSource:
   m_ObjectHideFlags: 0
@@ -283,7 +257,7 @@ GameObject:
   - component: {fileID: 3918178820803166224}
   - component: {fileID: 234133726294530759}
   - component: {fileID: 8257282665243473318}
-  m_Layer: 14
+  m_Layer: 9
   m_Name: ChestPlaceHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

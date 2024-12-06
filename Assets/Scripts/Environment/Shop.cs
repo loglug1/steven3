@@ -10,9 +10,9 @@ public class Shop : MonoBehaviour
     public List<ItemDefinition> items;
 
     void Awake() {
-        items.Add(GetRandomItem(Main.GET_ITEM_POOL(ItemType.potion)));
-        items.Add(GetRandomItem(Main.GET_ITEM_POOL(ItemType.elementCrystal)));
-        items.Add(GetRandomItem(Main.GET_ITEM_POOL(ItemType.weaponUpgrade)));
+        items.Add(Main.GET_RANDOM_ITEM(ItemPool.shopPotions));
+        items.Add(Main.GET_RANDOM_ITEM(ItemPool.shopElements));
+        items.Add(Main.GET_RANDOM_ITEM(ItemPool.shopWeaponUpgrades));
     }
     void OnTriggerEnter(Collider c) {
         //StartCoroutine(ShopGreeting("Want to see my wares?"));
@@ -34,9 +34,5 @@ public class Shop : MonoBehaviour
             canvasController.items[2].item = items[2];
         }
         
-    }
-
-    ItemDefinition GetRandomItem(List<ItemDefinition> itemPool) {
-        return itemPool[Random.Range(0,itemPool.Count)];
     }
 }
