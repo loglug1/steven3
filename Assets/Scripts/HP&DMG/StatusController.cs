@@ -14,19 +14,19 @@ public class StatusController : MonoBehaviour
     public MovementController  movementController;
     public ElementHandler     elementHandling;
     public SpriteController spriteController;
-    public bool isRooted   = false;
+    public bool isFrozen   = false;
     public bool isBurning  = false;
     public bool isSundered = false;
     public bool isWeak     = false;
     public bool isStrong   = false;
-    public float rootedCoolDown;
+    public float frozenCoolDown;
     public float burnCoolDown;
-    private float rootTime;
+    private float freezeTime;
     private float burnTime;
     private float sunderedTime;
     public GameObject burningUI;
     public GameObject sunderedUI;
-    public GameObject rootedUI;
+    public GameObject frozenUI;
     public int activeSunderedCount = 1;
 
     void Awake() {
@@ -34,20 +34,20 @@ public class StatusController : MonoBehaviour
         movementController = GetComponent<MovementController>();
         elementHandling = GetComponent<ElementHandler>();
         spriteController = GetComponent<SpriteController>();
-        rootTime     =   0.0f;
+        freezeTime     =   0.0f;
         sunderedTime =   0.0f;
         burnTime     =   0.0f;
         burningUI.SetActive(false);
         sunderedUI.SetActive(false);
-        rootedUI.SetActive(false);
+        frozenUI.SetActive(false);
     }
 
     void Update() {
-        if (rootedCoolDown > 0) {
-            rootedCoolDown -= Time.deltaTime;
+        if (frozenCoolDown > 0) {
+            frozenCoolDown -= Time.deltaTime;
         }
-        if (isRooted) {
-            Rooted();
+        if (isFrozen) {
+            Frozen();
         }
         if (isBurning) {
             Burning();
@@ -63,18 +63,18 @@ public class StatusController : MonoBehaviour
             // to check elem
             ElementDefinition elemDef = wandElems[wandSlot];
             switch(elemDef.element) {
-                case elementTypes.Grass:
-                    if (rootedCoolDown <= 0 && !isRooted) {
-                        rootTime += (elemDef.effectDurations[wandSlot] + (0.4f * (float)levels[elementTypes.Grass]));
-                        //spriteController.Tint(elemDef.color, rootTime);
-                        Debug.Log(rootTime);
-                        isRooted = true;
-                        rootedUI.SetActive(true);
+                case elementTypes.Ice:
+                    if (frozenCoolDown <= 0 && !isFrozen) {
+                        freezeTime += (elemDef.effectDuration + (0.4f * (float)levels[elementTypes.Ice]));
+                        //spriteController.Tint(elemDef.color, freezeTime);
+                        Debug.Log(freezeTime);
+                        isFrozen = true;
+                        frozenUI.SetActive(true);
                     }
                     break;
                 case elementTypes.Fire:
                     if (!isBurning) {
-                        burnTime += (elemDef.effectDurations[wandSlot] + (0.3f * (float)levels[elementTypes.Fire]));
+                        burnTime += (elemDef.effectDuration + (0.3f * (float)levels[elementTypes.Fire]));
                         spriteController.Tint(hitColor, burnTime);
                         isBurning = true;
                         burningUI.SetActive(true);
@@ -82,7 +82,7 @@ public class StatusController : MonoBehaviour
                     break;
                 case elementTypes.Water:
                     if (!isSundered) {
-                        sunderedTime += (elemDef.effectDurations[wandSlot] + (0.2f * (float)levels[elementTypes.Water]));
+                        sunderedTime += (elemDef.effectDuration + (0.2f * (float)levels[elementTypes.Water]));
                         //spriteController.Tint(elemDef.color, sunderedTime);
                         isSundered = true;
                         sunderedUI.SetActive(true);
@@ -91,16 +91,31 @@ public class StatusController : MonoBehaviour
             }
         }
     }
+    // called in healthcontroller on enemy death
+    // any on death effects for enemies
+    public void ApplyOnDeathEffects(Dictionary<elementTypes,int> levels) {
+        for (int elem = 0; elem < Inventory.I.playerElements.Length; elem++) {
+            ElementDefinition elemDef = Main.GET_ELEMENT_DEFINITION(Inventory.I.playerElements[elem]);
+            switch(elemDef.element) {
+                case elementTypes.Grass:
+                    GameObject player = Main.GET_PLAYER();
+                    HealthController h = player.GetComponent<HealthController>();
+                    // Debug.Log("Healed:" + (elemDef.effectDuration + (float)levels[elementTypes.Grass]));
+                    h.Heal(elemDef.effectDuration + (float)levels[elementTypes.Grass]);
+                    break;
+            }
+        }
+    }
 
     // keeps checking for rooted status
-    void Rooted()
+    void Frozen()
     {
         movementController.canMove = false;
-        rootTime -= Time.deltaTime;
-        if (rootTime <= 0) {
-            rootedUI.SetActive(false);
-            isRooted = false;
-            rootedCoolDown = 3.0f;          // wait 3 secs to root again
+        freezeTime -= Time.deltaTime;
+        if (freezeTime <= 0) {
+            frozenUI.SetActive(false);
+            isFrozen = false;
+            frozenCoolDown = 3.0f;          // wait 3 secs to root again
             movementController.canMove = true;
         }
     }

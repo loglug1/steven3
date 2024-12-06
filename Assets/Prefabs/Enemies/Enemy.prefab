@@ -399,6 +399,7 @@ MonoBehaviour:
   diveSpeed: 75
   jumpPower: 350
   wallJumpInvertDelay: 0.2
+  terminalVelocity: 15
   rBody: {fileID: 0}
   canJump: 1
   distToGround: 0
@@ -409,6 +410,7 @@ MonoBehaviour:
   prevHAxis: 0
   prevVAxis: 0
   prevJAxis: 0
+  wallJumpVelocity: 0
 --- !u!114 &-9142319243976406771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,7 +438,7 @@ MonoBehaviour:
     sprite: {fileID: 0}
     weakElement: 0
     strElement: 0
-    effectDurations: []
+    effectDuration: 0
   strMult: 1.5
   secondaryStrMult: 1.22
   resMult: 0.8
@@ -460,16 +462,16 @@ MonoBehaviour:
   movementController: {fileID: 0}
   elementHandling: {fileID: 0}
   spriteController: {fileID: 0}
-  isRooted: 0
+  isFrozen: 0
   isBurning: 0
   isSundered: 0
   isWeak: 0
   isStrong: 0
-  rootedCoolDown: 0
+  frozenCoolDown: 0
   burnCoolDown: 0
   burningUI: {fileID: 1008808541}
   sunderedUI: {fileID: 514689877}
-  rootedUI: {fileID: 1663172140}
+  frozenUI: {fileID: 1663172140}
   activeSunderedCount: 1
 --- !u!114 &991729134026451738
 MonoBehaviour:
@@ -749,10 +751,6 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8448954812571778890, guid: 2b4bd6da6505a604eac9d309d32194df, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8448954812571778890, guid: 2b4bd6da6505a604eac9d309d32194df, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.39999998
       objectReference: {fileID: 0}
@@ -794,11 +792,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8448954812571778891, guid: 2b4bd6da6505a604eac9d309d32194df, type: 3}
       propertyPath: m_Name
-      value: Rooted
-      objectReference: {fileID: 0}
-    - target: {fileID: 8448954812571778891, guid: 2b4bd6da6505a604eac9d309d32194df, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      value: Frozen
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b4bd6da6505a604eac9d309d32194df, type: 3}

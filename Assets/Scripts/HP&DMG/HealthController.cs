@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 public class HealthController : MonoBehaviour
@@ -11,16 +12,20 @@ public class HealthController : MonoBehaviour
     public Color mainColor;
     public Color lowColor;
     private ElementHandler elementChecker;
+    private StatusController statusController;
     
     // [Header("Dynamic")]
 
     void Awake() {
+        statusController = GetComponent<StatusController>();
+
         healthBar.maxValue = maxHealth;
         healthBar.value = currHealth;
 
         healthBar.color = mainColor;
         
     }
+    // THE HOLDER IS FOR THE UI!!!
     void Update() {
         PlayerController p;
         if ((p = GetComponent<PlayerController>()) != null && (theHOLDER != currHealth) && (currHealth > 0)) {
@@ -42,6 +47,7 @@ public class HealthController : MonoBehaviour
                 Inventory.I.UpdateHealth(0f);
                 Main.GameOver();
             } else if ((e = GetComponent<EnemyController>()) != null) {
+                statusController.ApplyOnDeathEffects(Inventory.I.playerElementLevels);
                 e.Die();
             } else if ((b = GetComponent<BossController>()) != null) {
                 SceneManager.LoadScene("WinScene");
