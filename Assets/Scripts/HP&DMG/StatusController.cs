@@ -64,14 +64,13 @@ public class StatusController : MonoBehaviour
             // now actualy uses a list of element definitions for each proj, access each individually
             // to check elem
             ElementDefinition elemDef = wandElems[wandSlot];
-            //sets status indicator based on element (elements without a status effect will be removed in default of switch)
-            statusBarController.AddIndicator(elemDef.element);
             switch(elemDef.element) {
                 case elementTypes.Ice:
                     if (frozenCoolDown <= 0 && !isFrozen) {
                         freezeTime += (elemDef.effectDuration + (0.4f * (float)levels[elementTypes.Ice]));
                         //spriteController.Tint(elemDef.color, freezeTime);
                         isFrozen = true;
+                        statusBarController.AddIndicator(elementTypes.Ice);
                     }
                     break;
                 case elementTypes.Fire:
@@ -80,6 +79,7 @@ public class StatusController : MonoBehaviour
                         burnTime += (elemDef.effectDuration + (0.3f * (float)levels[elementTypes.Fire]));
                         spriteController.Tint(hitColor, burnTime);
                         isBurning = true;
+                        statusBarController.AddIndicator(elementTypes.Fire);
                     }
                     if (isBurning && burnStack < 2) {
                         burnStack += 1;
@@ -91,6 +91,7 @@ public class StatusController : MonoBehaviour
                         sunderedTime += (elemDef.effectDuration + (0.2f * (float)levels[elementTypes.Water]));
                         //spriteController.Tint(elemDef.color, sunderedTime);
                         isSundered = true;
+                        statusBarController.AddIndicator(elementTypes.Water);
                     }
                     break;
                 case elementTypes.Poison:
@@ -99,15 +100,12 @@ public class StatusController : MonoBehaviour
                         poisonTime += (elemDef.effectDuration + (0.5f * (float)levels[elementTypes.Poison]));
                         spriteController.Tint(hitColor,poisonTime);
                         isPoisoned = true;
+                        statusBarController.AddIndicator(elementTypes.Poison);
                         // NEED TO MAKE A POISON UI ELEMENT
                     }
                     if (isPoisoned && poisonStack < 3) {
                         poisonStack += 1;
                     }
-                    break;
-                default:
-                    //remove status indicator if element doesn't have an effect
-                    statusBarController.RemoveIndicator(elemDef.element);
                     break;
             }
         }

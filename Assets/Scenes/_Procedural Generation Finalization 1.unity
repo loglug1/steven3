@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18029127, g: 0.22572401, b: 0.3069303, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -722,58 +722,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1741557011}
-    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
-      propertyPath: itemDefinitions.Array.data[13].name
-      value: Super Poison Crystal
-      objectReference: {fileID: 0}
-    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
-      propertyPath: itemDefinitions.Array.data[14].name
-      value: Super Ice Crystal
-      objectReference: {fileID: 0}
-    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
-      propertyPath: elementDefinitions.Array.data[0].color.b
-      value: 0.7735849
-      objectReference: {fileID: 0}
-    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
-      propertyPath: elementDefinitions.Array.data[0].color.g
-      value: 0.7735849
-      objectReference: {fileID: 0}
-    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
-      propertyPath: elementDefinitions.Array.data[0].color.r
-      value: 0.7735849
-      objectReference: {fileID: 0}
-    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
-      propertyPath: elementDefinitions.Array.data[2].color.b
-      value: 0.8773585
-      objectReference: {fileID: 0}
-    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
-      propertyPath: elementDefinitions.Array.data[2].color.g
-      value: 0.28839543
-      objectReference: {fileID: 0}
-    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
-      propertyPath: elementDefinitions.Array.data[2].color.r
-      value: 0.086908154
-      objectReference: {fileID: 0}
-    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
-      propertyPath: elementDefinitions.Array.data[1].damageOnHit
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
-      propertyPath: elementDefinitions.Array.data[2].damageOnHit
-      value: 4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
-      propertyPath: elementDefinitions.Array.data[3].damageOnHit
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
-      propertyPath: elementDefinitions.Array.data[5].damageOnHit
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7311582965226773392, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
-      propertyPath: elementDefinitions.Array.data[5].delayBetweenShots
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7311582965226773393, guid: bf056ef2c6c93864da3012e25f50f10c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1030,8 +978,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1650724157}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5585, z: 0}
-  m_LocalScale: {x: 0.45706558, y: 0.4161188, z: 1}
+  m_LocalPosition: {x: -0.0154, y: -1.5143, z: 0}
+  m_LocalScale: {x: 0.4214921, y: 0.13973269, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
