@@ -10,9 +10,9 @@ public class Shop : MonoBehaviour
     public List<ItemDefinition> items;
 
     void Awake() {
-        items.Add(Main.GET_RANDOM_ITEM(ItemPool.shopPotions));
-        items.Add(Main.GET_RANDOM_ITEM(ItemPool.shopElements));
-        items.Add(Main.GET_RANDOM_ITEM(ItemPool.shopWeaponUpgrades));
+        items.Add(Main.GET_RANDOM_ITEM("pool_shop_potions"));
+        items.Add(Main.GET_RANDOM_ITEM("pool_shop_crystals"));
+        items.Add(Main.GET_RANDOM_ITEM("pool_shop_upgrades"));
     }
     void OnTriggerEnter(Collider c) {
         //StartCoroutine(ShopGreeting("Want to see my wares?"));

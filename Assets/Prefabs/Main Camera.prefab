@@ -182,6 +182,117 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69b0967438d861c4390efabfa1bad969, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ITEM_DICT:
+    _pairs:
+    - _key: crystal_fire
+      _value:
+        type: 1
+        elementType: 1
+        potionType: 0
+        wandType: 0
+        level: 1
+        name: Fire Crystal
+        flavorText: It feels warm to the touch.
+        description: Harness fire or upgrade your current fire level. Low damage,
+          medium speed; applies burn on hit. Keep shooting the enemy while burned
+          to extend it.
+        icon: {fileID: 21300000, guid: 69b8d3ee696ec6249b66a186ecc9aeba, type: 3}
+        price: 5
+    - _key: upgrade_wand_splitter
+      _value:
+        type: 2
+        elementType: 0
+        potionType: 0
+        wandType: 0
+        level: 1
+        name: Wand Splitter
+        flavorText: Batteries not included.
+        description: Allows wand to shoot an additional projectile.
+        icon: {fileID: 21300000, guid: 994ad7ad6e0effe4084ae7e6a9a08229, type: 3}
+        price: 15
+    - _key: potion_basic_health
+      _value:
+        type: 0
+        elementType: 0
+        potionType: 1
+        wandType: 0
+        level: 10
+        name: Over the Counter Health Potion
+        flavorText: Feel improvement in seconds!
+        description: Heals 10 health.
+        icon: {fileID: 21300000, guid: 1eaaa6fdc0208054e83c90ab5e6f5b81, type: 3}
+        price: 3
+    - _key: weapon_single_wand
+      _value:
+        type: 3
+        elementType: 0
+        potionType: 0
+        wandType: 1
+        level: 1
+        name: Single Element Focus Wand
+        flavorText: Dated yet effective!
+        description: "Harnesses one powerful element.\nStats: \n1.55x Damage \n1.2x
+          Velocity \n1x Fire Rate"
+        icon: {fileID: 21300000, guid: b2f524c7f299b6f46ab78a49408b0bb4, type: 3}
+        price: 0
+    - _key: weapon_basic_wand
+      _value:
+        type: 3
+        elementType: 0
+        potionType: 0
+        wandType: 0
+        level: 1
+        name: Basic Wand
+        flavorText: Strong and Sturdy!
+        description: "Standard wand that harnesses two elements.\nStats: \n1x Damage
+          \n1x Velocity \n1x Fire Rate"
+        icon: {fileID: 21300000, guid: b2f524c7f299b6f46ab78a49408b0bb4, type: 3}
+        price: 0
+    - _key: weapon_multi_wand
+      _value:
+        type: 3
+        elementType: 0
+        potionType: 0
+        wandType: 2
+        level: 1
+        name: Multi Element Focus Wand
+        flavorText: Crooked with power!
+        description: "Advanced wand allows for the harnessing of 3 different elements.\nStats:
+          \n0.8x Damage \n1.3x Velocity \n0.9x Fire Rate"
+        icon: {fileID: 21300000, guid: b2f524c7f299b6f46ab78a49408b0bb4, type: 3}
+        price: 0
+  ITEM_POOLS:
+    _pairs:
+    - _key: pool_weapon_choice
+      _value:
+      - item: weapon_single_wand
+        weight: 1
+      - item: weapon_basic_wand
+        weight: 1
+      - item: weapon_multi_wand
+        weight: 1
+    - _key: pool_chest_1
+      _value:
+      - item: crystal_fire
+        weight: 1
+    - _key: pool_chest_2
+      _value:
+      - item: potion_basic_health
+        weight: 1
+      - item: weapon_basic_wand
+        weight: 1
+    - _key: pool_shop_potions
+      _value:
+      - item: potion_basic_health
+        weight: 1
+    - _key: pool_shop_upgrades
+      _value:
+      - item: upgrade_wand_splitter
+        weight: 1
+    - _key: pool_shop_crystals
+      _value:
+      - item: crystal_fire
+        weight: 1
   elementDefinitions:
   - element: 0
     projectilePrefab: {fileID: 72012815015929179, guid: 849dbb80b884da34e99be0884da7d034, type: 3}
@@ -285,9 +396,6 @@ MonoBehaviour:
     description: Allows wand to shoot an additional projectile.
     icon: {fileID: 21300000, guid: 994ad7ad6e0effe4084ae7e6a9a08229, type: 3}
     price: 15
-    itemPools:
-    - pool: 3
-      weight: 1
   - type: 1
     elementType: 1
     potionType: 0
@@ -300,11 +408,6 @@ MonoBehaviour:
       it.
     icon: {fileID: 21300000, guid: 69b8d3ee696ec6249b66a186ecc9aeba, type: 3}
     price: 5
-    itemPools:
-    - pool: 2
-      weight: 2
-    - pool: 4
-      weight: 3
   - type: 1
     elementType: 1
     potionType: 0
@@ -319,9 +422,6 @@ MonoBehaviour:
 '
     icon: {fileID: 21300000, guid: 69b8d3ee696ec6249b66a186ecc9aeba, type: 3}
     price: 13
-    itemPools:
-    - pool: 2
-      weight: 1
   - type: 1
     elementType: 2
     potionType: 0
@@ -333,11 +433,6 @@ MonoBehaviour:
       low speed, slows enemies on hit.\n"
     icon: {fileID: 21300000, guid: 57a445070fad765429838d818a5c723c, type: 3}
     price: 5
-    itemPools:
-    - pool: 2
-      weight: 2
-    - pool: 4
-      weight: 2
   - type: 1
     elementType: 2
     potionType: 0
@@ -350,9 +445,6 @@ MonoBehaviour:
       and slows enemies on hit.\n"
     icon: {fileID: 21300000, guid: 57a445070fad765429838d818a5c723c, type: 3}
     price: 13
-    itemPools:
-    - pool: 2
-      weight: 1
   - type: 1
     elementType: 3
     potionType: 0
@@ -366,11 +458,6 @@ MonoBehaviour:
       grants life steal on kill equal to the element level.'
     icon: {fileID: 21300000, guid: c0dc8ae3b96e4784fafbfedc0ed7957a, type: 3}
     price: 5
-    itemPools:
-    - pool: 2
-      weight: 2
-    - pool: 4
-      weight: 3
   - type: 1
     elementType: 3
     potionType: 0
@@ -384,9 +471,6 @@ MonoBehaviour:
       grants life steal on kill, granting health equal to the element level.'
     icon: {fileID: 21300000, guid: c0dc8ae3b96e4784fafbfedc0ed7957a, type: 3}
     price: 13
-    itemPools:
-    - pool: 2
-      weight: 1
   - type: 0
     elementType: 0
     potionType: 1
@@ -397,9 +481,6 @@ MonoBehaviour:
     description: Heals 30 health. Can overheal.
     icon: {fileID: 21300000, guid: 1eaaa6fdc0208054e83c90ab5e6f5b81, type: 3}
     price: 8
-    itemPools:
-    - pool: 1
-      weight: 1
   - type: 0
     elementType: 0
     potionType: 1
@@ -410,11 +491,6 @@ MonoBehaviour:
     description: Heals 10 health. Can overheal.
     icon: {fileID: 21300000, guid: 1eaaa6fdc0208054e83c90ab5e6f5b81, type: 3}
     price: 3
-    itemPools:
-    - pool: 1
-      weight: 2
-    - pool: 4
-      weight: 2
   - type: 3
     elementType: 0
     potionType: 0
@@ -426,9 +502,6 @@ MonoBehaviour:
       \n1x Fire Rate"
     icon: {fileID: 21300000, guid: b2f524c7f299b6f46ab78a49408b0bb4, type: 3}
     price: 0
-    itemPools:
-    - pool: 5
-      weight: 1
   - type: 3
     elementType: 0
     potionType: 0
@@ -440,9 +513,6 @@ MonoBehaviour:
       \n1x Velocity \n1x Fire Rate"
     icon: {fileID: 21300000, guid: b2f524c7f299b6f46ab78a49408b0bb4, type: 3}
     price: 0
-    itemPools:
-    - pool: 5
-      weight: 1
   - type: 3
     elementType: 0
     potionType: 0
@@ -454,9 +524,6 @@ MonoBehaviour:
       \n0.8x Damage \n1.3x Velocity \n0.9x Fire Rate"
     icon: {fileID: 21300000, guid: b2f524c7f299b6f46ab78a49408b0bb4, type: 3}
     price: 0
-    itemPools:
-    - pool: 5
-      weight: 1
   - type: 1
     elementType: 5
     potionType: 0
@@ -473,9 +540,6 @@ MonoBehaviour:
       impact damage but poison stacks hurt...'
     icon: {fileID: 21300000, guid: 93264ee8f94f5f24cbdde6829773bddf, type: 3}
     price: 0
-    itemPools:
-    - pool: 4
-      weight: 3
   - type: 1
     elementType: 5
     potionType: 0
@@ -492,9 +556,6 @@ MonoBehaviour:
       impact damage but poison stacks hurt...'
     icon: {fileID: 21300000, guid: 93264ee8f94f5f24cbdde6829773bddf, type: 3}
     price: 0
-    itemPools:
-    - pool: 4
-      weight: 1
   - type: 1
     elementType: 4
     potionType: 0
@@ -508,9 +569,6 @@ MonoBehaviour:
       speed, freezes the enemy.'
     icon: {fileID: 21300000, guid: 1168923508cec154987a171d5cdd8e71, type: 3}
     price: 0
-    itemPools:
-    - pool: 4
-      weight: 1
   - type: 1
     elementType: 4
     potionType: 0
@@ -524,9 +582,6 @@ MonoBehaviour:
       speed, freezes the enemy.'
     icon: {fileID: 21300000, guid: 1168923508cec154987a171d5cdd8e71, type: 3}
     price: 0
-    itemPools:
-    - pool: 4
-      weight: 3
   player: {fileID: 0}
 --- !u!114 &555138849
 MonoBehaviour:

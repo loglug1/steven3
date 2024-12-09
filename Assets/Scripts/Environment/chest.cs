@@ -9,7 +9,8 @@ using Unity.VisualScripting;
 public class chest : MonoBehaviour
 {   
     [Header("Inscribed")]
-    public ItemPool itemPool;
+    public string itemPool1 = "pool_chest_1";
+    public string itemPool2 = "pool_chest_2";
     public GameObject popupCanvas;
 
     [SerializeField]
@@ -48,21 +49,24 @@ public class chest : MonoBehaviour
         }
     }
     void Awake() {
-        items.Add(Main.GET_RANDOM_ITEM(itemPool));// 1st chosen 
+        // items.Add(Main.GET_RANDOM_ITEM(itemPool));// 1st chosen 
 
-        //check if pool contains more than one type of item
-        List<ItemType> poolTypes = Main.GET_ITEM_POOL(itemPool).Select(i => i.type).Distinct().ToList();
-        bool containsMultipleTypes = poolTypes.Count > 1;
+        // //check if pool contains more than one type of item
+        // List<ItemType> poolTypes = Main.GET_ITEM_POOL(itemPool).Select(i => i.type).Distinct().ToList();
+        // bool containsMultipleTypes = poolTypes.Count > 1;
         
 
-        ItemDefinition tempItem = Main.GET_RANDOM_ITEM(itemPool);
-        // 2nd, make sure its not the same
-        if (containsMultipleTypes) {
-            while (items.Any(i => i.type == tempItem.type)) {
-                tempItem = Main.GET_RANDOM_ITEM(itemPool);
-            }
-        }
-        items.Add(tempItem); // 2nd chosen
+        // ItemDefinition tempItem = Main.GET_RANDOM_ITEM(itemPool);
+        // // 2nd, make sure its not the same
+        // if (containsMultipleTypes) {
+        //     while (items.Any(i => i.type == tempItem.type)) {
+        //         tempItem = Main.GET_RANDOM_ITEM(itemPool);
+        //     }
+        // }
+        // items.Add(tempItem); // 2nd chosen
+
+        items.Add(Main.GET_RANDOM_ITEM(itemPool1));
+        items.Add(Main.GET_RANDOM_ITEM(itemPool2));
 
         source = GetComponent<AudioSource>(); // chest sound player
     }
