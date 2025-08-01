@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Main : MonoBehaviour
 {
     static Main S;
-    static public Color PlayerColor = new Color(255/255f,147/255f,255/255f,255/255f);
+    static public Color PlayerColor;
     static public Color MenuPlayerColor;
     static public string macho = "HAPPY";
     static private Dictionary<elementTypes, ElementDefinition> ELE_DICT;
@@ -22,6 +22,10 @@ public class Main : MonoBehaviour
     void Awake()
     {
         S = this;
+        // if a player has chosen a color, sets it to that otherwise default
+        PlayerColor = PlayerPrefs.HasKey("PlayerColorR") ?
+                      new Color(PlayerPrefs.GetFloat("PlayerColorR"), PlayerPrefs.GetFloat("PlayerColorG"), PlayerPrefs.GetFloat("PlayerColorB"), 1) 
+                      : new Color(255 / 255f, 147 / 255f, 255 / 255f, 255 / 255f);
         // ele defs
         ELE_DICT = new Dictionary<elementTypes, ElementDefinition>();
         foreach(ElementDefinition def in elementDefinitions) {
