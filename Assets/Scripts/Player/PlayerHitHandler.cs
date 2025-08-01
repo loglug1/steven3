@@ -23,7 +23,9 @@ public class PlayerHitHandler : MonoBehaviour
         spriteController = GetComponent<SpriteController>();
         ResetInvicibility();
 
-        if (Main.PlayerColor == new Color(253f/255f,104f/255f,157f/255f)) {
+        // GF mode
+        if (Main.PlayerColor == new Color(253f / 255f, 104f / 255f, 157f / 255f))
+        {
             healthController.maxHealth = 10000f;
             healthController.currHealth = 10000f;
         }
