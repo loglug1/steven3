@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum ItemType {
     potion,
@@ -66,8 +67,18 @@ public class ItemHandler : MonoBehaviour
                 break;
             case ItemType.wand:
                 // used for wand selector at start, potentially use for buying wand from shop later
-                Inventory.I.playerWeapon = item.wandType;
-                Inventory.I.SetUpWandAtStart();
+                // checks scene since same logic is used in main menu wand save, else logic will be unused for now unless we add buying from shop
+                Scene scene = SceneManager.GetActiveScene();
+                if (scene.name == "StartScene")
+                {
+                    PlayerPrefs.SetString("PlayerWeapon", item.wandType.ToString());
+                    // Debug.Log((weaponType)System.Enum.Parse(typeof(weaponType), PlayerPrefs.GetString("PlayerWeapon")));
+                }
+                else
+                {
+                    Inventory.I.playerWeapon = item.wandType;
+                    Inventory.I.SetUpWandAtStart();
+                }
                 break;
         }
     }
