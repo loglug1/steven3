@@ -18,6 +18,6 @@ public class PlayerSpriteController : MonoBehaviour
 
     void setColorPlayer(){
         player.transform.GetChild(2).GetChild(0).GetComponent<Renderer>().material.color = Main.PlayerColor;
-        //Debug.Log("color set");
+        // Debug.Log("color set");
     }
 }

@@ -30,7 +30,14 @@ public class ColorPickerScript : MonoBehaviour
         G=System.Int32.Parse(Ginput.text);
         B=System.Int32.Parse(Binput.text);
 
-        Main.PlayerColor=new Color(R/255f,G/255f,B/255f,1);
+        PlayerPrefs.SetFloat("PlayerColorR", R / 255f);
+        PlayerPrefs.SetFloat("PlayerColorG", G / 255f);
+        PlayerPrefs.SetFloat("PlayerColorB", B / 255f);
+        
+        Main.PlayerColor=new Color(PlayerPrefs.GetFloat("PlayerColorR"),
+                                   PlayerPrefs.GetFloat("PlayerColorG"),
+                                   PlayerPrefs.GetFloat("PlayerColorB"),
+                                   1);
         thisSlime.GetComponent<Image>().material.color=Main.PlayerColor;
     }
 }

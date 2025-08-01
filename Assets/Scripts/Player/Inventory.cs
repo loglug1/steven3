@@ -27,6 +27,8 @@ public class Inventory : MonoBehaviour
     {
         I = this;
 
+        SetUpWandAtStart();
+
         // will be set by weapon choosing screen
     }
 
@@ -110,6 +112,7 @@ public class Inventory : MonoBehaviour
     }
     public void SetUpWandAtStart() 
     {
+        playerWeapon = (weaponType)System.Enum.Parse( typeof(weaponType), PlayerPrefs.GetString("PlayerWeapon") );
         playerWandDef = Main.GET_WAND_DEFINITION(playerWeapon);
         playerElements  = new elementTypes[playerWandDef.maxElementTypes];
         for (int i = 0; i < playerElements.Length; i++) {
