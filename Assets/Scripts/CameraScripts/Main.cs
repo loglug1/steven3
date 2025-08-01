@@ -18,7 +18,7 @@ public class Main : MonoBehaviour
     [Header("Inscribed")]
     public ElementDefinition[] elementDefinitions; //Definition Structure defined in Elemental/ElementHandler.cs
     public WandDefinition[]    wandDefinitions; // Definition Structure defined in weapon/Weapon.cs
-    public ItemDefinition[] itemDefinitions; //Definition Structure defined in ItemHandler.cs
+    //public ItemDefinition[] itemDefinitions; //Definition Structure defined in ItemHandler.cs - OLD ITEM STORAGE, HERE FOR REFERENCE
     public GameObject player;
 
     // Start is called before the first frame update
