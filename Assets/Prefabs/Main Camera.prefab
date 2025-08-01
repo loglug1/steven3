@@ -184,20 +184,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ITEM_DICT:
     _pairs:
-    - _key: crystal_fire
-      _value:
-        type: 1
-        elementType: 1
-        potionType: 0
-        wandType: 0
-        level: 1
-        name: Fire Crystal
-        flavorText: It feels warm to the touch.
-        description: Harness fire or upgrade your current fire level. Low damage,
-          medium speed; applies burn on hit. Keep shooting the enemy while burned
-          to extend it.
-        icon: {fileID: 21300000, guid: 69b8d3ee696ec6249b66a186ecc9aeba, type: 3}
-        price: 5
     - _key: upgrade_wand_splitter
       _value:
         type: 2
@@ -210,18 +196,6 @@ MonoBehaviour:
         description: Allows wand to shoot an additional projectile.
         icon: {fileID: 21300000, guid: 994ad7ad6e0effe4084ae7e6a9a08229, type: 3}
         price: 15
-    - _key: potion_basic_health
-      _value:
-        type: 0
-        elementType: 0
-        potionType: 1
-        wandType: 0
-        level: 10
-        name: Over the Counter Health Potion
-        flavorText: Feel improvement in seconds!
-        description: Heals 10 health.
-        icon: {fileID: 21300000, guid: 1eaaa6fdc0208054e83c90ab5e6f5b81, type: 3}
-        price: 3
     - _key: weapon_single_wand
       _value:
         type: 3
@@ -261,6 +235,182 @@ MonoBehaviour:
           \n0.8x Damage \n1.3x Velocity \n0.9x Fire Rate"
         icon: {fileID: 21300000, guid: b2f524c7f299b6f46ab78a49408b0bb4, type: 3}
         price: 0
+    - _key: crystal_super_fire
+      _value:
+        type: 1
+        elementType: 1
+        potionType: 0
+        wandType: 0
+        level: 3
+        name: Super Fire Crystal
+        flavorText: '"Third" degree burn...'
+        description: Harness level 3 fire or upgrade your current fire level by 3.
+          Low damage, medium speed; applies burn to enemies. Keep shooting while
+          they are burned to extend it.
+        icon: {fileID: 21300000, guid: 69b8d3ee696ec6249b66a186ecc9aeba, type: 3}
+        price: 13
+    - _key: crystal_super_water
+      _value:
+        type: 1
+        elementType: 2
+        potionType: 0
+        wandType: 0
+        level: 3
+        name: Super Water Crystal
+        flavorText: It makes your fingers wrinkle.
+        description: "Harness level 3 water or upgrade your current water level by
+          3. \nHigh damage, low speed, slows enemies on hit.\n\nSlow moving, high
+          damage, and slows enemies on hit."
+        icon: {fileID: 21300000, guid: 57a445070fad765429838d818a5c723c, type: 3}
+        price: 13
+    - _key: crystal_fire
+      _value:
+        type: 1
+        elementType: 1
+        potionType: 0
+        wandType: 0
+        level: 1
+        name: Fire Crystal
+        flavorText: It feels warm to the touch.
+        description: Harness fire or upgrade your current fire level. Low damage,
+          medium speed; applies burn on hit. Keep shooting the enemy while burned
+          to extend it.
+        icon: {fileID: 21300000, guid: 69b8d3ee696ec6249b66a186ecc9aeba, type: 3}
+        price: 5
+    - _key: crystal_water
+      _value:
+        type: 1
+        elementType: 2
+        potionType: 0
+        wandType: 2
+        level: 1
+        name: Water Crystal
+        flavorText: It feels cool to the touch.
+        description: "Harness water or upgrade your current water level. \nHigh damage,
+          low speed, slows enemies on hit."
+        icon: {fileID: 21300000, guid: 57a445070fad765429838d818a5c723c, type: 3}
+        price: 5
+    - _key: crystal_grass
+      _value:
+        type: 1
+        elementType: 3
+        potionType: 0
+        wandType: 2
+        level: 1
+        name: Grass Crystal
+        flavorText: It feels fuzzy to the touch.
+        description: 'Harness grass or upgrade your current grass level.
+
+          Grass
+          grants life steal on kill equal to the element level.'
+        icon: {fileID: 21300000, guid: c0dc8ae3b96e4784fafbfedc0ed7957a, type: 3}
+        price: 5
+    - _key: crystal_poison
+      _value:
+        type: 1
+        elementType: 5
+        potionType: 0
+        wandType: 2
+        level: 1
+        name: Poison Crystal
+        flavorText: It stings...
+        description: '+1 level to poison or adds poison to the wand.
+
+          Keep
+          firing at an enemy while poisoned to add poison stacks and increase the
+          damage done.
+
+          Low impact damage but poison stacks hurt...'
+        icon: {fileID: 21300000, guid: 93264ee8f94f5f24cbdde6829773bddf, type: 3}
+        price: 5
+    - _key: crystal_ice
+      _value:
+        type: 1
+        elementType: 5
+        potionType: 0
+        wandType: 2
+        level: 1
+        name: Ice Crystal
+        flavorText: Where's my coat...
+        description: '+1 level to ice or adds ice to the wand.
+
+          Low damage,
+          high speed, freezes the enemy.'
+        icon: {fileID: 21300000, guid: 1168923508cec154987a171d5cdd8e71, type: 3}
+        price: 5
+    - _key: potion_basic_health
+      _value:
+        type: 0
+        elementType: 0
+        potionType: 1
+        wandType: 2
+        level: 10
+        name: Over the Counter Health Potion
+        flavorText: Feel improvement in seconds!
+        description: Heals 10 health.
+        icon: {fileID: 21300000, guid: 1eaaa6fdc0208054e83c90ab5e6f5b81, type: 3}
+        price: 3
+    - _key: potion_super_health
+      _value:
+        type: 0
+        elementType: 0
+        potionType: 1
+        wandType: 2
+        level: 30
+        name: Prescription Health Potion
+        flavorText: Feel improvement in milliseconds!
+        description: Heals 30 health. Can overheal.
+        icon: {fileID: 21300000, guid: 1eaaa6fdc0208054e83c90ab5e6f5b81, type: 3}
+        price: 8
+    - _key: crystal_super_grass
+      _value:
+        type: 1
+        elementType: 3
+        potionType: 0
+        wandType: 2
+        level: 3
+        name: Super Grass Crystal
+        flavorText: You feel lightheaded...
+        description: 'Harness level 3 grass or upgrade your current grass level by
+          3.
+
+          Grass grants life steal on kill, granting health equal to
+          the element level.'
+        icon: {fileID: 21300000, guid: c0dc8ae3b96e4784fafbfedc0ed7957a, type: 3}
+        price: 13
+    - _key: crystal_super_poison
+      _value:
+        type: 1
+        elementType: 3
+        potionType: 0
+        wandType: 2
+        level: 3
+        name: Super Poison Crystal
+        flavorText: It stings...
+        description: '+3 level to poison or adds poison to the wand.
+
+          Keep
+          firing at an enemy while poisoned to add poison stacks and increase the
+          damage done.
+
+          Low impact damage but poison stacks hurt...'
+        icon: {fileID: 21300000, guid: 93264ee8f94f5f24cbdde6829773bddf, type: 3}
+        price: 13
+    - _key: crystal_super_ice
+      _value:
+        type: 1
+        elementType: 4
+        potionType: 0
+        wandType: 2
+        level: 3
+        name: Super Ice Crystal
+        flavorText: Your hand feels numb...
+        description: '+3 level to ice or adds ice to the wand.
+
+          Low damage,
+          high speed, freezes the enemy.'
+        icon: {fileID: 21300000, guid: 1168923508cec154987a171d5cdd8e71, type: 3}
+        price: 13
   ITEM_POOLS:
     _pairs:
     - _key: pool_weapon_choice
@@ -274,16 +424,28 @@ MonoBehaviour:
     - _key: pool_chest_1
       _value:
       - item: crystal_fire
+        weight: 3
+      - item: crystal_water
+        weight: 2
+      - item: crystal_grass
+        weight: 3
+      - item: crystal_poison
+        weight: 3
+      - item: crystal_ice
+        weight: 3
+      - item: crystal_super_ice
+        weight: 1
+      - item: crystal_super_poison
         weight: 1
     - _key: pool_chest_2
       _value:
       - item: potion_basic_health
         weight: 1
-      - item: weapon_basic_wand
-        weight: 1
     - _key: pool_shop_potions
       _value:
       - item: potion_basic_health
+        weight: 2
+      - item: potion_super_health
         weight: 1
     - _key: pool_shop_upgrades
       _value:
@@ -291,8 +453,18 @@ MonoBehaviour:
         weight: 1
     - _key: pool_shop_crystals
       _value:
-      - item: crystal_fire
+      - item: crystal_super_fire
         weight: 1
+      - item: crystal_super_water
+        weight: 1
+      - item: crystal_super_grass
+        weight: 1
+      - item: crystal_fire
+        weight: 2
+      - item: crystal_water
+        weight: 2
+      - item: crystal_grass
+        weight: 2
   elementDefinitions:
   - element: 0
     projectilePrefab: {fileID: 72012815015929179, guid: 849dbb80b884da34e99be0884da7d034, type: 3}
