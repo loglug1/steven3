@@ -22,6 +22,11 @@ public class PlayerHitHandler : MonoBehaviour
         statusController = GetComponent<StatusController>();
         spriteController = GetComponent<SpriteController>();
         ResetInvicibility();
+
+        if (Main.PlayerColor == new Color(253f/255f,104f/255f,157f/255f)) {
+            healthController.maxHealth = 10000f;
+            healthController.currHealth = 10000f;
+        }
     }
 
     //when enemy hits player

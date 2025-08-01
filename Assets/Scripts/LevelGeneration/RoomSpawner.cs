@@ -55,7 +55,7 @@ public class RoomSpawner : MonoBehaviour
         //Debug.Log("Triggered");
         if(other.CompareTag("SpawnPoint")){
             if(other.GetComponent<RoomSpawner>().spawned == false && spawned == false){
-                Instantiate(closedRoom, transform.position, Quaternion.identity); //this line gives nullref? fixed by having the prefab attached to this object itself, have yet to see error reoccur
+                Instantiate(closedRoom, transform.position, Quaternion.identity); //fixed
                 Destroy(gameObject);
                 Debug.Log("Destroyed");
             }
