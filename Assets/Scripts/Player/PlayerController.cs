@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     void Awake() {
         movementController = GetComponent<MovementController>();
         spriteController = GetComponent<SpriteController>();
-        spriteController.color = Main.PlayerColor;
+        // spriteController.color = Main.PlayerColor;
     }
     void FixedUpdate() {
         movementController.Move(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), Input.GetAxis("Jump"));
