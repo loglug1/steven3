@@ -14,19 +14,14 @@ public enum PotionType {
     none,
     health,
 }
-public enum ItemPool {
-    defaultItemPool,
-    shopPotions,
-    shopElements,
-    shopWeaponUpgrades,
-    chest,
-    weaponChoice
-}
 [System.Serializable]
-public class WeightedItemPool {
-    public ItemPool pool;
+public class PoolItem {
+    public string item;
     [Tooltip("Number of Times to Add Item to Specific Pool")]
     public int weight;
+    public ItemDefinition GetItem() {
+        return Main.GET_ITEM_DEFITION(item);
+    }
 }
 [System.Serializable]
 public class ItemDefinition {
@@ -41,7 +36,6 @@ public class ItemDefinition {
     public string description;
     public Sprite icon;
     public int price;
-    public List<WeightedItemPool> itemPools;
 }
 public class ItemHandler : MonoBehaviour
 {
