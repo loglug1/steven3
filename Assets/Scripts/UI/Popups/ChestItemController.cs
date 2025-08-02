@@ -17,7 +17,19 @@ public class ChestItemController : MonoBehaviour
     }
     private void SetItem(ItemDefinition newItem) {
         _item = newItem;
-        itemName.text = newItem.name;
+        // PLACEHOLDER -- MAKE IT HAVE A DIFFERENT SPRITE, NOT TEXT
+        if (newItem.type == ItemType.wand)
+        {
+            itemName.text = (weaponType)System.Enum.Parse(typeof(weaponType), PlayerPrefs.GetString("PlayerWeapon")) == newItem.wandType ? "Already Equipped" : newItem.name;
+            if (itemName.text == "Already Equipped")
+            {
+                itemName.color = Color.yellow;
+            }
+        }
+        else
+        {
+            itemName.text = newItem.name;
+        }
         flavorText.text = newItem.flavorText;
         description.text = newItem.description;
         icon.sprite = newItem.icon;
